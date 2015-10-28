@@ -5,10 +5,13 @@
  */
 package cz.muni.fi.pa165_pneuservis.model;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author Jozef.Sumaj
  */
+@Entity
 public class Tire extends Item {
     private String brand;
     private Integer width;

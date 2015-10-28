@@ -1,13 +1,19 @@
 package cz.muni.fi.pa165_pneuservis.model;
 
 import java.math.BigDecimal;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author Jozef.Sumaj
  */
+@Entity
 public class Item {
+    @Id
     private Long id;
+    @Column
     private String name;
     private String description;
     private BigDecimal price;
