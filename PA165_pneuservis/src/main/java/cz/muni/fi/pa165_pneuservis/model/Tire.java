@@ -14,4 +14,36 @@ public class Tire extends Item {
     private Integer width;
     private Integer ratio;
     private Integer rim;
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getRatio() {
+        return ratio;
+    }
+
+    public void setRatio(Integer ratio) {
+        this.ratio = ratio;
+    }
+
+    public Integer getRim() {
+        return rim;
+    }
+
+    public void setRim(Integer rim) {
+        this.rim = rim;
+    }
 }
