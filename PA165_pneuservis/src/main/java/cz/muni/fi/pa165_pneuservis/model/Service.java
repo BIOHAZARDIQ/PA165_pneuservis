@@ -11,4 +11,12 @@ package cz.muni.fi.pa165_pneuservis.model;
  */
 public class Service extends Item {
     private ServiceType serviceType;
+
+    public ServiceType getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
+    }
 }
