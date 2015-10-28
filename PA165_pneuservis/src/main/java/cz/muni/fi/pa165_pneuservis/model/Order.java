@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -30,6 +31,7 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date completeDate;
     
+    @OneToMany
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     public Long getId() {
