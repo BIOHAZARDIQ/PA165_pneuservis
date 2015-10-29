@@ -12,20 +12,11 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Tire extends Item {
-    private Long id;
     private String brand;
     private Integer width;
     private Integer ratio;
     private Integer rim;
     
-    public Long getId() {
-        return id;
-    }
-    
-    public void setId(Long id){
-        this.id = id;
-    }
-
     public String getBrand() {
         return brand;
     }
@@ -61,7 +52,7 @@ public class Tire extends Item {
      @Override
     public int hashCode() {
         int result = 3;
-        result = 41 * result + ((id == null)? 0 : id.hashCode());
+        result = 41 * result + ((this.getId() == null)? 0 : this.getId().hashCode());
         result = 41 * result + ((brand == null)? 0 : brand.hashCode());
         result = 41 * result + ((width == null)? 0 : width.hashCode());
         result = 41 * result + ((ratio == null)? 0 : ratio.hashCode());
@@ -79,7 +70,7 @@ public class Tire extends Item {
         }
         Tire otherObject = (Tire)o;
         
-        if(!id.equals(otherObject.id)){
+        if(!this.getId().equals(otherObject.getId())){
             return false;
         }
         if(!brand.equals(otherObject.brand)){
