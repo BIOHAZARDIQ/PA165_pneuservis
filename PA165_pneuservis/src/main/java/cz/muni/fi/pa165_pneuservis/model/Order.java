@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,6 +35,11 @@ public class Order {
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date completeDate;
+    
+    @ManyToOne
+    private Customer customer;
+    
+    private List<VehicleType> vehicles = new ArrayList<VehicleType>();
     
     @OneToMany
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
@@ -69,6 +75,22 @@ public class Order {
     public void setCompleteDate(Date completeDate) {
         this.completeDate = completeDate;
     }
+    
+    public Customer getCustomer(){
+        return customer;
+    }
+    
+    public void setCustomer(Customer customer){
+        this.customer = customer;
+    }
+    
+    public List<VehicleType> getVehicles(){
+        return Collections.unmodifiableList(vehicles);
+    }
+    
+    public void addVehicle(VehicleType vehicleType){
+        vehicles.add(vehicleType);
+    }
 
     public List<OrderItem> getOrderItems() {
         return Collections.unmodifiableList(orderItems);
@@ -81,9 +103,13 @@ public class Order {
     @Override
     public int hashCode(){
         int result=3;
-        result = 47 * result + ((id == null) ? 0 : id.hashCode());
-        result = 47 * result + ((createDate == null) ? 0 : createDate.hashCode());
-        result = 47 * result + ((totalPrice == null) ? 0 : totalPrice.hashCode());
+        int primeNumber=47;
+        result = primeNumber * result + ((id == null) ? 0 : id.hashCode());
+        result = primeNumber * result + ((createDate == null) ? 0 : createDate.hashCode());
+        result = primeNumber * result + ((customer == null) ? 0 : customer.hashCode());
+        result = primeNumber * result + ((vehicles == null) ? 0 : vehicles.hashCode());
+        result = primeNumber * result + ((orderItems == null) ? 0 : orderItems.hashCode());
+        result = primeNumber * result + ((totalPrice == null) ? 0 : totalPrice.hashCode());
         return result;
     }
     
@@ -98,10 +124,25 @@ public class Order {
         
         Order otherObject = (Order)o;
         
-        if(!id.equals(otherObject.id)){
+        if(id == null){
+            if(otherObject.id != null){
+                return false;
+            }
+        }else if(!id.equals(otherObject.id)){
             return false;
         }
-        if(!createDate.equals(otherObject.createDate)){
+        if(createDate == null){
+            if(otherObject.createDate != null){
+                return false;
+            }
+        }else if(!createDate.equals(otherObject.createDate)){
+            return false;
+        }
+        if(customer == null){
+            if(otherObject.customer != null){
+                return false;
+            }
+        }else if(!customer.equals(otherObject.customer)){
             return false;
         }
         return true;

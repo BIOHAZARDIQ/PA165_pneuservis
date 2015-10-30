@@ -52,9 +52,10 @@ public class OrderItem {
     @Override
     public int hashCode() {
         int result = 3;
-        result = 41 * result + ((id == null)? 0 : id.hashCode());
-        result = 41 * result + ((item == null)? 0 : item.hashCode());
-        result = 41 * result + ((amount == null)? 0 : amount.hashCode());
+        int primeNumber = 41;
+        result = primeNumber * result + ((id == null)? 0 : id.hashCode());
+        result = primeNumber * result + ((item == null)? 0 : item.hashCode());
+        result = primeNumber * result + ((amount == null)? 0 : amount.hashCode());
         return result;
     }
     
@@ -68,13 +69,25 @@ public class OrderItem {
         }
         OrderItem otherObject = (OrderItem)o;
         
-        if(!id.equals(otherObject.id)){
+        if(id == null){
+            if(otherObject.id != null){
+                return false;
+            }
+        }else if(!id.equals(otherObject.id)){
             return false;
         }
-        if(!amount.equals(otherObject.amount)){
+        if(amount == null){
+            if(otherObject.amount != null){
+                return false;
+            }
+        }else if(!amount.equals(otherObject.amount)){
             return false;
         }
-        if(!item.equals(otherObject.item)){
+        if(item == null){
+            if(otherObject.item != null){
+                return false;
+            }
+        }else if(!item.equals(otherObject.item)){
             return false;
         }
         return true;

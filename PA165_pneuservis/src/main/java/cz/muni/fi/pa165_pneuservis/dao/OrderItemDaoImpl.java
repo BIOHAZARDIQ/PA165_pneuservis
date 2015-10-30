@@ -1,7 +1,3 @@
-/*
- * Team project for course PA165 - Enterprise Applications in Java
- * For more informations see file README.md
- */
 package cz.muni.fi.pa165_pneuservis.dao;
 
 import cz.muni.fi.pa165_pneuservis.model.OrderItem;
@@ -27,8 +23,8 @@ public class OrderItemDaoImpl implements OrderItemDao{
     }
 
     @Override
-    public OrderItem update(OrderItem orderItem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(OrderItem orderItem) {
+        em.merge(orderItem);
     }
 
     @Override

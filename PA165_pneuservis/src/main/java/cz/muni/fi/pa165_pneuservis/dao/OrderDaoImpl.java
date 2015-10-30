@@ -1,9 +1,6 @@
-/*
- * Team project for course PA165 - Enterprise Applications in Java
- * For more informations see file README.md
- */
 package cz.muni.fi.pa165_pneuservis.dao;
 
+import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -27,8 +24,8 @@ public class OrderDaoImpl implements OrderDao{
     }
 
     @Override
-    public Order update(Order order) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Order order) {
+        em.merge(order);
     }
 
     @Override
@@ -46,7 +43,7 @@ public class OrderDaoImpl implements OrderDao{
         TypedQuery<Order> que = em.createQuery("SELECT o FROM Order o",Order.class);
         return que.getResultList();
     }
-    /*
+    
     @Override
     public List<Order> findByCustomer(Customer customer){
         TypedQuery<Order> que = em.createQuery(
@@ -54,5 +51,5 @@ public class OrderDaoImpl implements OrderDao{
                 .setParameter("customer", customer);
         return que.getResultList();
     }
-    */
+    
 }
