@@ -38,8 +38,8 @@ public class Order {
     
     @ManyToOne
     private Customer customer;
-    
-    private List<VehicleType> vehicles = new ArrayList<VehicleType>();
+
+    //private List<VehicleType> vehicles = new ArrayList<VehicleType>();
     
     @OneToMany
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
@@ -84,13 +84,13 @@ public class Order {
         this.customer = customer;
     }
     
-    public List<VehicleType> getVehicles(){
-        return Collections.unmodifiableList(vehicles);
-    }
+//    public List<VehicleType> getVehicles(){
+//        return Collections.unmodifiableList(vehicles);
+//    }
     
-    public void addVehicle(VehicleType vehicleType){
-        vehicles.add(vehicleType);
-    }
+//    public void addVehicle(VehicleType vehicleType){
+//        vehicles.add(vehicleType);
+//    }
 
     public List<OrderItem> getOrderItems() {
         return Collections.unmodifiableList(orderItems);
@@ -107,7 +107,7 @@ public class Order {
         result = primeNumber * result + ((id == null) ? 0 : id.hashCode());
         result = primeNumber * result + ((createDate == null) ? 0 : createDate.hashCode());
         result = primeNumber * result + ((customer == null) ? 0 : customer.hashCode());
-        result = primeNumber * result + ((vehicles == null) ? 0 : vehicles.hashCode());
+        //result = primeNumber * result + ((vehicles == null) ? 0 : vehicles.hashCode());
         result = primeNumber * result + ((orderItems == null) ? 0 : orderItems.hashCode());
         result = primeNumber * result + ((totalPrice == null) ? 0 : totalPrice.hashCode());
         return result;
