@@ -1,6 +1,5 @@
 package cz.muni.fi.pa165_pneuservis.dao;
 
-import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -31,7 +30,7 @@ public class TireDaoImpl implements TireDao {
             throw new IllegalArgumentException("tire cannot be null");
         }
 
-        if (em.find(Customer.class, tire.getId()) == null) {
+        if (em.find(Tire.class, tire.getId()) == null) {
             throw new IllegalArgumentException("tire is not in database");
         }
         em.merge(tire);
