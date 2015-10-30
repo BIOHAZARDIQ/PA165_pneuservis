@@ -12,9 +12,9 @@ import java.util.List;
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 public interface CustomerDao {
-    public void createCustomer(Customer customer);
-    public void modifyCustomer(Customer customer);
-    public void deleteCustomer(Customer customer);
-    public Customer findCustomerById(Long id);
+    public void create(Customer customer);
+    public void modify(Customer customer);
+    public void remove(Customer customer);
+    public Customer findById(Long id);
     public List<Customer> findAll();
 }

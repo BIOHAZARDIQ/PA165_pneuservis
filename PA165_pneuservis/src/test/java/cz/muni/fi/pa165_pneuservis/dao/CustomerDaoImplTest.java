@@ -4,21 +4,36 @@
  */
 package cz.muni.fi.pa165_pneuservis.dao;
 
+import cz.muni.fi.pa165_pneuservis.PersistenceSampleApplicationContext;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
+import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+import org.springframework.transaction.annotation.Transactional;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
-public class CustomerDaoImplTest {
+@ContextConfiguration(classes=PersistenceSampleApplicationContext.class)
+@TestExecutionListeners(TransactionalTestExecutionListener.class)
+@Transactional
+public class CustomerDaoImplTest extends AbstractTestNGSpringContextTests{
     
+    @Autowired
     private CustomerDao customerDao;
+    
+    private Customer customer1, customer2, customer3; 
     
     public CustomerDaoImplTest() {
     }
@@ -31,68 +46,67 @@ public class CustomerDaoImplTest {
     public static void tearDownClass() {
     }
     
-    @Before
+    @BeforeMethod
     public void setUp() {
+        customer1 = new Customer();
+        customer2 = new Customer();
+        customer3 = new Customer();
     }
     
     @After
     public void tearDown() {
     }
-
-    /**
-     * Test of createCustomer method, of class CustomerDaoImpl.
-     */
-    @Test
-    public void testCreateNullCustomer() {
-        System.out.println("Creating null-invalid customer");
-        Customer customer = null;
-
-        try {
-            customerDao.createCustomer(customer);
-            fail("Exception shoud be throwned when creating null Customer!");
-        } catch (Exception ex) {
-            //OK             
-        }
-    }    
     
-    /**
-     * Test of createCustomer method, of class CustomerDaoImpl.
-     */
     @Test
-    public void testCreateValidCustomer() {
-        //System.out.println("Creating New Customer");
-        Customer customer2 = new Customer();
-        customer2.setFirstName("First");
-        customer2.setLastName("Customer");
-        customer2.setStreetName("Main street");
-        customer2.setStreetNumber(123);
-        customer2.setCity("Brno");
-        customer2.setPhoneNumber("61200");
-        customer2.setState("Czech republic");
-        customer2.setPhoneNumber("+420111222333");
-        customer2.setEmail("436321@mail.muni.cz");
-
-        /*
-        try {
-            customerDao.createCustomer(customer2);
-        } catch (Exception ex) {
-            fail("Exception should not be throwned when creating valid customer");
-        } 
+    public void testCustomersCreation(){
+        customerDao.create(customer1);
+        customerDao.create(customer2);
         
-        assertNotNull(customer2.getId());
-        */
+        Assert.assertNotSame(customer1.getId(), customer2.getId());
+
+        Customer foundCustomer = customerDao.findById(customer1.getId());
+        Assert.assertEquals(customer1, foundCustomer);
     }
     
     @Test
-    public void deleteNullTest()
-    {
-        Customer customer = null;
+    public void testCustomerRemove(){
+        customerDao.create(customer1);
+        customerDao.create(customer2);
+        customerDao.remove(customer1);
         
-        try{
-            customerDao.deleteCustomer(customer);
-            fail("Null pointer exception shoud be throwned when deleting null customer");
-        }catch(Exception ex){
+        try {
+            customerDao.findById(customer1.getId());
+            fail("IllegalArgumentException should be raised - finding on deleted customer");
+        } catch ( IllegalArgumentException ex ) {
             //OK
         }
-    }   
+        
+        try {
+            customerDao.remove(customer1);
+            fail("IllegalArgumentException should be raised - deleting already deleted customer");
+        } catch ( IllegalArgumentException ex ) {
+            //OK
+        }
+        
+        Assert.assertNotNull(customerDao.findById(customer2.getId()));
+    }
+    
+    @Test
+    public void testFindAll() {
+        customerDao.create(customer1);
+        customerDao.create(customer2);
+        customerDao.create(customer3);
+        
+        List<Customer> allCustomers = customerDao.findAll();
+        Assert.assertEquals(allCustomers.size(), 3);
+        
+        customerDao.remove(customer3);   
+        customerDao.remove(customer2);
+        allCustomers = customerDao.findAll();
+        Assert.assertEquals(allCustomers.size(), 1);
+        
+        customerDao.remove(customer1);
+        allCustomers = customerDao.findAll();
+        Assert.assertEquals(allCustomers.size(), 0);
+    }
 }

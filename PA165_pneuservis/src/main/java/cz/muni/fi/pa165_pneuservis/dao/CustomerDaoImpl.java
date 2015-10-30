@@ -22,7 +22,7 @@ public class CustomerDaoImpl implements CustomerDao {
     private EntityManager em;
     
     @Override
-    public void createCustomer(Customer customer) {
+    public void create(Customer customer) {
         if (customer == null) {
             throw new IllegalArgumentException("customer cannot be null");
         }
@@ -30,7 +30,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public void modifyCustomer(Customer customer) {
+    public void modify(Customer customer) {
         if (customer == null) {
             throw new IllegalArgumentException("customer cannot be null");
         }
@@ -42,7 +42,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public void deleteCustomer(Customer customer) {
+    public void remove(Customer customer) {
         if (customer == null) {
             throw new IllegalArgumentException("customer cannot be null");
         }
@@ -56,7 +56,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public Customer findCustomerById(Long id) {
+    public Customer findById(Long id) {
          if (id == null) {
             throw new IllegalArgumentException("id cannot be null");
         }
@@ -70,7 +70,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public List<Customer> findAll() {
-        Query query = em.createQuery("SELECT * FROM Customer C");
+        Query query = em.createQuery("SELECT C FROM Customer C");
         List<Customer> allCustomers = query.getResultList();
         return allCustomers;    
     }   
