@@ -35,14 +35,14 @@ public class ServiceDaoImplTest extends AbstractTestNGSpringContextTests {
     private ServiceDao serviceDaoImpl;
     
     @Test
-    public void testCreateTire() {
-        //Service service = new Service();
-        //serviceDaoImpl.create(service);
+    public void testCreateService() {
+        Service service = new Service();
+        serviceDaoImpl.create(service);
         
-        //Service found = em.find(Service.class, service.getId());
-        //assertNotNull(service.getId());
-        //assertEquals(service.getId(), found.getId());
+        Service found = em.find(Service.class, service.getId());
+        assertNotNull(service.getId());
+        assertEquals(service.getId(), found.getId());
         
-        //em.remove(service);
+        em.remove(service);
     }
 }
