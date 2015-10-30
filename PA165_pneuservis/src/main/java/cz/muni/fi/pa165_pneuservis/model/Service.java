@@ -19,7 +19,7 @@ public class Service extends Item {
         this.serviceType = serviceType;
     }
     
-      @Override
+    @Override
     public int hashCode() {
         int result = 3;
         result = 41 * result + ((this.getId() == null)? 0 : this.getId().hashCode());
