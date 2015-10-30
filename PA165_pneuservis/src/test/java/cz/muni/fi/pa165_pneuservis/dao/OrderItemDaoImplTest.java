@@ -38,7 +38,6 @@ public class OrderItemDaoImplTest extends AbstractTestNGSpringContextTests{
         orderItem1 = new OrderItem();
         orderItem1.setAmount(10);
         Tire t = new Tire();
-        t.setId(new Long(3));
         t.setBrand("Michelin");
         t.setName("Michelin 140");
         t.setPrice(BigDecimal.TEN);
