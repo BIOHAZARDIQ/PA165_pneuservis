@@ -4,6 +4,7 @@
  */
 package cz.muni.fi.pa165_pneuservis.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Item item;
     
     private Integer amount;

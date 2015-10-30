@@ -9,20 +9,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.annotations.Cascade;
 
 /**
  *
  * @author Jakub Holy
  */
 @Entity
+@Table(name="ITEM_ORDER")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,12 +40,13 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date completeDate;
     
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Customer customer;
-
+    
+    //@Enumerated
     //private List<VehicleType> vehicles = new ArrayList<VehicleType>();
     
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     public Long getId() {

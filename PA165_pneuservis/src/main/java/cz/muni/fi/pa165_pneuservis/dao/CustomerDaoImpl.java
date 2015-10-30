@@ -9,11 +9,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
+@Repository
 public class CustomerDaoImpl implements CustomerDao {
 
     @PersistenceContext
