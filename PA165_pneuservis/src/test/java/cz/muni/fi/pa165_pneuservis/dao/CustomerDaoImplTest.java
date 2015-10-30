@@ -7,8 +7,13 @@ package cz.muni.fi.pa165_pneuservis.dao;
 import cz.muni.fi.pa165_pneuservis.PersistenceSampleApplicationContext;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +34,9 @@ import org.testng.annotations.Test;
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
 public class CustomerDaoImplTest extends AbstractTestNGSpringContextTests{
+   
+    @PersistenceContext
+    private EntityManager em;
     
     @Autowired
     private CustomerDao customerDao;
@@ -108,5 +116,31 @@ public class CustomerDaoImplTest extends AbstractTestNGSpringContextTests{
         customerDao.remove(customer1);
         allCustomers = customerDao.findAll();
         Assert.assertEquals(allCustomers.size(), 0);
+    }
+    
+    @Test
+    public void testRemoveEmCustomer () {
+     
+        Customer customer = new Customer();
+        em.persist(customer);
+        
+        Long customerId = customer.getId();
+        em.remove(customer);
+
+        Customer foundCustomer = em.find(Customer.class, customerId);
+        assertNull(foundCustomer);
+    }
+    
+    @Test
+    public void testCreateEmCustomer () {
+     
+        Customer customer = new Customer();
+        em.persist(customer);
+        
+        Customer foundCustomer = em.find(Customer.class, customer.getId());
+        assertNotNull(customer.getId());
+
+        assertEquals(customer.getId(), foundCustomer.getId());
+        em.remove(customer);
     }
 }
