@@ -2,27 +2,25 @@ PA165 CarPark team evaluation - project https://github.com/helljan/PA165-CarPark
 
 a) Checklist evaluation
 -1 point: line of codes commited was not distributed evenly 
+-1 point: insufficient quality of UML diagrams
 
-total points: 9 points
+total points: 8 points
 
 b) General comments: 
 It seems that some team members were contributing to this team project way more than other team members.
 According to git blame + wc -l, Marek Mihalech commited 761 lines of codes (loc), Jan Starka commited 396 loc, and Jan Hellar commited only 246 loc.
-These numbers are not counting JpaTestContext.java file, pom.xml files and persistence.xml which were created only by Marek Mihalech and that are containing 208 loc. So it seems that team member with highest number of loc commites has 3-4x more loc commited than team member with least ammount of loc commited.
-
+These numbers are not counting JpaTestContext.java file, pom.xml files and persistence.xml which were created/modified only by Marek Mihalech and that are containing 208 loc. So it seems that team member with highest number of loc commites has 3-4x more loc commited than team member with least ammount of loc commited.
+Number of commits are pretty even distributed between all contributors, but amount of added code is not.
+Mvn install command works without problems.
 
 c) Strong points of the project: 
 Milestone1 of project was finished by only three students, and not four students like other teams have. 
-Mvn install command works without problems.
-Number of commits are pretty even distributed between all contributors, but amount of added code is not.
 
 d) Weaknesses of the project: 
-
 Use case diagram is poor, or its abstract level is too high. We suggest adding more methods for role Employee, thus create less abstract Use case diagram.
-
+Also, we think that CarPark system shouldn't add/delete/update employee as Use Case Diagram shows. Imagine you have a company, and in that company you have CarPark system. Employees of this company could access this system and then rent a car according to their requests. We think that admin of this CarPark system should probably manage cars, add new cars to system, manage car repairs and so on ... but not create new employees or delete them! Why would admin of CarPark system should be able to do so? Admin of this system should only be working with updated list of employees, that is managed by company managers or HR department.
 Use case and class diagrams are very basic - real system will probably need changes to this design.
-
-
+Javadoc should be improved.
 
 e) other notes: 
 Some unused imports are used.
