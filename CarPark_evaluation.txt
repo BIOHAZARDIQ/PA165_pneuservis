@@ -1,18 +1,21 @@
-PA165 CarPark team evaluation by team PneuServis.
-
-Evaluated project: https://github.com/helljan/PA165-CarPark.git
+PA165 CarPark team evaluation - project https://github.com/helljan/PA165-CarPark.git
 
 a) Checklist evaluation
+-1 point: line of codes commited was not distributed evenly 
 
-total points: x
+total points: 9 points
 
 b) General comments: 
+It seems that some team members were contributing to this team project way more than other team members.
+According to git blame + wc -l, Marek Mihalech commited 761 lines of codes (loc), Jan Starka commited 396 loc, and Jan Hellar commited only 246 loc.
+These numbers are not counting JpaTestContext.java file, pom.xml files and persistence.xml which were created only by Marek Mihalech and that are containing 208 loc. So it seems that team member with highest number of loc commites has 3-4x more loc commited than team member with least ammount of loc commited.
 
 
 c) Strong points of the project: 
 Milestone1 of project was finished by only three students, and not four students like other teams have.
 
 d) Weaknesses of the project: 
-
+Use case diagram is poor, or its abstract level is too high. We suggest adding more methods for role Employee, thus create less abstract Use case diagram.
 
 e) other notes: 
+Some unused imports are used.
