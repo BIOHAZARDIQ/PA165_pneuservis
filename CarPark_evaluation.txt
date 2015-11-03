@@ -1,0 +1,18 @@
+PA165 CarPark team evaluation by team PneuServis.
+
+Evaluated project: https://github.com/helljan/PA165-CarPark.git
+
+a) Checklist evaluation
+
+total points: x
+
+b) General comments: 
+
+
+c) Strong points of the project: 
+Milestone1 of project was finished by only three students, and not four students like other teams have.
+
+d) Weaknesses of the project: 
+
+
+e) other notes: 
