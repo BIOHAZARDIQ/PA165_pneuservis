@@ -12,10 +12,17 @@ These numbers are not counting JpaTestContext.java file, pom.xml files and persi
 
 
 c) Strong points of the project: 
-Milestone1 of project was finished by only three students, and not four students like other teams have.
+Milestone1 of project was finished by only three students, and not four students like other teams have. 
+Mvn install command works without problems.
+Number of commits are pretty even distributed between all contributors, but amount of added code is not.
 
 d) Weaknesses of the project: 
+
 Use case diagram is poor, or its abstract level is too high. We suggest adding more methods for role Employee, thus create less abstract Use case diagram.
+
+Use case and class diagrams are very basic - real system will probably need changes to this design.
+
+
 
 e) other notes: 
 Some unused imports are used.
