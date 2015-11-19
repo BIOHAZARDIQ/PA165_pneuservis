@@ -2,28 +2,28 @@
 <testng-results skipped="20" failed="0" total="20" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="6922" started-at="2015-11-19T09:57:15Z" finished-at="2015-11-19T09:57:22Z">
+  <suite name="Command line suite" duration-ms="7091" started-at="2015-11-19T10:12:35Z" finished-at="2015-11-19T10:12:42Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="6922" started-at="2015-11-19T09:57:15Z" finished-at="2015-11-19T09:57:22Z">
+    <test name="Command line test" duration-ms="7091" started-at="2015-11-19T10:12:35Z" finished-at="2015-11-19T10:12:42Z">
       <class name="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest">
-        <test-method status="SKIP" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="SKIP" signature="testCreateTire()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testCreateTire" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCreateTire -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="SKIP" signature="testCreateTire()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testCreateTire" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateTire -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -34,7 +34,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="2" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="2" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -45,19 +49,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="testFindAllTires()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testFindAllTires" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testFindAllTires()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testFindAllTires" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFindAllTires -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="testGetTireById()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testGetTireById" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testGetTireById()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testGetTireById" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGetTireById -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -68,15 +72,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testGetTireIdInvalid()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testGetTireIdInvalid" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        </test-method> <!-- testGetTireIdInvalid -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -87,15 +91,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="testGetTireIdInvalid()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testGetTireIdInvalid" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetTireIdInvalid -->
-        <test-method status="SKIP" signature="testRemoveTire()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testRemoveTire" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testRemoveTire()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testRemoveTire" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRemoveTire -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -106,19 +110,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="testUpdateTire()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testUpdateTire" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testUpdateTire()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="testUpdateTire" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUpdateTire -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -129,17 +129,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest@37d31475]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->
       </class> <!-- cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest -->
       <class name="cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest">
-        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="15" started-at="2015-11-19T10:57:15Z" finished-at="2015-11-19T10:57:15Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="23" started-at="2015-11-19T11:12:35Z" finished-at="2015-11-19T11:12:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="FAIL" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:15Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T10:57:15Z">
+        <test-method status="FAIL" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:35Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T11:12:35Z">
           <exception class="java.lang.NoSuchMethodError">
             <message>
               <![CDATA[org.springframework.aop.framework.autoproxy.AutoProxyUtils.determineTargetClass(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;Ljava/lang/String;)Ljava/lang/Class;]]>
@@ -201,19 +201,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="testCreateEmCustomer()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testCreateEmCustomer" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testCreateEmCustomer()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testCreateEmCustomer" duration-ms="2" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCreateEmCustomer -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="4" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -224,19 +224,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="testCustomerRemove()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testCustomerRemove" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCustomerRemove -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -247,15 +243,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="testCustomersCreation()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testCustomersCreation" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testCustomerRemove()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testCustomerRemove" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCustomerRemove -->
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="SKIP" signature="testCustomersCreation()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testCustomersCreation" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCustomersCreation -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -266,23 +270,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="testFindAll()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testFindAll" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testFindAll()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testFindAll" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFindAll -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -293,19 +293,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="testRemoveEmCustomer()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testRemoveEmCustomer" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testRemoveEmCustomer()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="testRemoveEmCustomer" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRemoveEmCustomer -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -316,33 +316,33 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest@7a9273a8]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->
       </class> <!-- cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest -->
       <class name="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest">
-        <test-method status="SKIP" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="SKIP" signature="testFindAll()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="testFindAll" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="SKIP" signature="testFindAll()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="testFindAll" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFindAll -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -353,15 +353,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="SKIP" signature="testFindById()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="testFindById" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -372,23 +380,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="testFindById()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="testFindById" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testFindById -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="testRemove()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="testRemove" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testRemove()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="testRemove" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRemove -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -399,19 +399,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="testUpdate()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="testUpdate" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testUpdate()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="testUpdate" duration-ms="2" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUpdate -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -422,33 +422,33 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest@60285225]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->
       </class> <!-- cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest -->
       <class name="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest">
-        <test-method status="SKIP" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="SKIP" signature="testCreation()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="testCreation" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCreation -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="SKIP" signature="testCreation()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="testCreation" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreation -->
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -459,19 +459,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="testFindAll()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="testFindAll" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testFindAll -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="3" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testFindAll()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="testFindAll" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindAll -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -482,15 +482,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testFindByCustomer()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="testFindByCustomer" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByCustomer -->
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -501,19 +505,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="testFindByCustomer()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="testFindByCustomer" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testFindByCustomer -->
-        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="setUp()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="setUp" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -524,33 +524,29 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="SKIP" signature="testRemove()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="testRemove" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testRemove()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="testRemove" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRemove -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest@1500955a]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->
       </class> <!-- cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest -->
       <class name="cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest">
-        <test-method status="SKIP" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="testCreateService()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="testCreateService" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCreateService -->
-        <test-method status="SKIP" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2015-11-19T11:12:42Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="9" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <params>
             <param index="0">
               <value>
@@ -561,7 +557,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2015-11-19T10:57:22Z" finished-at="2015-11-19T10:57:22Z">
+        <test-method status="SKIP" signature="testCreateService()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="testCreateService" duration-ms="0" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateService -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest@687080dc]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2015-11-19T11:12:42Z" finished-at="2015-11-19T11:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->

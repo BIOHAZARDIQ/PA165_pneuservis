@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 62, Failures: 1, Errors: 0, Skipped: 61, Time elapsed: 8.086 sec <<< FAILURE!
+Tests run: 62, Failures: 1, Errors: 0, Skipped: 61, Time elapsed: 8.38 sec <<< FAILURE!
 springTestContextPrepareTestInstance(cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.NoSuchMethodError: org.springframework.aop.framework.autoproxy.AutoProxyUtils.determineTargetClass(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;Ljava/lang/String;)Ljava/lang/Class;
 	at org.springframework.context.event.EventListenerMethodProcessor.afterSingletonsInstantiated(EventListenerMethodProcessor.java:78)

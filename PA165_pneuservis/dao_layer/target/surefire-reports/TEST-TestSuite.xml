@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="62" failures="1" name="TestSuite" time="8.084" errors="0" skipped="61">
+<testsuite tests="62" failures="1" name="TestSuite" time="8.38" errors="0" skipped="61">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_66\jre\bin"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Komoi\Desktop\workspace\PA165_pneuservis\PA165_pneuservis"/>
+    <property name="user.dir" value="C:\Users\Komoi\Desktop\workspace\PA165_pneuservis\PA165_pneuservis\dao_layer"/>
     <property name="java.runtime.version" value="1.8.0_66-b17"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_66\jre\lib\endorsed"/>
@@ -150,10 +150,10 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest" name="springTestContextBeforeTestMethod" time="0.001">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest" name="setUp" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest" name="setUp" time="0.001">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest" name="testFindAll" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest" name="testFindAll" time="0.001">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest" name="springTestContextBeforeTestMethod" time="0.002">
@@ -165,10 +165,10 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.CustomerDaoImplTest" name="testRemoveEmCustomer" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestClass" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestClass" time="0.003">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextPrepareTestInstance" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextPrepareTestInstance" time="0.003">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestMethod" time="0.003">
@@ -180,37 +180,46 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="testCreation" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestMethod" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestMethod" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="setUp" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="setUp" time="0">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="testFindAll" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestMethod" time="0.004">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestMethod" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="setUp" time="0.004">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="setUp" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="testFindByCustomer" time="0.001">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="testFindByCustomer" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestMethod" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="springTestContextBeforeTestMethod" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="setUp" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="setUp" time="0">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderDaoImplTest" name="testRemove" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextBeforeTestClass" time="0.006">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextBeforeTestClass" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextPrepareTestInstance" time="0.006">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextPrepareTestInstance" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextBeforeTestMethod" time="0.004">
+    <skipped/>
+  </testcase>
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="setUp" time="0.004">
+    <skipped/>
+  </testcase>
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="testFindAll" time="0">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextBeforeTestMethod" time="0.006">
@@ -219,25 +228,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="setUp" time="0.006">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="testFindAll" time="0">
-    <skipped/>
-  </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextBeforeTestMethod" time="0.002">
-    <skipped/>
-  </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="setUp" time="0.002">
-    <skipped/>
-  </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="testFindById" time="0">
-    <skipped/>
-  </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextBeforeTestMethod" time="0.005">
-    <skipped/>
-  </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="setUp" time="0.005">
-    <skipped/>
-  </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="testRemove" time="0">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextBeforeTestMethod" time="0">
@@ -246,34 +237,43 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="setUp" time="0">
     <skipped/>
   </testcase>
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="testRemove" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="springTestContextBeforeTestMethod" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="setUp" time="0.001">
+    <skipped/>
+  </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImplTest" name="testUpdate" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest" name="springTestContextBeforeTestClass" time="0.001">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest" name="springTestContextBeforeTestClass" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest" name="springTestContextPrepareTestInstance" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest" name="springTestContextPrepareTestInstance" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest" name="springTestContextBeforeTestMethod" time="0.002">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest" name="springTestContextBeforeTestMethod" time="0">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.ServiceDaoImplTest" name="testCreateService" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestClass" time="0.009">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestClass" time="0.002">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextPrepareTestInstance" time="0.009">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextPrepareTestInstance" time="0.003">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestMethod" time="0.009">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestMethod" time="0.004">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="testCreateTire" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestMethod" time="0">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestMethod" time="0.002">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="testFindAllTires" time="0">
@@ -285,7 +285,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="testGetTireById" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestMethod" time="0.001">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestMethod" time="0.007">
     <skipped/>
   </testcase>
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="testGetTireIdInvalid" time="0">
@@ -297,10 +297,10 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="testRemoveTire" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestMethod" time="0.001">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="springTestContextBeforeTestMethod" time="0.003">
     <skipped/>
   </testcase>
-  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="testUpdateTire" time="0.001">
+  <testcase classname="cz.muni.fi.pa165_pneuservis.dao.TireDaoImplTest" name="testUpdateTire" time="0">
     <skipped/>
   </testcase>
 </testsuite>

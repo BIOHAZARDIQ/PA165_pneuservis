@@ -88,7 +88,7 @@ public class Order {
     public void setCustomer(Customer customer){
         this.customer = customer;
     }
-    
+    //TODO enable this vehicle logic
 //    public List<VehicleType> getVehicles(){
 //        return Collections.unmodifiableList(vehicles);
 //    }
