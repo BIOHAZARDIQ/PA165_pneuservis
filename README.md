@@ -30,7 +30,7 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 - [x] Implement Facade layer interfaces and implementations.
    - [ ] Everything that should happen in the system must be available through these interfaces (create entities, deleting them etc).
    - [ ] You must have at least 2 non-trivial business functions on Service Layer (the example project contains several of them). Service layer is not always just a place to delegate to DAO.
-- Other points about the Facade and Service layers:
+- [ ] Other points about the Facade and Service layers:
    - [ ] All the classes must be wired via dependency injection. Your service objects should obtain an instance of the EntityManager that way.
    - [ ] All the facade interfaces must not reference entities, but Transfer Objects only.
    - [ ] All service interfaces must reference only entities, not Data Transfer Objects.
@@ -45,6 +45,7 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 - [ ] Implement simple unit tests for facade layer. Just one simple test per method is enough. This is mainly so that it’s easy to verify the Facade layer works.
 - [ ] There must be extensive unit tests for the service layer (particularly for your 2 business functions) and all the tests of service layer must use Mock DAO objects.
 
+- [ ] Evaluate another team project.
 
 ###Milestone 1 requirements:  
 - [x] Create a project in a Github repository that is publicly accessible (for read) choose a short and descriptive name. Create some project wiki to publish other information for your project.
