@@ -107,6 +107,7 @@
         <module>api_layer</module>
         <module>dao_layer</module>
         <module>service_facade_layer</module>
-    </modules>
+	 <module>api_layer</module>
+	</modules>
     
 </project>

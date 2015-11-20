@@ -11,5 +11,23 @@
     <artifactId>service_facade_layer</artifactId>
     <packaging>jar</packaging>
     <name>Service Facade Layer</name>
-    
+    <dependencies>
+        <dependency>
+            <groupId>cz.muni.fi</groupId>
+            <artifactId>PA165_pneuservis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>cz.muni.fi</groupId>
+            <artifactId>api_layer</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+            <version>5.3.2</version>
+        </dependency>
+    </dependencies>
 </project>
