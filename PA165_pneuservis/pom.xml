@@ -16,12 +16,12 @@
               <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-                        <version>RELEASE</version>
+                        <version>4.2.2.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-                        <version>RELEASE</version>
+                        <version>4.2.2.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -38,17 +38,17 @@
                 <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-                        <version>RELEASE</version>
+                        <version>4.2.2.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-                        <version>RELEASE</version>
+                        <version>4.2.2.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-                        <version>RELEASE</version>
+                        <version>4.3.11.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
