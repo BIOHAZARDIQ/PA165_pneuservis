@@ -5,8 +5,10 @@
  */
 package cz.muni.fi.pa165_pneuservis.service;
 
+import cz.muni.fi.pa165_pneuservis.dao.CustomerDao;
 import cz.muni.fi.pa165_pneuservis.dao.OrderDao;
 import cz.muni.fi.pa165_pneuservis.dao.OrderItemDao;
+import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
 import cz.muni.fi.pa165_pneuservis.model.OrderItem;
 import java.util.List;
@@ -24,6 +26,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderItemDao orderItemDao;
     @Autowired
     private OrderDao orderDao;
+    @Autowired
+    private CustomerDao customerDao;
     
     
     @Override
@@ -33,13 +37,29 @@ public class OrderServiceImpl implements OrderService {
             orderItemDao.create(orderItem);
         }
         orderDao.create(order);
-    
     }
     
     @Override
     public List<Order> findAllOrders() {
             return orderDao.findAll();
     }
+
+    @Override
+    public List<Order> getOrdersByCustomer(Long customerId) {
+        return orderDao.findByCustomer(customerDao.findById(customerId));
+    }
+
+    @Override
+    public Order getOrderById(Long id) {
+        return orderDao.findById(id);
+    }
+
+    @Override
+    public void cancelOrder(Long id) {
+        orderDao.remove(orderDao.findById(id));
+    }
+    
+
 
     
     

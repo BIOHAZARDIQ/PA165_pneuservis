@@ -6,6 +6,8 @@
 package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
+import cz.muni.fi.pa165_pneuservis.model.Customer;
+import cz.muni.fi.pa165_pneuservis.model.Order;
 import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
 import cz.muni.fi.pa165_pneuservis.service.OrderService;
 import java.util.List;
@@ -34,17 +36,22 @@ public class OrderFacadeImpl implements OrderFacade {
 
     @Override
     public List<OrderDTO> getOrdersByCustomer(Long customerId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(orderService.getOrdersByCustomer(customerId), OrderDTO.class);
     }
 
     @Override
     public OrderDTO getOrderById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(orderService.getOrderById(id), OrderDTO.class);
     }
 
     @Override
     public void cancelOrder(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        orderService.cancelOrder(id);
+    }
+
+    @Override
+    public void createOrder(OrderDTO order) {
+        orderService.createOrder(beanMappingService.mapTo(order, Order.class));
     }
 
 

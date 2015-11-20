@@ -1,6 +1,7 @@
 package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
+import cz.muni.fi.pa165_pneuservis.model.Customer;
 import java.util.List;
 
 /**
