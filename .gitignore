@@ -1,4 +1,4 @@
-/PA165_pneuservis/target/
-/PA165_pneuservis/api_layer/target/
-/PA165_pneuservis/service_facade_layer/target/
-/PA165_pneuservis/dao_layer/target/
+/PA165_pneuservis/target/*
+/PA165_pneuservis/api_layer/target/*
+/PA165_pneuservis/service_facade_layer/target/*
+/PA165_pneuservis/dao_layer/target/*
