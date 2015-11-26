@@ -1,7 +1,9 @@
 package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.PersistenceSampleApplicationContext;
+import cz.muni.fi.pa165_pneuservis.dao.OrderItemDaoImpl;
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
+import cz.muni.fi.pa165_pneuservis.facade.OrderFacadeImpl;
 import cz.muni.fi.pa165_pneuservis.model.Order;
 
 import org.dozer.DozerBeanMapper;
@@ -18,7 +20,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(PersistenceSampleApplicationContext.class)
-@ComponentScan(basePackageClasses={OrderServiceImpl.class})
+@ComponentScan(basePackageClasses={OrderItemDaoImpl.class, OrderFacadeImpl.class})
 public class ServiceConfiguration {
     
     @Bean
