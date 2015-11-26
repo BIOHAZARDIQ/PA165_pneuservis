@@ -5,10 +5,6 @@ import cz.muni.fi.pa165_pneuservis.dao.OrderDao;
 import cz.muni.fi.pa165_pneuservis.dao.OrderItemDao;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import static org.junit.Assert.fail;
 
 import org.mockito.MockitoAnnotations;
 import org.mockito.InjectMocks;
@@ -18,12 +14,18 @@ import org.mockito.Mock;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.Assert;
+import java.util.List;
 
-import static org.mockito.Mockito.verify;
+import static cz.muni.fi.pa165_pneuservis.service.helper.ServiceTestHelper.toList;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.verify;
 
+/**
+ * Order service layer tests
+ * @author Jozef.Sumaj
+ */
 public class OrderServiceImplTest {
     
     @Mock
@@ -149,16 +151,9 @@ public class OrderServiceImplTest {
         doThrow(new IllegalArgumentException()).when(orderDaoMock).remove(null);
         try{
             service.cancelOrder(null);
-            fail();
+            assert(false);
         }catch(Exception e){
             //pass
         }
-    }
-    
-    private <T> List<T> toList(T[] array)
-    {
-        List<T> list = new ArrayList<>();
-        list.addAll(Arrays.asList(array));
-        return list;
     }
 }
