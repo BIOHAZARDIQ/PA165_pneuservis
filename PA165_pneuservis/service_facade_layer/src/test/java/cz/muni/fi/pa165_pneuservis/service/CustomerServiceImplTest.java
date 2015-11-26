@@ -1,3 +1,7 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.dao.CustomerDao;
@@ -21,7 +25,7 @@ import static org.mockito.Mockito.verify;
 
 /**
  * Customer service layer tests
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class CustomerServiceImplTest {
         
@@ -32,7 +36,7 @@ public class CustomerServiceImplTest {
     private OrderDao orderDaoMock;
     
     @InjectMocks
-    private CustomerService service = new CustomerServiceImpl();
+    private final CustomerService service = new CustomerServiceImpl();
     
     @BeforeMethod
     public void setUp() throws Exception {

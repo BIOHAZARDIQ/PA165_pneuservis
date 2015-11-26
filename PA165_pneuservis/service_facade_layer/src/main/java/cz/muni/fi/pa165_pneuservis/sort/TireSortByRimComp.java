@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class TireSortByRimComp implements Comparator<Tire>{
     

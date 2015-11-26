@@ -4,17 +4,15 @@ import cz.muni.fi.pa165_pneuservis.sort.TireSort;
 import cz.muni.fi.pa165_pneuservis.dao.TireDao;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import cz.muni.fi.pa165_pneuservis.sort.*;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * Service layer implementation for Tire
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Service
 public class TireServiceImpl implements TireService {
@@ -28,7 +26,7 @@ public class TireServiceImpl implements TireService {
     }
 
     @Override
-    public Collection<Tire> findAllTires(TireSort sort) {
+    public List<Tire> findAllTires(TireSort sort) {
         List<Tire> tires = tireDao.findAll();
         switch(sort)
         {

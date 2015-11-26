@@ -7,15 +7,15 @@ package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.sort.TireSort;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Service layer interface for Tire
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public interface TireService {
     void createTire(Tire tire);
-    Collection<Tire> findAllTires(TireSort sort);
+    List<Tire> findAllTires(TireSort sort);
     public Tire getTireById(Long id);
     public Long updateTire(Tire tire);
     public void deleteTire(Long id);

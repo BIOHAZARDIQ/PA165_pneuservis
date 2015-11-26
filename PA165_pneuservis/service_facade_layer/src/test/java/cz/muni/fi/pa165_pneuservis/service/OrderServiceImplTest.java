@@ -6,7 +6,6 @@ package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.dao.CustomerDao;
 import cz.muni.fi.pa165_pneuservis.dao.OrderDao;
-import cz.muni.fi.pa165_pneuservis.dao.OrderItemDao;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
 
@@ -28,13 +27,10 @@ import static org.mockito.Mockito.verify;
 
 /**
  * Order service layer tests
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class OrderServiceImplTest {
-    
-    @Mock
-    private OrderItemDao orderItemDaoMock;
-    
+       
     @Mock
     private CustomerDao customerDaoMock;
     
@@ -42,7 +38,7 @@ public class OrderServiceImplTest {
     private OrderDao orderDaoMock;
     
     @InjectMocks
-    private OrderService service = new OrderServiceImpl();
+    private final OrderService service = new OrderServiceImpl();
     
     @BeforeMethod
     public void setUp() throws Exception {

@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Provides helper methods for service test package
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class ServiceTestHelper {
     

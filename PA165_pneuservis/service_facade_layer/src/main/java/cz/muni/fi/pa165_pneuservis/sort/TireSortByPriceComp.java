@@ -5,12 +5,12 @@ import java.util.Comparator;
 
 /**
  *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class TireSortByPriceComp implements Comparator<Tire>{
     
     @Override
     public int compare(Tire t1, Tire t2) {
-        return t2.getPrice().subtract(t1.getPrice()).intValue();
+        return t1.getPrice().subtract(t2.getPrice()).intValue();
     }
 }
