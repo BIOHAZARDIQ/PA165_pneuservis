@@ -1,4 +1,9 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.dao;
+
 import cz.muni.fi.pa165_pneuservis.PersistenceSampleApplicationContext;
 import cz.muni.fi.pa165_pneuservis.model.OrderItem;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
@@ -50,7 +55,7 @@ public class OrderItemDaoImplTest extends AbstractTestNGSpringContextTests{
         orderItem2.setAmount(11);
         orderItem2.setItem(t);
     }
-
+    
     @Test
     public void testFindById() {
         orderItemDao.create(orderItem1);
@@ -69,7 +74,7 @@ public class OrderItemDaoImplTest extends AbstractTestNGSpringContextTests{
     @Test
     public void testRemove(){
         orderItemDao.create(orderItem1);
-        orderItemDao.create(orderItem2);        
+        orderItemDao.create(orderItem2);
         orderItemDao.remove(orderItem1);
         List<OrderItem> items = orderItemDao.findAll();
         Assert.assertEquals( 1, items.size());
@@ -85,4 +90,3 @@ public class OrderItemDaoImplTest extends AbstractTestNGSpringContextTests{
         Assert.assertEquals( 20, (int) o.getAmount());
     }
 }
-

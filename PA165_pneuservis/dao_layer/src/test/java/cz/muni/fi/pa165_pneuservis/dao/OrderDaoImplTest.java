@@ -1,3 +1,7 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.dao;
 
 import cz.muni.fi.pa165_pneuservis.PersistenceSampleApplicationContext;
@@ -26,7 +30,7 @@ import org.testng.annotations.Test;
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
 public class OrderDaoImplTest extends AbstractTestNGSpringContextTests{
-
+    
     @PersistenceContext
     private EntityManager em;
     
@@ -50,7 +54,7 @@ public class OrderDaoImplTest extends AbstractTestNGSpringContextTests{
         order2.setTotalPrice(BigDecimal.ONE);
         order2.setCustomer(customer);
     }
-
+    
     @Test
     public void testCreation(){
         orderDao.create(order1);
@@ -63,7 +67,7 @@ public class OrderDaoImplTest extends AbstractTestNGSpringContextTests{
         orderDao.create(order1);
         orderDao.create(order2);
         orderDao.remove(order1);
-        Assert.assertNull(orderDao.findById(order1.getId()));                
+        Assert.assertNull(orderDao.findById(order1.getId()));
     }
     
     @Test
@@ -81,6 +85,4 @@ public class OrderDaoImplTest extends AbstractTestNGSpringContextTests{
         List<Order> orders = orderDao.findByCustomer(customer);
         Assert.assertEquals(orders.size(), 2);
     }
-
-    
 }

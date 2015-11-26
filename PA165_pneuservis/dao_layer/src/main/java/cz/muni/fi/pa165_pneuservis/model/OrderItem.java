@@ -17,6 +17,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class OrderItem {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +26,7 @@ public class OrderItem {
     private Item item;
     
     private Integer amount;
-
+    
     public Long getId() {
         return id;
     }
@@ -33,19 +34,19 @@ public class OrderItem {
     public void setId(Long id){
         this.id = id;
     }
-
+    
     public Item getItem() {
         return item;
     }
-
+    
     public void setItem(Item item) {
         this.item = item;
     }
-
+    
     public Integer getAmount() {
         return amount;
     }
-
+    
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
@@ -62,12 +63,14 @@ public class OrderItem {
     
     @Override
     public boolean equals(Object o){
-        if(o == this) { 
+        if(o == this) {
             return true;
         }
+        
         if((o == null) || (getClass() != o.getClass())){
             return false;
         }
+        
         OrderItem otherObject = (OrderItem)o;
         
         if(id == null){
@@ -77,6 +80,7 @@ public class OrderItem {
         }else if(!id.equals(otherObject.id)){
             return false;
         }
+        
         if(amount == null){
             if(otherObject.amount != null){
                 return false;
@@ -84,6 +88,7 @@ public class OrderItem {
         }else if(!amount.equals(otherObject.amount)){
             return false;
         }
+        
         if(item == null){
             if(otherObject.item != null){
                 return false;
@@ -91,6 +96,7 @@ public class OrderItem {
         }else if(!item.equals(otherObject.item)){
             return false;
         }
+        
         return true;
     }
 }

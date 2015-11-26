@@ -1,14 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
  */
 package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.dao.CustomerDao;
 import cz.muni.fi.pa165_pneuservis.dao.OrderDao;
 import cz.muni.fi.pa165_pneuservis.dao.OrderItemDao;
-import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
 import cz.muni.fi.pa165_pneuservis.model.OrderItem;
 import java.util.List;
@@ -21,7 +19,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderServiceImpl implements OrderService {
-
+    
     @Autowired
     private OrderItemDao orderItemDao;
     @Autowired
@@ -32,8 +30,8 @@ public class OrderServiceImpl implements OrderService {
     
     @Override
     public void createOrder(Order order) {
-
-     for (OrderItem orderItem : order.getOrderItems()) {
+        
+        for (OrderItem orderItem : order.getOrderItems()) {
             orderItemDao.create(orderItem);
         }
         orderDao.create(order);
@@ -41,26 +39,21 @@ public class OrderServiceImpl implements OrderService {
     
     @Override
     public List<Order> findAllOrders() {
-            return orderDao.findAll();
+        return orderDao.findAll();
     }
-
+    
     @Override
     public List<Order> getOrdersByCustomer(Long customerId) {
         return orderDao.findByCustomer(customerDao.findById(customerId));
     }
-
+    
     @Override
     public Order getOrderById(Long id) {
         return orderDao.findById(id);
     }
-
+    
     @Override
     public void cancelOrder(Long id) {
         orderDao.remove(orderDao.findById(id));
     }
-    
-
-
-    
-    
 }

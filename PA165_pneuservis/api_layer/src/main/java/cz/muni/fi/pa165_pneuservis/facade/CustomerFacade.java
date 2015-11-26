@@ -1,3 +1,7 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
@@ -14,5 +18,4 @@ public interface CustomerFacade {
     public Collection<CustomerDTO> findAllCustomers();
     public void createCustomer(CustomerDTO customer);
     public void deleteCustomer(Long id);
-        
 }

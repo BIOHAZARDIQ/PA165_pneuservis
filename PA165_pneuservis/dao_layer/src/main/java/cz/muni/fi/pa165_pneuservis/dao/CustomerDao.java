@@ -12,6 +12,7 @@ import java.util.List;
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 public interface CustomerDao {
+    
     public void create(Customer customer);
     public void modify(Customer customer);
     public void remove(Customer customer);

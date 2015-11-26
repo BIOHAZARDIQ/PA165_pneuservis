@@ -1,3 +1,7 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.dao;
 
 import cz.muni.fi.pa165_pneuservis.model.Service;
@@ -10,12 +14,12 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Implementing Service data access object interface
- * 
+ *
  * @author Jozef Sumaj
  */
 @Repository
 public class ServiceDaoImpl implements ServiceDao {
-
+    
     @PersistenceContext
     private EntityManager em;
     
@@ -26,34 +30,33 @@ public class ServiceDaoImpl implements ServiceDao {
         }
         em.persist(service);
     }
-
+    
     @Override
     public void update(Service service) {
         if (service == null) {
             throw new DataAccessException("service cannot be null") {};
         }
-
+        
         if (em.find(Service.class, service.getId()) == null) {
             throw new DataAccessException("service is not in database") {};
         }
         em.merge(service);
     }
-
+    
     @Override
     public void remove(Service service) {
         em.remove(service);
     }
-
+    
     @Override
     public Service findById(Long id) {
         return em.find(Service.class, id);
     }
-
+    
     @Override
     public List<Service> findAll() {
-        TypedQuery<Service> que = em.createQuery("SELECT s FROM Service s", 
+        TypedQuery<Service> que = em.createQuery("SELECT s FROM Service s",
                 Service.class);
         return que.getResultList();
     }
-    
 }

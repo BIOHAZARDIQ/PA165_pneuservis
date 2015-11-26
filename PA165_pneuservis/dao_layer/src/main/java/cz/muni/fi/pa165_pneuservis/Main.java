@@ -5,9 +5,6 @@
 package cz.muni.fi.pa165_pneuservis;
 
 import cz.muni.fi.pa165_pneuservis.model.SpringDatabase;
-import cz.muni.fi.pa165_pneuservis.model.Tire;
-import java.util.List;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -24,15 +21,9 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello PA165 project!");
         
-            new AnnotationConfigApplicationContext(SpringDatabase.class);
-
-
+        new AnnotationConfigApplicationContext(SpringDatabase.class);
+        
         entityManagerFactory = Persistence.createEntityManagerFactory("default");
-
-       	
         entityManagerFactory.close();
-        
-        
     }
- 
 }

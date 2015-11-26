@@ -35,14 +35,14 @@ import org.testng.annotations.Test;
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
 public class CustomerDaoImplTest extends AbstractTestNGSpringContextTests{
-   
+    
     @PersistenceContext
     private EntityManager em;
     
     @Autowired
     private CustomerDao customerDao;
     
-    private Customer customer1, customer2, customer3; 
+    private Customer customer1, customer2, customer3;
     
     public CustomerDaoImplTest() {
     }
@@ -72,7 +72,7 @@ public class CustomerDaoImplTest extends AbstractTestNGSpringContextTests{
         customerDao.create(customer2);
         
         Assert.assertNotSame(customer1.getId(), customer2.getId());
-
+        
         Customer foundCustomer = customerDao.findById(customer1.getId());
         Assert.assertEquals(customer1, foundCustomer);
     }
@@ -109,7 +109,7 @@ public class CustomerDaoImplTest extends AbstractTestNGSpringContextTests{
         List<Customer> allCustomers = customerDao.findAll();
         Assert.assertEquals(allCustomers.size(), 3);
         
-        customerDao.remove(customer3);   
+        customerDao.remove(customer3);
         customerDao.remove(customer2);
         allCustomers = customerDao.findAll();
         Assert.assertEquals(allCustomers.size(), 1);
@@ -121,26 +121,26 @@ public class CustomerDaoImplTest extends AbstractTestNGSpringContextTests{
     
     @Test
     public void testRemoveEmCustomer () {
-     
+        
         Customer customer = new Customer();
         em.persist(customer);
         
         Long customerId = customer.getId();
         em.remove(customer);
-
+        
         Customer foundCustomer = em.find(Customer.class, customerId);
         assertNull(foundCustomer);
     }
     
     @Test
     public void testCreateEmCustomer () {
-     
+        
         Customer customer = new Customer();
         em.persist(customer);
         
         Customer foundCustomer = em.find(Customer.class, customer.getId());
         assertNotNull(customer.getId());
-
+        
         assertEquals(customer.getId(), foundCustomer.getId());
         em.remove(customer);
     }

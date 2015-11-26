@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class CustomerDaoImpl implements CustomerDao {
-
+    
     @PersistenceContext
     private EntityManager em;
     
@@ -29,39 +29,39 @@ public class CustomerDaoImpl implements CustomerDao {
         }
         em.persist(customer);
     }
-
+    
     @Override
     public void modify(Customer customer) {
         if (customer == null) {
             throw new DataAccessException("customer cannot be null") {};
         }
-
+        
         if (em.find(Customer.class, customer.getId()) == null) {
             throw new DataAccessException("customer is not in database") {};
         }
         em.merge(customer);
     }
-
+    
     @Override
     public void remove(Customer customer) {
         if (customer == null) {
             throw new DataAccessException("customer cannot be null") {};
         }
-
+        
         Customer customerToDelete = em.find(Customer.class, customer.getId());
         if (customerToDelete == null) {
             throw new DataAccessException("customer is not in database") {};
         }
-
+        
         em.remove(customerToDelete);
     }
-
+    
     @Override
     public Customer findById(Long id) {
-         if (id == null) {
+        if (id == null) {
             throw new DataAccessException("id of customer cannot be null") {};
         }
-
+        
         Customer foundCustomer = em.find(Customer.class, id);
         if (foundCustomer == null) {
             throw new DataAccessException("customer is not in database") {};
@@ -71,7 +71,7 @@ public class CustomerDaoImpl implements CustomerDao {
     
     @Override
     public Customer findByEmail(String email) {
-         if (email == null) {
+        if (email == null) {
             throw new DataAccessException("Email cannot be null") {};
         }
         
@@ -81,11 +81,11 @@ public class CustomerDaoImpl implements CustomerDao {
         }
         return foundCustomer;
     }
-
+    
     @Override
     public List<Customer> findAll() {
         Query query = em.createQuery("SELECT C FROM Customer C");
         List<Customer> allCustomers = query.getResultList();
-        return allCustomers;    
-    }   
+        return allCustomers;
+    }
 }

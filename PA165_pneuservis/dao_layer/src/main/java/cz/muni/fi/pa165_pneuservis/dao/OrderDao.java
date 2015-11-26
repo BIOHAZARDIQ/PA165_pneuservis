@@ -1,3 +1,7 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.dao;
 
 import cz.muni.fi.pa165_pneuservis.model.Customer;
@@ -16,5 +20,4 @@ public interface OrderDao {
     public Order findById(Long id);
     public List<Order> findAll();
     public List<Order> findByCustomer(Customer customer);
-
 }

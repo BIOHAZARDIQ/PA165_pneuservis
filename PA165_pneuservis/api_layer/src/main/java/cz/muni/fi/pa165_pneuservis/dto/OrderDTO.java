@@ -1,3 +1,7 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.dto;
 
 import java.math.BigDecimal;
@@ -10,24 +14,18 @@ import java.util.List;
  *
  * @author Jakub Holy
  */
-
 public class OrderDTO {
-
+    
     private Long id;
-    
-    private BigDecimal totalPrice;    
-
+    private BigDecimal totalPrice;
     private Date createDate;
-
     private Date completeDate;
-    
     private CustomerDTO customer;
     
     //@Enumerated
-    //private List<VehicleType> vehicles = new ArrayList<VehicleType>();
-    
+    //private List<VehicleType> vehicles = new ArrayList<VehicleType>(); 
     private List<OrderItemDTO> orderItems = new ArrayList<OrderItemDTO>();
-
+    
     public Long getId() {
         return id;
     }
@@ -35,27 +33,27 @@ public class OrderDTO {
     public void setId(Long id){
         this.id = id;
     }
-
+    
     public BigDecimal getTotalPrice() {
         return totalPrice;
     }
-
+    
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
-
+    
     public Date getCreateDate() {
         return createDate;
     }
-
+    
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
-
+    
     public Date getCompleteDate() {
         return completeDate;
     }
-
+    
     public void setCompleteDate(Date completeDate) {
         this.completeDate = completeDate;
     }
@@ -67,6 +65,7 @@ public class OrderDTO {
     public void setCustomer(CustomerDTO customer){
         this.customer = customer;
     }
+    
     //TODO enable this vehicle logic
 //    public List<VehicleType> getVehicles(){
 //        return Collections.unmodifiableList(vehicles);
@@ -75,11 +74,11 @@ public class OrderDTO {
 //    public void addVehicle(VehicleType vehicleType){
 //        vehicles.add(vehicleType);
 //    }
-
+    
     public List<OrderItemDTO> getOrderItems() {
         return Collections.unmodifiableList(orderItems);
     }
-
+    
     public void addOrderItem(OrderItemDTO orderItem) {
         orderItems.add(orderItem);
     }
@@ -99,9 +98,10 @@ public class OrderDTO {
     
     @Override
     public boolean equals(Object o){
-        if(o == this) { 
+        if(o == this) {
             return true;
         }
+        
         if((o == null) || (getClass() != o.getClass())){
             return false;
         }
@@ -115,6 +115,7 @@ public class OrderDTO {
         }else if(!id.equals(otherObject.id)){
             return false;
         }
+        
         if(createDate == null){
             if(otherObject.createDate != null){
                 return false;
@@ -122,6 +123,7 @@ public class OrderDTO {
         }else if(!createDate.equals(otherObject.createDate)){
             return false;
         }
+        
         if(customer == null){
             if(otherObject.customer != null){
                 return false;
@@ -129,6 +131,7 @@ public class OrderDTO {
         }else if(!customer.equals(otherObject.customer)){
             return false;
         }
+        
         return true;
     }
 }

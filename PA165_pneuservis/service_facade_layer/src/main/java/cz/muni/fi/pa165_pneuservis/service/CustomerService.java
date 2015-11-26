@@ -1,11 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
  */
 package cz.muni.fi.pa165_pneuservis.service;
 
-import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import java.util.Collection;
 
@@ -20,5 +18,4 @@ public interface CustomerService  {
     public Collection<Customer> findAllCustomers();
     public void createCustomer(Customer customer);
     public void deleteCustomer(Long id);
-    
 }

@@ -1,3 +1,7 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.dao;
 
 import cz.muni.fi.pa165_pneuservis.PersistenceSampleApplicationContext;
@@ -27,13 +31,13 @@ import org.testng.annotations.Test;
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
 public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
-
+    
     @PersistenceContext
     private EntityManager em;
     
     @Autowired
     private TireDao tireDao;
-
+    
     @Test
     public void testCreateTire() {
         Tire tire = new Tire();
@@ -51,7 +55,7 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
         Tire tire = new Tire();
         em.persist(tire);
         
-        String newBrand = "Barum"; 
+        String newBrand = "Barum";
         tire.setBrand(newBrand);
         tireDao.update(tire);
         
@@ -65,10 +69,10 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
     public void testRemoveTire() {
         Tire tire = new Tire();
         em.persist(tire);
-
+        
         Long tireId = tire.getId();
         tireDao.remove(tire);
-
+        
         Tire tireFromDB = em.find(Tire.class, tireId);
         assertNull(tireFromDB);
     }
@@ -77,16 +81,16 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
     public void testFindAllTires() {
         List<Tire> tires = new LinkedList<>();
         Tire tire = new Tire();
-
+        
         tire.setName("Nokian A195");
         tires.add(tire);
         em.persist(tire);
-
+        
         Tire tire2 = new Tire();
         tire2.setName("Nokian A215");
         tires.add(tire2);
         em.persist(tire2);
-
+        
         List<Tire> tiresFromDB = tireDao.findAll();
         assertEquals(tires, tiresFromDB);
         
@@ -99,7 +103,7 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
         Tire tire = new Tire();
         String description = "Well known for durability and low noise level.";
         tire.setDescription(description);
-
+        
         em.persist(tire);
         
         Long tireId = tire.getId();

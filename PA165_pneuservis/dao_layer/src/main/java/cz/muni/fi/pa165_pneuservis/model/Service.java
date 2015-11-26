@@ -12,12 +12,13 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Service extends Item {
+    
     private ServiceType serviceType;
-
+    
     public ServiceType getServiceType() {
         return serviceType;
     }
-
+    
     public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
     }
@@ -32,17 +33,20 @@ public class Service extends Item {
     
     @Override
     public boolean equals(Object o){
-        if(o == this) { 
+        if(o == this) {
             return true;
         }
+        
         if((o == null) || (getClass() != o.getClass())){
             return false;
         }
+        
         Service otherObject = (Service)o;
         
         if(!this.getId().equals(otherObject.getId())){
             return false;
         }
+        
         if(!serviceType.equals(otherObject.serviceType)){
             return false;
         }

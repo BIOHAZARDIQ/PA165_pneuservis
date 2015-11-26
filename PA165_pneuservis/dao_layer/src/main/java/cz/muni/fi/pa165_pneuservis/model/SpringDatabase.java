@@ -15,14 +15,13 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
  *
  * @author Komoi
  */
-
 @Configuration
 public class SpringDatabase {
-
-	@Bean
-	public DataSource db(){
-		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.DERBY).build();
-		return db;
-	}
+    
+    @Bean
+    public DataSource db(){
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.DERBY).build();
+        return db;
+    }
 }
