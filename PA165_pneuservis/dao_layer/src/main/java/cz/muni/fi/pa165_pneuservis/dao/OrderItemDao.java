@@ -1,11 +1,14 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.dao;
 
 import cz.muni.fi.pa165_pneuservis.model.OrderItem;
 import java.util.List;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 public interface OrderItemDao {
     

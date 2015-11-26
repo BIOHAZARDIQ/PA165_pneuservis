@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
  */
 package cz.muni.fi.pa165_pneuservis.service;
 
@@ -13,15 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
- * @author Komoi
+ * @author Ondrej Komarek <448288@mail.muni.cz>
  */
 @Service
 public class BeanMappingServiceImpl implements BeanMappingService {
-	
+    
     @Autowired
     private Mapper dozer;
-
+    
     @Override
     public  <T> List<T> mapTo(Collection<?> objects, Class<T> mapToClass) {
         List<T> mappedCollection = new ArrayList<>();
@@ -30,7 +28,7 @@ public class BeanMappingServiceImpl implements BeanMappingService {
         }
         return mappedCollection;
     }
-
+    
     @Override
     public <T> T mapTo(Object u, Class<T> mapToClass)
     {
@@ -39,6 +37,6 @@ public class BeanMappingServiceImpl implements BeanMappingService {
     
     @Override
     public Mapper getMapper(){
-    	return dozer;
+        return dozer;
     }
 }

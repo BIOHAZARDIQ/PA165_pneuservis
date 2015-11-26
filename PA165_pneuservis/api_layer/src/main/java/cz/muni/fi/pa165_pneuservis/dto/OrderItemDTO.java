@@ -1,18 +1,18 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.dto;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
-
 public class OrderItemDTO {
-
-    private Long id;
-
-    private ItemDTO item;
     
+    private Long id;
+    private ItemDTO item;
     private Integer amount;
-
+    
     public Long getId() {
         return id;
     }
@@ -20,19 +20,19 @@ public class OrderItemDTO {
     public void setId(Long id){
         this.id = id;
     }
-
+    
     public ItemDTO getItem() {
         return item;
     }
-
+    
     public void setItem(ItemDTO item) {
         this.item = item;
     }
-
+    
     public Integer getAmount() {
         return amount;
     }
-
+    
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
@@ -49,12 +49,14 @@ public class OrderItemDTO {
     
     @Override
     public boolean equals(Object o){
-        if(o == this) { 
+        if(o == this) {
             return true;
         }
+        
         if((o == null) || (getClass() != o.getClass())){
             return false;
         }
+        
         OrderItemDTO otherObject = (OrderItemDTO)o;
         
         if(id == null){
@@ -64,6 +66,7 @@ public class OrderItemDTO {
         }else if(!id.equals(otherObject.id)){
             return false;
         }
+        
         if(amount == null){
             if(otherObject.amount != null){
                 return false;
@@ -71,6 +74,7 @@ public class OrderItemDTO {
         }else if(!amount.equals(otherObject.amount)){
             return false;
         }
+        
         if(item == null){
             if(otherObject.item != null){
                 return false;
@@ -78,6 +82,7 @@ public class OrderItemDTO {
         }else if(!item.equals(otherObject.item)){
             return false;
         }
+        
         return true;
     }
 }

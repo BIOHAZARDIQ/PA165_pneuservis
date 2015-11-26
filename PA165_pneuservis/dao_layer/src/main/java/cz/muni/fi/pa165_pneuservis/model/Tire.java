@@ -7,11 +7,11 @@ package cz.muni.fi.pa165_pneuservis.model;
 import javax.persistence.Entity;
 
 /**
- *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Entity
 public class Tire extends Item {
+    
     private String brand;
     private Integer width;
     private Integer ratio;
@@ -20,36 +20,36 @@ public class Tire extends Item {
     public String getBrand() {
         return brand;
     }
-
+    
     public void setBrand(String brand) {
         this.brand = brand;
     }
-
+    
     public Integer getWidth() {
         return width;
     }
-
+    
     public void setWidth(Integer width) {
         this.width = width;
     }
-
+    
     public Integer getRatio() {
         return ratio;
     }
-
+    
     public void setRatio(Integer ratio) {
         this.ratio = ratio;
     }
-
+    
     public Integer getRim() {
         return rim;
     }
-
+    
     public void setRim(Integer rim) {
         this.rim = rim;
     }
     
-     @Override
+    @Override
     public int hashCode() {
         int result = 3;
         result = 41 * result + ((this.getId() == null)? 0 : this.getId().hashCode());
@@ -62,29 +62,36 @@ public class Tire extends Item {
     
     @Override
     public boolean equals(Object o){
-        if(o == this) { 
+        if(o == this) {
             return true;
         }
+        
         if((o == null) || (getClass() != o.getClass())){
             return false;
         }
+        
         Tire otherObject = (Tire)o;
         
         if(!this.getId().equals(otherObject.getId())){
             return false;
         }
+        
         if(!brand.equals(otherObject.brand)){
             return false;
         }
+        
         if(!width.equals(otherObject.width)){
             return false;
         }
-         if(!ratio.equals(otherObject.ratio)){
+        
+        if(!ratio.equals(otherObject.ratio)){
             return false;
         }
+        
         if(!rim.equals(otherObject.rim)){
             return false;
         }
+        
         return true;
     }
 }
