@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Configuration
 @Import(PersistenceSampleApplicationContext.class)

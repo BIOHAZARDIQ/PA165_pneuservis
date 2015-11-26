@@ -8,8 +8,7 @@ import cz.muni.fi.pa165_pneuservis.model.Order;
 import java.util.List;
 
 /**
- *
- * @author Komoi
+ * @author Ondrej Komarek <448288@mail.muni.cz>
  */
 public interface OrderService {
     void createOrder(Order order);

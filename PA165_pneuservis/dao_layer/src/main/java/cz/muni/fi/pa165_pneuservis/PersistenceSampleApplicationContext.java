@@ -21,6 +21,9 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+/**
+ * @author Jakub Holy <436353@mail.muni.cz>
+ */
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories

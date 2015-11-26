@@ -12,8 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Entity
 public abstract class Item {

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Describes data access object layer for entity Service
  *
- * @author Jozef Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public interface ServiceDao {
     

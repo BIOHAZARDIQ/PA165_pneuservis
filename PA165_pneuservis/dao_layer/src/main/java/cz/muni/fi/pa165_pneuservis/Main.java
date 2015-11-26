@@ -11,7 +11,6 @@ import javax.persistence.Persistence;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- *
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 public class Main {

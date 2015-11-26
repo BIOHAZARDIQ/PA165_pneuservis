@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *
- * @author Komoi
+ * @author Ondrej Komarek <448288@mail.muni.cz>
  */
 @Service
 @Transactional

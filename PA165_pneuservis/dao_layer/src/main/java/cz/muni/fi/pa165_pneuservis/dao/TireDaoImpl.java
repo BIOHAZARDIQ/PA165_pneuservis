@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Implementing Tire data access object interface
  *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Repository
 public class TireDaoImpl implements TireDao {

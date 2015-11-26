@@ -10,8 +10,7 @@ import java.util.List;
 import org.dozer.Mapper;
 
 /**
- *
- * @author Komoi
+ * @author Ondrej Komarek <448288@mail.muni.cz>
  */
 public interface BeanMappingService {
     

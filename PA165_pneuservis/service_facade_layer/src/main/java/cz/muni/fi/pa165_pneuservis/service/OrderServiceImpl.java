@@ -14,8 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
- * @author Komoi
+ * @author Ondrej Komarek <448288@mail.muni.cz>
  */
 @Service
 public class OrderServiceImpl implements OrderService {

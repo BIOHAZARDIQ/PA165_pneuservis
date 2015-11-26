@@ -12,8 +12,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- *
- * @author Komoi
+ * @author Ondrej Komarek <448288@mail.muni.cz>
  */
 public class CustomerFacadeImpl implements CustomerFacade {
     

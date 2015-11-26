@@ -11,8 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 public class OrderDTO {
     

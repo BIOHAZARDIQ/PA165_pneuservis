@@ -9,8 +9,7 @@ import cz.muni.fi.pa165_pneuservis.model.Order;
 import java.util.List;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 public interface OrderDao {
     

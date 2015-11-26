@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
 
 /**
  * Tests for Service data access object implementation
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @ContextConfiguration(classes=PersistenceSampleApplicationContext.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)

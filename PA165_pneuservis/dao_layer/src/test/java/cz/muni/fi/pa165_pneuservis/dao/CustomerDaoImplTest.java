@@ -28,7 +28,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- *
+ * Tests for Customer data access object implementation
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 @ContextConfiguration(classes=PersistenceSampleApplicationContext.class)

@@ -8,8 +8,7 @@ import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import java.util.Collection;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 public interface CustomerFacade {
     

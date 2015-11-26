@@ -7,8 +7,7 @@ package cz.muni.fi.pa165_pneuservis.model;
 import javax.persistence.Entity;
 
 /**
- *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Entity
 public class Tire extends Item {

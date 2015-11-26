@@ -5,8 +5,7 @@
 package cz.muni.fi.pa165_pneuservis.dto;
 
 /**
- *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class TireDTO extends ItemDTO {
 

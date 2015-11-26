@@ -5,8 +5,7 @@
 package cz.muni.fi.pa165_pneuservis.dto;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 public class OrderItemDTO {
     

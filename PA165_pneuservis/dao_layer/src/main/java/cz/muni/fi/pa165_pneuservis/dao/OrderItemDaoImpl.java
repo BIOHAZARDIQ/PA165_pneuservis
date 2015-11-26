@@ -12,8 +12,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 @Repository
 public class OrderItemDaoImpl implements OrderItemDao{

@@ -21,8 +21,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 @Entity
 @Table(name="ITEM_ORDER")

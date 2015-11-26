@@ -12,8 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 @Entity
 public class OrderItem {

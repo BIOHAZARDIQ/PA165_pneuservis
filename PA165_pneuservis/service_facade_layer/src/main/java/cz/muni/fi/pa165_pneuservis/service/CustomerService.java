@@ -8,8 +8,7 @@ import cz.muni.fi.pa165_pneuservis.model.Customer;
 import java.util.Collection;
 
 /**
- *
- * @author Komoi
+ * @author Ondrej Komarek <448288@mail.muni.cz>
  */
 public interface CustomerService  {
     

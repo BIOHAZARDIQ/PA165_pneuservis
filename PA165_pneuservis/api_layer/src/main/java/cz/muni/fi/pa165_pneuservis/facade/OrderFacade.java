@@ -8,8 +8,7 @@ import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
 import java.util.List;
 
 /**
- *
- * @author Jakub Holy
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 public interface OrderFacade {
     

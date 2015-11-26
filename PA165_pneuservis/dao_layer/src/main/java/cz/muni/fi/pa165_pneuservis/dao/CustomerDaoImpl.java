@@ -13,7 +13,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 /**
- *
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 @Repository

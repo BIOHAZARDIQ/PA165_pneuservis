@@ -8,7 +8,6 @@ import cz.muni.fi.pa165_pneuservis.model.Customer;
 import java.util.List;
 
 /**
- *
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 public interface CustomerDao {

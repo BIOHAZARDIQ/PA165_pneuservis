@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Describes data access object layer for entity Tire
  *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public interface TireDao {
     

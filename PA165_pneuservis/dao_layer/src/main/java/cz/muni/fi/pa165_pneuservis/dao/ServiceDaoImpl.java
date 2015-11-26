@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Implementing Service data access object interface
  *
- * @author Jozef Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Repository
 public class ServiceDaoImpl implements ServiceDao {

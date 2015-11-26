@@ -7,8 +7,7 @@ package cz.muni.fi.pa165_pneuservis.dto;
 import java.math.BigDecimal;
 
 /**
- *
- * @author Jozef.Sumaj
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public abstract class ItemDTO {
     

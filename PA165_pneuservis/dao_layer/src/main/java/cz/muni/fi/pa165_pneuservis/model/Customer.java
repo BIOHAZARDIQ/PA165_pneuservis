@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
- *
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 @Entity

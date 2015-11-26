@@ -22,8 +22,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- *
- * @author Jakub Holy
+ * Tests for OrderItem data access object implementation
+ * @author Jakub Holy <436353@mail.muni.cz>
  */
 @ContextConfiguration(classes=PersistenceSampleApplicationContext.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)

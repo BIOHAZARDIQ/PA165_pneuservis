@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 public class CustomerDTO {
