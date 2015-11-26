@@ -36,15 +36,14 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
    - [ ] All service interfaces must reference only entities, not Data Transfer Objects.
    - [ ] You can use Dozer framework to map entity instances to transfer objects. The mapping may be done on Facade Layer.
    - [ ] Facade layer is used to drive transactions.
-- [x] Change layout of your project to Multimodule Maven project (tutorial here http://maven.apache.org/guides/getting-started/index.html) Your project should have 3 separate modules:
+- [x] Change layout of your project to Multimodule Maven project (tutorial here http://maven.apache.org/guides/getting-started/index.html). Your project should have 3 separate modules:
    - DAO layer
    - Service Layer and Facade Layer implementation
    - API layer - just DTOs and facade interfaces!
 - [ ] Facade layer will use Service layer and Service layer will use DAO layer.
-- [ ] Make sure that DataAccessException or its subclass is thrown in case of any exception on a the DAO layer.
+- [x] Make sure that DataAccessException or its subclass is thrown in case of any exception on a the DAO layer.
 - [ ] Implement simple unit tests for facade layer. Just one simple test per method is enough. This is mainly so that it’s easy to verify the Facade layer works.
 - [ ] There must be extensive unit tests for the service layer (particularly for your 2 business functions) and all the tests of service layer must use Mock DAO objects.
-
 - [ ] Evaluate another team project.
 
 ###Milestone 1 requirements:  
@@ -57,5 +56,9 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 - [x] Every team member should work with different entities on different parts of the project (e.g. member 1 will create implementation of DAO for entity A, but member 2 will create unit test for entity A). In every class there will  be javadoc @author with the name of the class author. Also you must commit into Git only the changes that you made yourself. If you commit on behalf of somebody else this will not be regarded as his work!
 - [x] The project will be built using maven, and make sure you have all dependencies correctly configured, so it is possible to build it using just the command line.
 - [x] Evaluate another team project.
+
+Points:
+7 points gained from milestone 1 out of total 10 points
+-3 points was for: Java konfigurace Springu byla jedna ku jedné zkopírována z ukázkového projektu. Jak jsem již několikrát zmiňoval, toto je neakceptovatelné. 
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -21,7 +22,7 @@ public class ServiceDaoImpl implements ServiceDao {
     @Override
     public void create(Service service) {
         if (service == null) {
-            throw new IllegalArgumentException("service cannot be null");
+            throw new DataAccessException("service cannot be null") {};
         }
         em.persist(service);
     }
@@ -29,11 +30,11 @@ public class ServiceDaoImpl implements ServiceDao {
     @Override
     public void update(Service service) {
         if (service == null) {
-            throw new IllegalArgumentException("service cannot be null");
+            throw new DataAccessException("service cannot be null") {};
         }
 
         if (em.find(Service.class, service.getId()) == null) {
-            throw new IllegalArgumentException("service is not in database");
+            throw new DataAccessException("service is not in database") {};
         }
         em.merge(service);
     }

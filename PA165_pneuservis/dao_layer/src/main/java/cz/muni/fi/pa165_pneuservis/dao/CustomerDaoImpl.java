@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -24,7 +25,7 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public void create(Customer customer) {
         if (customer == null) {
-            throw new IllegalArgumentException("customer cannot be null");
+            throw new DataAccessException("customer cannot be null") {};
         }
         em.persist(customer);
     }
@@ -32,11 +33,11 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public void modify(Customer customer) {
         if (customer == null) {
-            throw new IllegalArgumentException("customer cannot be null");
+            throw new DataAccessException("customer cannot be null") {};
         }
 
         if (em.find(Customer.class, customer.getId()) == null) {
-            throw new IllegalArgumentException("customer is not in database");
+            throw new DataAccessException("customer is not in database") {};
         }
         em.merge(customer);
     }
@@ -44,12 +45,12 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public void remove(Customer customer) {
         if (customer == null) {
-            throw new IllegalArgumentException("customer cannot be null");
+            throw new DataAccessException("customer cannot be null") {};
         }
 
         Customer customerToDelete = em.find(Customer.class, customer.getId());
         if (customerToDelete == null) {
-            throw new IllegalArgumentException("customer is not in database");
+            throw new DataAccessException("customer is not in database") {};
         }
 
         em.remove(customerToDelete);
@@ -58,12 +59,12 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public Customer findById(Long id) {
          if (id == null) {
-            throw new IllegalArgumentException("id cannot be null");
+            throw new DataAccessException("id of customer cannot be null") {};
         }
 
         Customer foundCustomer = em.find(Customer.class, id);
         if (foundCustomer == null) {
-            throw new IllegalArgumentException("customer is not in database");
+            throw new DataAccessException("customer is not in database") {};
         }
         return foundCustomer;
     }
@@ -71,12 +72,12 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public Customer findByEmail(String email) {
          if (email == null) {
-            throw new IllegalArgumentException("Email cannot be null");
+            throw new DataAccessException("Email cannot be null") {};
         }
         
         Customer foundCustomer = em.find(Customer.class, email);
         if (foundCustomer == null) {
-            throw new IllegalArgumentException("customer is not in database");
+            throw new DataAccessException("customer is not in database") {};
         }
         return foundCustomer;
     }

@@ -11,5 +11,12 @@
     <artifactId>dao_layer</artifactId>
     <packaging>jar</packaging>
     <name>DAO Layer</name>
-    
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.2.2.RELEASE</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
 </project>

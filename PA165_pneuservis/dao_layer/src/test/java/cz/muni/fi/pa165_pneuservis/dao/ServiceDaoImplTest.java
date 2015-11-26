@@ -32,12 +32,12 @@ public class ServiceDaoImplTest extends AbstractTestNGSpringContextTests {
     private EntityManager em;
     
     @Autowired
-    private ServiceDao serviceDaoImpl;
+    private ServiceDao serviceDao;
     
     @Test
     public void testCreateService() {
         Service service = new Service();
-        serviceDaoImpl.create(service);
+        serviceDao.create(service);
         
         Service found = em.find(Service.class, service.getId());
         assertNotNull(service.getId());

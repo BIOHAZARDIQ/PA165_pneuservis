@@ -17,6 +17,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -84,15 +85,15 @@ public class CustomerDaoImplTest extends AbstractTestNGSpringContextTests{
         
         try {
             customerDao.findById(customer1.getId());
-            fail("IllegalArgumentException should be raised - finding on deleted customer");
-        } catch ( IllegalArgumentException ex ) {
+            fail("DataAccessException should be raised - finding on deleted customer");
+        } catch ( DataAccessException ex ) {
             //OK
         }
         
         try {
             customerDao.remove(customer1);
-            fail("IllegalArgumentException should be raised - deleting already deleted customer");
-        } catch ( IllegalArgumentException ex ) {
+            fail("DataAccessException should be raised - deleting already deleted customer");
+        } catch ( DataAccessException ex ) {
             //OK
         }
         

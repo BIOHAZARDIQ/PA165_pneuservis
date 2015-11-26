@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -21,7 +22,7 @@ public class TireDaoImpl implements TireDao {
     @Override
     public void create(Tire tire) {
         if (tire == null) {
-            throw new IllegalArgumentException("tire cannot be null");
+            throw new DataAccessException("tire cannot be null") {};
         }
         em.persist(tire);
     }
@@ -29,11 +30,11 @@ public class TireDaoImpl implements TireDao {
     @Override
     public void update(Tire tire) {
         if (tire == null) {
-            throw new IllegalArgumentException("tire cannot be null");
+            throw new DataAccessException("tire cannot be null") {};
         }
 
         if (em.find(Tire.class, tire.getId()) == null) {
-            throw new IllegalArgumentException("tire is not in database");
+            throw new DataAccessException("tire for update is not in database") {};
         }
         em.merge(tire);
     }
@@ -45,7 +46,16 @@ public class TireDaoImpl implements TireDao {
 
     @Override
     public Tire findById(Long id) {
-        return em.find(Tire.class, id);
+        if (id == null) {
+            throw new DataAccessException("id of tire cannot be null") {};
+        }
+         
+        Tire foundTire = em.find(Tire.class, id);
+        if (foundTire == null) {
+            throw new DataAccessException("tire to find is not in database") {};
+        } 
+        
+        return foundTire;
     }
 
     @Override
@@ -53,5 +63,4 @@ public class TireDaoImpl implements TireDao {
         TypedQuery<Tire> que = em.createQuery("SELECT t FROM Tire t", Tire.class);
         return que.getResultList();
     }
-
 }

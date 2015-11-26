@@ -11,6 +11,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.testng.Assert.fail;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -31,12 +32,12 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
     private EntityManager em;
     
     @Autowired
-    private TireDao tireDaoImpl;
+    private TireDao tireDao;
 
     @Test
     public void testCreateTire() {
         Tire tire = new Tire();
-        tireDaoImpl.create(tire);
+        tireDao.create(tire);
         
         Tire found = em.find(Tire.class, tire.getId());
         assertNotNull(tire.getId());
@@ -52,7 +53,7 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
         
         String newBrand = "Barum"; 
         tire.setBrand(newBrand);
-        tireDaoImpl.update(tire);
+        tireDao.update(tire);
         
         Tire updatedTire = em.find(Tire.class, tire.getId());
         assertEquals(newBrand, updatedTire.getBrand());
@@ -66,7 +67,7 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
         em.persist(tire);
 
         Long tireId = tire.getId();
-        tireDaoImpl.remove(tire);
+        tireDao.remove(tire);
 
         Tire tireFromDB = em.find(Tire.class, tireId);
         assertNull(tireFromDB);
@@ -74,7 +75,7 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
     
     @Test
     public void testFindAllTires() {
-        List<Tire> tires = new LinkedList<Tire>();
+        List<Tire> tires = new LinkedList<>();
         Tire tire = new Tire();
 
         tire.setName("Nokian A195");
@@ -86,7 +87,7 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
         tires.add(tire2);
         em.persist(tire2);
 
-        List<Tire> tiresFromDB = tireDaoImpl.findAll();
+        List<Tire> tiresFromDB = tireDao.findAll();
         assertEquals(tires, tiresFromDB);
         
         em.remove(tire);
@@ -102,7 +103,7 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
         em.persist(tire);
         
         Long tireId = tire.getId();
-        Tire tireFromDB = tireDaoImpl.findById(tireId);
+        Tire tireFromDB = tireDao.findById(tireId);
         
         assertEquals(description, tireFromDB.getDescription());
         
@@ -112,14 +113,17 @@ public class TireDaoImplTest extends AbstractTestNGSpringContextTests {
     @Test
     public void testGetTireIdInvalid() {
         try {
-            tireDaoImpl.findById(null);
-            fail();
-        } catch (IllegalArgumentException ex) {
+            tireDao.findById(null);
+            fail("DataAccessException should be raised - finding on null tire");
+        } catch ( DataAccessException ex ) {
             //OK
         }
         
-        if(tireDaoImpl.findById(Long.MAX_VALUE) != null) {
-            fail();
+        try {
+            tireDao.findById(Long.MAX_VALUE);
+            fail("DataAccessException should be raised - finding on nonexisting tire");
+        } catch ( DataAccessException ex ) {
+            //OK
         }
     }
 }
