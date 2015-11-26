@@ -67,6 +67,19 @@ public class CustomerDaoImpl implements CustomerDao {
         }
         return foundCustomer;
     }
+    
+    @Override
+    public Customer findByEmail(String email) {
+         if (email == null) {
+            throw new IllegalArgumentException("Email cannot be null");
+        }
+        
+        Customer foundCustomer = em.find(Customer.class, email);
+        if (foundCustomer == null) {
+            throw new IllegalArgumentException("customer is not in database");
+        }
+        return foundCustomer;
+    }
 
     @Override
     public List<Customer> findAll() {

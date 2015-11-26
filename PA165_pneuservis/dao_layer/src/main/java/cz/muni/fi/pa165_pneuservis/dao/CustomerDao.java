@@ -16,5 +16,6 @@ public interface CustomerDao {
     public void modify(Customer customer);
     public void remove(Customer customer);
     public Customer findById(Long id);
+    public Customer findByEmail(String email);
     public List<Customer> findAll();
 }

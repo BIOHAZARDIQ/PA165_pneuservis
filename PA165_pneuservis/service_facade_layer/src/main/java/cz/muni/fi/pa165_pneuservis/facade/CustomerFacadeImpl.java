@@ -6,7 +6,12 @@
 package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
+import cz.muni.fi.pa165_pneuservis.model.Customer;
+import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
+import cz.muni.fi.pa165_pneuservis.service.CustomerService;
+import cz.muni.fi.pa165_pneuservis.service.OrderService;
 import java.util.Collection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -14,29 +19,37 @@ import java.util.Collection;
  */
 public class CustomerFacadeImpl implements CustomerFacade {
 
+    @Autowired
+    private CustomerService customerService;
+    
+    @Autowired
+    private BeanMappingService beanMappingService;
+    
+    
     @Override
     public CustomerDTO findCustomerById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(customerService.findCustomerById(id), CustomerDTO.class);
     }
 
     @Override
     public CustomerDTO findCustomerByEmail(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(customerService.findCustomerByEmail(email), CustomerDTO.class);
     }
 
     @Override
     public Collection<CustomerDTO> findAllCustomers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(customerService.findAllCustomers(), CustomerDTO.class);
+
     }
 
     @Override
-    public void createCustomer(CustomerDTO customer, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createCustomer(CustomerDTO customer) {
+        customerService.createCustomer(beanMappingService.mapTo(customer, Customer.class));
     }
 
     @Override
-    public boolean deleteCustomer(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteCustomer(Long id) {
+        customerService.deleteCustomer(id);
     }
     
 }

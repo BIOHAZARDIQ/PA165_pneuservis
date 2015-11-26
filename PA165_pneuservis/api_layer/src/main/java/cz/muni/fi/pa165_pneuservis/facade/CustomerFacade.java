@@ -12,7 +12,7 @@ public interface CustomerFacade {
     public CustomerDTO findCustomerById(Long id);
     public CustomerDTO findCustomerByEmail(String email);
     public Collection<CustomerDTO> findAllCustomers();
-    public void createCustomer(CustomerDTO customer,String password);
-    public boolean deleteCustomer(Long id);
+    public void createCustomer(CustomerDTO customer);
+    public void deleteCustomer(Long id);
         
 }

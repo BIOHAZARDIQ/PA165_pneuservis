@@ -18,7 +18,7 @@ public interface CustomerService  {
     public Customer findCustomerById(Long id);
     public Customer findCustomerByEmail(String email);
     public Collection<Customer> findAllCustomers();
-    public void createCustomer(Customer customer,String password);
-    public boolean deleteCustomer(Long id);
+    public void createCustomer(Customer customer);
+    public void deleteCustomer(Long id);
     
 }

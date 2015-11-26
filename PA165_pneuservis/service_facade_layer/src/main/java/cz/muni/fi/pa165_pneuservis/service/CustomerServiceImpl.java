@@ -5,38 +5,48 @@
  */
 package cz.muni.fi.pa165_pneuservis.service;
 
+import cz.muni.fi.pa165_pneuservis.dao.CustomerDao;
+import cz.muni.fi.pa165_pneuservis.dao.OrderDao;
+import cz.muni.fi.pa165_pneuservis.dao.OrderItemDao;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import java.util.Collection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author Komoi
  */
 public class CustomerServiceImpl implements CustomerService {
+    
+    
+    @Autowired
+    private OrderDao orderDao;
+    @Autowired
+    private CustomerDao customerDao;
 
     @Override
     public Customer findCustomerById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return customerDao.findById(id);
     }
 
     @Override
     public Customer findCustomerByEmail(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return customerDao.findByEmail(email);
     }
 
     @Override
     public Collection<Customer> findAllCustomers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return customerDao.findAll();
     }
 
     @Override
-    public void createCustomer(Customer customer, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createCustomer(Customer customer) {
+        customerDao.create(customer);
     }
 
     @Override
-    public boolean deleteCustomer(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteCustomer(Long id) {
+        customerDao.remove(customerDao.findById(id));
     }
     
 }

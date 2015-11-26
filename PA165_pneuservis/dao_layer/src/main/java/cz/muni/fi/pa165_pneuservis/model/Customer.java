@@ -31,6 +31,7 @@ public class Customer {
     private String  postalNumber;
     private String  phoneNumber;
     private String  email;
+    private String password;
 
     @OneToMany
     private List<Order> orders = new ArrayList<Order>();
@@ -115,6 +116,14 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+        public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public int hashCode() {
@@ -130,6 +139,7 @@ public class Customer {
             result = prime * result + ((postalNumber == null) ? 0 : postalNumber.hashCode());
             result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
             result = prime * result + ((email == null) ? 0 : email.hashCode());
+            result = prime * result + ((password == null) ? 0 : password.hashCode());
             return result;
     }
 
@@ -200,6 +210,12 @@ public class Customer {
                     if (other.getEmail()!= null)
                             return false;
             } else if (!email.equals(other.getEmail()))
+                    return false;
+            
+            if (password == null) {
+                    if (other.getPassword()!= null)
+                            return false;
+            } else if (!password.equals(other.getPassword()))
                     return false;
 
             return true;
