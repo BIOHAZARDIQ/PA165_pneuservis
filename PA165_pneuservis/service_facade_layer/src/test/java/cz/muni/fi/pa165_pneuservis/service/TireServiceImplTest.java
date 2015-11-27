@@ -5,6 +5,8 @@
 package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.dao.TireDao;
+import cz.muni.fi.pa165_pneuservis.dao.PneuDAOException;
+import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import cz.muni.fi.pa165_pneuservis.sort.TireSort;
 
@@ -19,9 +21,13 @@ import org.testng.Assert;
 import java.util.List;
 
 import static cz.muni.fi.pa165_pneuservis.service.helper.ServiceTestHelper.toList;
+import org.mockito.Matchers;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import org.springframework.dao.DataAccessException;
 
 /**
  * Tire service layer tests
@@ -105,13 +111,38 @@ public class TireServiceImplTest {
     }
     
     @Test
-    public void testCreateTire() {
-        //TODO
+    public void testCreateTire() throws PneuBusinessException {
+        Tire tire = new Tire();
+        tire.setName("CONTINENTAL PremiumContact5");
+        service.createTire(tire);
+        verify(tireDaoMock).create(tire);
+        verifyNoMoreInteractions(tireDaoMock);
     }
     
-    @Test
-    public void testUpdateTire() {
-        //TODO
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testCreateTireInvalidParamNull() throws PneuBusinessException{
+        service.createTire(null);
+    }
+    
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testCreateTireInvalidParamNameNull() throws PneuBusinessException{
+        Tire tire = new Tire();
+        service.createTire(null);
+    }
+    
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testCreateTireInvalidParamNameEmpty() throws PneuBusinessException{
+        Tire tire = new Tire();
+        tire.setName("");
+        service.createTire(tire);
+    }
+    
+    @Test(expectedExceptions = PneuBusinessException.class)
+    public void testCreateTireDAOError() throws PneuBusinessException{
+        doThrow(PneuDAOException.class).when(tireDaoMock).create(Matchers.any(Tire.class));
+        Tire tire = new Tire();
+        tire.setName("CONTINENTAL PremiumContact5");
+        service.createTire(tire);
     }
     
     @Test

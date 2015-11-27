@@ -29,8 +29,11 @@ public class TireServiceImpl implements TireService {
     public void createTire(Tire tire) throws PneuBusinessException {
         if(tire == null)
             throw new IllegalArgumentException("Tire can't be null.");
-        if(tire.getName().isEmpty())
-            throw new IllegalArgumentException("Tire name can't be empty.");        
+        String tireName = tire.getName();
+        if(tireName == null)
+            throw new IllegalArgumentException("Tire name can't be null.");
+        if(tireName.isEmpty())
+            throw new IllegalArgumentException("Tire name can't be empty.");
         try {
             tireDao.create(tire);
         }
