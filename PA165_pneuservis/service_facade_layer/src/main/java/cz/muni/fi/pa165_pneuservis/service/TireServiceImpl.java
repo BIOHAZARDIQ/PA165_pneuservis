@@ -20,11 +20,6 @@ public class TireServiceImpl implements TireService {
     @Autowired
     private TireDao tireDao;
 
-    /**
-     * Creates Tire
-     * @param tire
-     * @throws PneuBusinessException
-     */
     @Override
     public void createTire(Tire tire) throws PneuBusinessException {
         if(tire == null)
@@ -44,12 +39,6 @@ public class TireServiceImpl implements TireService {
         }
     }
 
-    /**
-     * Retrieves all Tires in system sorted
-     * @param sort
-     * @return List of Tires
-     * @throws PneuBusinessException
-     */
     @Override
     public List<Tire> findAllTires(TireSort sort) throws PneuBusinessException{
         if(sort == null)
@@ -86,17 +75,44 @@ public class TireServiceImpl implements TireService {
     }
 
     @Override
-    public Tire getTireById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Tire getTireById(Long id) throws PneuBusinessException{
+        Tire tire;
+        try {
+            tire = tireDao.findById(id);
+        }
+        catch(PneuDAOException e)
+        {
+            //TODO log
+            throw new PneuBusinessException("Can't get Tire. Reason: " +
+                    e.getMessage(), e);
+        }
+        return tire;
     }
 
     @Override
-    public Long updateTire(Tire tire) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void updateTire(Tire tire) throws PneuBusinessException{
+        try {
+            tireDao.update(tire);
+        }
+        catch(PneuDAOException e)
+        {
+            //TODO log
+            throw new PneuBusinessException("Can't update Tire. Reason: " +
+                    e.getMessage(), e);
+        }
     }
     
     @Override
-    public void deleteTire(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteTire(Tire tire) throws PneuBusinessException{
+        try {
+            tireDao.remove(tire);
+        }
+        catch(PneuDAOException e)
+        {
+            //TODO log
+            throw new PneuBusinessException("Can't delete Tire. Reason: " +
+                    e.getMessage(), e);
+        }
     }
+    
 }

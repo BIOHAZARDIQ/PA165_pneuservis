@@ -72,7 +72,7 @@ public class TireServiceImplTest {
     private Tire t1,t2,t3;
     
     @Test
-    public void testFindAllTiresSortByPrice() throws PneuBusinessException  {
+    public void testFindAllTiresSortByPrice() throws PneuBusinessException{
         List<Tire> tires = service.findAllTires(TireSort.PRICE);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
@@ -81,7 +81,7 @@ public class TireServiceImplTest {
     }
     
     @Test
-    public void testFindAllTiresSortByBrand() throws PneuBusinessException {
+    public void testFindAllTiresSortByBrand() throws PneuBusinessException{
         List<Tire> tires = service.findAllTires(TireSort.BRAND);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
@@ -90,7 +90,7 @@ public class TireServiceImplTest {
     }
         
     @Test
-    public void testFindAllTiresSortByRim() throws PneuBusinessException {
+    public void testFindAllTiresSortByRim() throws PneuBusinessException{
         List<Tire> tires = service.findAllTires(TireSort.RIM);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
@@ -99,7 +99,7 @@ public class TireServiceImplTest {
     }
     
     @Test
-    public void testFindAllTiresSortByWidth() throws PneuBusinessException {
+    public void testFindAllTiresSortByWidth() throws PneuBusinessException{
         List<Tire> tires = service.findAllTires(TireSort.WIDTH);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
@@ -108,7 +108,7 @@ public class TireServiceImplTest {
     }
     
     @Test
-    public void testCreateTire() throws PneuBusinessException {
+    public void testCreateTire() throws PneuBusinessException{
         Tire tire = new Tire();
         tire.setName("CONTINENTAL PremiumContact5");
         service.createTire(tire);
@@ -143,7 +143,26 @@ public class TireServiceImplTest {
     }
     
     @Test
-    public void testDeleteTire() {
-        //TODO
+    public void testDeleteTire() throws PneuBusinessException{
+        Tire tire = new Tire();       
+        service.deleteTire(tire);
+        verify(tireDaoMock).remove(tire);
+        verifyNoMoreInteractions(tireDaoMock);
+    }
+    
+    @Test
+    public void testUpdateTire() throws PneuBusinessException{
+        Tire tire = new Tire();       
+        service.updateTire(tire);
+        verify(tireDaoMock).update(tire);
+        verifyNoMoreInteractions(tireDaoMock);
+    }
+    
+    public void getTireById() throws PneuBusinessException{
+        Tire t1 = new Tire();
+        t1.setId(1L);
+        Tire tire = service.getTireById(1L);
+        verify(tireDaoMock).findById(1L);
+        verifyNoMoreInteractions(tireDaoMock);
     }
 }
