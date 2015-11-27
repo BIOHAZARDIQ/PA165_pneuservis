@@ -1,5 +1,6 @@
 package cz.muni.fi.pa165_pneuservis.service;
 
+import cz.muni.fi.pa165_pneuservis.dao.PneuDAOException;
 import cz.muni.fi.pa165_pneuservis.sort.TireSort;
 import cz.muni.fi.pa165_pneuservis.dao.TireDao;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
@@ -19,14 +20,49 @@ public class TireServiceImpl implements TireService {
     @Autowired
     private TireDao tireDao;
 
+    /**
+     * Creates Tire
+     * @param tire
+     * @throws PneuBusinessException
+     */
     @Override
-    public void createTire(Tire tire) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createTire(Tire tire) throws PneuBusinessException {
+        if(tire == null)
+            throw new IllegalArgumentException("Tire can't be null.");
+        if(tire.getName().isEmpty())
+            throw new IllegalArgumentException("Tire name can't be empty.");        
+        try {
+            tireDao.create(tire);
+        }
+        catch(PneuDAOException e) {
+            //TODO log
+            throw new PneuBusinessException("Can't create Tire. Reason: " + 
+                    e.getMessage(), e);
+        }
     }
 
+    /**
+     * Retrieves all Tires in system sorted
+     * @param sort
+     * @return List of Tires
+     * @throws PneuBusinessException
+     */
     @Override
-    public List<Tire> findAllTires(TireSort sort) {
-        List<Tire> tires = tireDao.findAll();
+    public List<Tire> findAllTires(TireSort sort) throws PneuBusinessException{
+        if(sort == null)
+            throw new IllegalArgumentException("Sort can't be null.");
+        List<Tire> tires;
+        try {
+            tires = tireDao.findAll();
+        }
+        catch(PneuDAOException e) {
+            //TODO log
+            throw new PneuBusinessException("Can't list Tires. Reason: " + 
+                    e.getMessage(), e);
+        }
+        if (tires.isEmpty()) {
+            throw new PneuBusinessException("There are no Tires in system.");
+        }
         switch(sort)
         {
             //TODO acending/descending
@@ -52,12 +88,12 @@ public class TireServiceImpl implements TireService {
     }
 
     @Override
-    public void deleteTire(Long id) {
+    public Long updateTire(Tire tire) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
-    public Long updateTire(Tire tire) {
+    public void deleteTire(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

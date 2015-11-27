@@ -14,8 +14,8 @@ import java.util.List;
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public interface TireService {
-    void createTire(Tire tire);
-    List<Tire> findAllTires(TireSort sort);
+    void createTire(Tire tire) throws PneuBusinessException;
+    List<Tire> findAllTires(TireSort sort) throws PneuBusinessException;
     public Tire getTireById(Long id);
     public Long updateTire(Tire tire);
     public void deleteTire(Long id);

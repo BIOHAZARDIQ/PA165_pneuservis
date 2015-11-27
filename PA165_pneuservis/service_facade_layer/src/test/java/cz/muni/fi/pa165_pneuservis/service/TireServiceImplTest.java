@@ -69,7 +69,7 @@ public class TireServiceImplTest {
     private Tire t1,t2,t3;
     
     @Test
-    public void testFindAllTiresSortByPrice() {
+    public void testFindAllTiresSortByPrice() throws PneuBusinessException  {
         List<Tire> tires = service.findAllTires(TireSort.PRICE);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
@@ -78,7 +78,7 @@ public class TireServiceImplTest {
     }
     
     @Test
-    public void testFindAllTiresSortByBrand() {
+    public void testFindAllTiresSortByBrand() throws PneuBusinessException {
         List<Tire> tires = service.findAllTires(TireSort.BRAND);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
@@ -87,7 +87,7 @@ public class TireServiceImplTest {
     }
         
     @Test
-    public void testFindAllTiresSortByRim() {
+    public void testFindAllTiresSortByRim() throws PneuBusinessException {
         List<Tire> tires = service.findAllTires(TireSort.RIM);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
@@ -96,7 +96,7 @@ public class TireServiceImplTest {
     }
     
     @Test
-    public void testFindAllTiresSortByWidth() {
+    public void testFindAllTiresSortByWidth() throws PneuBusinessException {
         List<Tire> tires = service.findAllTires(TireSort.WIDTH);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);

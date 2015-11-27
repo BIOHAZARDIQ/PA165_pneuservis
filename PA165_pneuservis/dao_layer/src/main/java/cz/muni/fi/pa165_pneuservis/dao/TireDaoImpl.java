@@ -24,11 +24,16 @@ public class TireDaoImpl implements TireDao {
     private EntityManager em;
     
     @Override
-    public void create(Tire tire) {
-        if (tire == null) {
-            throw new DataAccessException("tire cannot be null") {};
+    public void create(Tire tire) throws PneuDAOException {
+        try
+        {
+            em.persist(tire);
         }
-        em.persist(tire);
+        catch(Exception e)
+        {
+            throw new PneuDAOException("Can't persist Tire. Reason: " + 
+                    e.getMessage(), e) {};
+        }
     }
     
     @Override
