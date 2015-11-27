@@ -6,15 +6,17 @@ package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
 import cz.muni.fi.pa165_pneuservis.model.Order;
+import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
 import cz.muni.fi.pa165_pneuservis.service.OrderService;
 import org.mockito.MockitoAnnotations;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
+import static org.mockito.Mockito.doReturn;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -27,6 +29,9 @@ public class OrderFacadeImplTest {
     
     @Mock
     private OrderService orderServiceMock;
+    
+    @Mock
+    private BeanMappingService beanMappingServiceMock;
     
     @InjectMocks
     private final OrderFacade facade = new OrderFacadeImpl();
@@ -44,7 +49,9 @@ public class OrderFacadeImplTest {
         Order order = new Order();
         order.setId(1L);
         
-        // doReturn(dto).when(customerServiceMock).createCustomer(customer);
+        doReturn(order).when(beanMappingServiceMock).mapTo(Matchers.anyObject(),
+                (Class<?>)Matchers.any(Class.class));
+        
         facade.createOrder(dto);
         
         verify(orderServiceMock).createOrder(order);

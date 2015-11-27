@@ -6,17 +6,17 @@ package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
+import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
 import cz.muni.fi.pa165_pneuservis.service.CustomerService;
 import org.mockito.MockitoAnnotations;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
@@ -28,6 +28,9 @@ public class CustomerFacadeImplTest {
 
     @Mock
     private CustomerService customerServiceMock;
+    
+    @Mock
+    private BeanMappingService beanMappingServiceMock;
     
     @InjectMocks
     private final CustomerFacade facade = new CustomerFacadeImpl();
@@ -41,11 +44,12 @@ public class CustomerFacadeImplTest {
     public void testCreateCustomer() {        
         CustomerDTO dto = new CustomerDTO();
         dto.setId(1L);
-        
         Customer customer = new Customer();
         customer.setId(1L);
         
-        // doReturn(dto).when(customerServiceMock).createCustomer(customer);
+        doReturn(customer).when(beanMappingServiceMock).mapTo(Matchers.anyObject(),
+                (Class<?>)Matchers.any(Class.class));
+        
         facade.createCustomer(dto);
         
         verify(customerServiceMock).createCustomer(customer);
