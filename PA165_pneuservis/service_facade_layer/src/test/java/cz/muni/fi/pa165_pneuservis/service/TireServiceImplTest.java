@@ -21,12 +21,10 @@ import java.util.List;
 
 import static cz.muni.fi.pa165_pneuservis.service.helper.ServiceTestHelper.toList;
 import org.mockito.Matchers;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import org.springframework.dao.DataAccessException;
 
 /**
  * Tire service layer tests

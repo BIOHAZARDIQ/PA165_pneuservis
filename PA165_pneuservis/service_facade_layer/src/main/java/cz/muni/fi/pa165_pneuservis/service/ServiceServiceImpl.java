@@ -8,10 +8,8 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 /**
- *
  * @author Jakub Holy <436353@mail.muni.cz>
  */
-
 @Service
 public class ServiceServiceImpl implements ServiceService{
     

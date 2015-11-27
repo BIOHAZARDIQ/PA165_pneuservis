@@ -4,7 +4,6 @@ import cz.muni.fi.pa165_pneuservis.model.Service;
 import java.util.List;
 
 /**
- *
  * @author Jakub Holy <436353@mail.muni.cz>
  */
 public interface ServiceService {

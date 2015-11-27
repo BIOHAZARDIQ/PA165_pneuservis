@@ -99,5 +99,4 @@ public class TireServiceImpl implements TireService {
     public void deleteTire(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

@@ -16,7 +16,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- *
  * @author Jakub Holy <436353@mail.muni.cz>
  */
 public class ServiceServiceImplTest {

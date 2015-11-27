@@ -4,7 +4,6 @@ import cz.muni.fi.pa165_pneuservis.model.Tire;
 import java.util.Comparator;
 
 /**
- *
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class TireSortByRimComp implements Comparator<Tire>{

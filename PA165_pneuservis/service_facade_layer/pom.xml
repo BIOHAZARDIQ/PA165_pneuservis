@@ -5,7 +5,7 @@
     <parent>
         <groupId>cz.muni.fi</groupId>
         <artifactId>PA165_pneuservis</artifactId>
-        <version>1.0</version>
+        <version>2.0</version>
     </parent>
   
     <artifactId>service_facade_layer</artifactId>
@@ -22,12 +22,6 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>api_layer</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.8.1</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

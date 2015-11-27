@@ -10,10 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *
  * @author Jakub Holy <436353@mail.muni.cz>
  */
-
 @Service
 @Transactional
 public class ServiceFacadeImpl implements ServiceFacade{

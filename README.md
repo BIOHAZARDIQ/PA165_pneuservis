@@ -40,10 +40,10 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
    - DAO layer
    - Service Layer and Facade Layer implementation
    - API layer - just DTOs and facade interfaces!
-- [ ] Facade layer will use Service layer and Service layer will use DAO layer.
+- [x] Facade layer will use Service layer and Service layer will use DAO layer.
 - [x] Make sure that DataAccessException or its subclass is thrown in case of any exception on a the DAO layer.
-- [ ] Implement simple unit tests for facade layer. Just one simple test per method is enough. This is mainly so that it’s easy to verify the Facade layer works.
-- [ ] There must be extensive unit tests for the service layer (particularly for your 2 business functions) and all the tests of service layer must use Mock DAO objects.
+- [x] Implement simple unit tests for facade layer. Just one simple test per method is enough. This is mainly so that it’s easy to verify the Facade layer works.
+- [x] There must be extensive unit tests for the service layer (particularly for your 2 business functions) and all the tests of service layer must use Mock DAO objects.
 - [ ] Evaluate another team project.
 
 ###Milestone 1 requirements:  
