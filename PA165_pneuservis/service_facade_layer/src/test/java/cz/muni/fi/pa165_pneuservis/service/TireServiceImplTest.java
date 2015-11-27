@@ -6,7 +6,6 @@ package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.dao.TireDao;
 import cz.muni.fi.pa165_pneuservis.dao.PneuDAOException;
-import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import cz.muni.fi.pa165_pneuservis.sort.TireSort;
 

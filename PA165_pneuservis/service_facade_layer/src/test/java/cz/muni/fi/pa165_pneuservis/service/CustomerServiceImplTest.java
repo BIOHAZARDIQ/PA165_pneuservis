@@ -101,7 +101,7 @@ public class CustomerServiceImplTest {
     @Test
     public void testFindCustomerByEmail() {
         Customer c1 = new Customer();
-        String email = "test@test.qa";
+        String email = "customer@email.qa";
         c1.setEmail(email);
         doReturn(c1).when(customerDaoMock).findByEmail(email);
         
