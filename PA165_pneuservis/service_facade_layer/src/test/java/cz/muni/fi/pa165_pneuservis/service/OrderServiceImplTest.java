@@ -94,20 +94,7 @@ public class OrderServiceImplTest {
         verify(orderDaoMock).create(order);
         verifyNoMoreInteractions(orderDaoMock);
     }
-    
-    @Test
-    public void testUpdateOrder() {
-        /*
-        Order order = new Order();
-        order.setId(1L);
 
-        service.updateOrder(order);
-
-        verify(orderDaoMock).update(order);
-        verifyNoMoreInteractions(orderDaoMock);
-        */
-    }
-    
     @Test
     public void testFindAllOrders() {
         List<Order> orders = service.findAllOrders();

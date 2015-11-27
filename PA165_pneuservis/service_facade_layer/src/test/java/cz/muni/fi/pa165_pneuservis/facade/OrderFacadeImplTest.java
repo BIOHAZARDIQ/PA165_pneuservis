@@ -56,10 +56,5 @@ public class OrderFacadeImplTest {
         verify(orderServiceMock).createOrder(order);
         verifyNoMoreInteractions(orderServiceMock);
     }
-
-    @Test
-    public void testCancelOrder() {
-        // TODO
-    }
     
 }
