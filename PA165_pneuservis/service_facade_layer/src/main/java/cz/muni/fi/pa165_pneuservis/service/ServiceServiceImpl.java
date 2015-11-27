@@ -44,9 +44,9 @@ public class ServiceServiceImpl implements ServiceService{
     }
 
     @Override
-    public void updateService(Long id) {
+    public void updateService(cz.muni.fi.pa165_pneuservis.model.Service service) {
         try{
-        serviceDao.update(serviceDao.findById(id));
+        serviceDao.update(service);
         }catch(DataAccessException e){
             throw new PneuDAOException("cannot update service "+e.getMessage(),e);
         }

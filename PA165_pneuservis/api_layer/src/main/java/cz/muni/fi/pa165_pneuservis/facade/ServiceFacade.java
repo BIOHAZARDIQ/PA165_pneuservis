@@ -11,6 +11,6 @@ public interface ServiceFacade {
     public ServiceDTO findServiceById(Long id);
     public List<ServiceDTO> findAllService();
     public void createService(ServiceDTO serviceDTO);
-    public void updateService(Long id);
+    public void updateService(ServiceDTO serviceDTO);
     public void deleteService(Long id);
 }

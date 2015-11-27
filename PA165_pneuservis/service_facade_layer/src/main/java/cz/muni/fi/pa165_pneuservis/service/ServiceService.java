@@ -11,6 +11,6 @@ public interface ServiceService {
     public Service findServiceById(Long id);
     public List<Service> findAllService();
     public void createService(Service service);
-    public void updateService(Long id);
+    public void updateService(Service service);
     public void deleteService(Long id);
 }

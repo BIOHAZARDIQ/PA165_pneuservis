@@ -2,7 +2,6 @@ package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.ServiceDTO;
 import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
-import cz.muni.fi.pa165_pneuservis.service.OrderService;
 import cz.muni.fi.pa165_pneuservis.service.ServiceService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +35,10 @@ public class ServiceFacadeImpl implements ServiceFacade{
     public void createService(ServiceDTO serviceDTO) {
         serviceService.createService((cz.muni.fi.pa165_pneuservis.model.Service) beanMappingService.mapTo(serviceDTO, Service.class));
     }
-
+    
     @Override
-    public void updateService(Long id) {
-        serviceService.updateService(id);
+    public void updateService(ServiceDTO serviceDTO) {
+        serviceService.updateService((cz.muni.fi.pa165_pneuservis.model.Service) beanMappingService.mapTo(serviceDTO, Service.class));
     }
 
     @Override

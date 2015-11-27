@@ -69,9 +69,7 @@ public class ServiceServiceImplTest {
     
     @Test
     public void testUpdateService(){
-        when(serviceDao.findById(1L)).thenReturn(service1);
-        serviceService.updateService(1L);
-        verify(serviceDao).findById(1L);
+        serviceService.updateService(service1);
         verify(serviceDao).update(service1);
         verifyNoMoreInteractions(serviceDao);
     }
