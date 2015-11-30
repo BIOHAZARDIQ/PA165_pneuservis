@@ -3,8 +3,9 @@ PA165 Rental Construction Machinery team evaluation - project: https://github.co
 a) Checklist evaluation:
 -0.5b: DataAccessException handled in DAO layer
 -0.5b: Authorship of commits and classes is poorly readable
+-0.5b: Poor test coverage of some service layer classes - CustomerService and MachineService
 
-Total points: 9.0 points
+Total points: 8.5 points
 
 b) General Comments:
 It seems that all team members are contributing evenly to this team project (except Jakub, which is not working on project, as stated on README file).
@@ -18,6 +19,7 @@ c) Strong points of project:
 Clear code. Only 3 people created this project. All members contributed equaly.
 
 d) Weaknesses of the project:
+Test coverage could be improved, specifically service layer classes CustomerService and MachineService - some methods are not covered by test at all.
 Authorship of commits are badly readable. E-mails are not used correctly, and commit authors are Zdenek Skerik, Matej Jakimov, tomas and xskerik. 
 I would suggest to improve this for milestone 3.
 Almost all classes are missing authorship comments. Many of classes that have authorship comments are unreadable, like: Created by jakac.
