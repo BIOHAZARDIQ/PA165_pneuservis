@@ -1,24 +1,27 @@
-Evaluated project Rental Construction Machinery
-
-https://github.com/xskerik/RentalConstructionMachinery
+PA165 Rental Construction Machinery team evaluation - project: https://github.com/xskerik/RentalConstructionMachinery
 
 a) Checklist evaluation:
-
 -0.5b: DataAccessException handled in DAO layer
+-0.5b: Authorship of commits and classes is poorly readable
 
-Total points: 9.5
+Total points: 9.0 points
 
 b) General Comments:
+It seems that all team members are contributing evenly to this team project (except Jakub, which is not working on project, as stated on README file).
+According to git blame, Matej has approx. 1900 line of codes (least commits), Tomas 900 loc (most commits), and Zdenek 1500 loc. 
 Some @Overrride annotations are missing in service implement classes.
 Some Javadoc is missing and mainly @Author annotations are missing in half classes. 
 DataAccessException should be handled in service layer, not in dao layer.
 All requirements are done.
 
 c) Strong points of project:
-Clear code. Only 3 people create this project. All members equaly contributed.
+Clear code. Only 3 people created this project. All members contributed equaly.
 
 d) Weaknesses of the project:
-None.
+Authorship of commits are badly readable. E-mails are not used correctly, and commit authors are Zdenek Skerik, Matej Jakimov, tomas and xskerik. 
+I would suggest to improve this for milestone 3.
+Almost all classes are missing authorship comments. Many of classes that have authorship comments are unreadable, like: Created by jakac.
 
 e) Other notes:
 Some classes have unused imports.
+Choose a version of your dependencies in pom.xml file. Our submitted project has stopped working because of new released versions of dependencies.

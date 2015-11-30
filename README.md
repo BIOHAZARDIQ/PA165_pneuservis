@@ -58,7 +58,7 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 - [x] Evaluate another team project.
 
 Points:
-7 points gained from milestone 1 out of total 10 points
+7 points gained from milestone 1 out of total 10 points  
 -3 points was for: Java konfigurace Springu byla jedna ku jedné zkopírována z ukázkového projektu. Jak jsem již několikrát zmiňoval, toto je neakceptovatelné. 
 
 
