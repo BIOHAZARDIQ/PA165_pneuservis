@@ -1,0 +1,24 @@
+Evaluated project Rental Construction Machinery
+
+https://github.com/xskerik/RentalConstructionMachinery
+
+a) Checklist evaluation:
+
+-0.5b: DataAccessException handled in DAO layer
+
+Total points: 9.5
+
+b) General Comments:
+Some @Overrride annotations are missing in service implement classes.
+Some Javadoc is missing and mainly @Author annotations are missing in half classes. 
+DataAccessException should be handled in service layer, not in dao layer.
+All requirements are done.
+
+c) Strong points of project:
+Clear code. Only 3 people create this project. All members equaly contributed.
+
+d) Weaknesses of the project:
+None.
+
+e) Other notes:
+Some classes have unused imports.
