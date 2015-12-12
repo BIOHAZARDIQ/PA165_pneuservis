@@ -14,6 +14,14 @@ Vytvořte systém, ve kterém si bude moci zákazník vybrat nové obutí pro sv
 ###Detaily:  
 Zákazník je schopný si cez webovú službu vybrať a následne objednať pneumatiky pre svoje vozidlo, prípadne službu pre svoje vozidlo, ako napríklad kontrolu zbiehania pneumatík, atď. Po zvolení daných produktov a služieb o ktoré má zákazník záujem sa zákazníkovi objaví ponuka pre vyplnenie osobných údajov. Po vyplnení osobných údajov má zákazník možnosť odoslať objednávku pneuservisu. Pracovník v pneuservise na základe aktuálnych objednávok zavolá zákazníkovi a dohodne s ním, kedy sa zákazník ukáže aj s vozidlom v pneuservise. Zamestnanec pneuservisu môže každú objednávku zmeniť priamo v systéme. Platby prevádza zákazník zamestnancovi priamo pri osobnej návšteve pneuservisu. O vybavenie a uzatváranie objednávok sa stará priamo zamestnanec pneuservisu pri osobnej návšteve pneuservisu zákazníkom. 
 
+###Poznámky pre netbeans 8:  
+- Stiahni a rozbaľ apache tomcat 7 z http://tomcat.apache.org/download-70.cgi 
+- Pre windows: v rozbalenom archíve ./bin/catalina.bat odstráň uvodzovky pri reťazcoch JAVA_OPTS=
+- Tools/Plugins/Available Plugins ... nájdi tomcat, nainštaluj Java EE Base, reštartuj netbeans 
+- Tools/Servers/Add Server/Apache Tomcat, server location = rozbalený archív Tomcatu, login:passwd = admin:admin
+- Services/Servers/Apache Tomcat/Start
+- Spustiť projekt a otvoriť web http://localhost:8080/PA165/
+
 ###Use Case Diagram:
 
 ![alt tag](use_case_diagram.jpg)  
@@ -29,11 +37,11 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 
 ###Milestone 3 requirements:  
 - User interface:
-   - [ ] To start the web application you have to configure maven plugin (tomcat7 or jetty). 
+   - [x] To start the web application you have to configure maven plugin (tomcat7 or jetty). 
    It is very important that it’s super easy to start the web application from command line. 
    So for example using tomcat7 plugin, the following sequence of commands should start the web application: 
    “mvn clean install && cd web && mvn tomcat7:run”
-   - [ ] The web application must be available on the following HTTP context: http://localhost:8080/pa165
+   - [x] The web application must be available on the following HTTP context: http://localhost:8080/pa165
    - [ ] You application should use in­memory database. 
    This means that after application restart (killing web container and starting it again with mvn tomcat7:run) the data may be reset.
    - [ ] Implement the user interface using Spring MVC or Angular JS. Spring MVC is preferred. 
@@ -42,13 +50,13 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
    - [ ] You should fill in all the necessary data automatically. So for example you can use Web Listener to load data during Web Application startup.
    - [ ] Make sure there are validations implemented on user interface.
    - [ ] Your user interface should use either Facade layer or REST layer to access the system. Do not directly access database and do not directly use Service layer.
-   - [ ] The web interface layer may reside in separate maven module (if this is helpful).
+   - [x] The web interface layer may reside in separate maven module (if this is helpful).
    - [ ] Each member of the team must implement (mostly independently, without copy­pasting) part of user interface. Including controller and view.
 - REST Layer:
    - [ ] Your application should have a basic REST interface.
    - [ ] At least one entity and operations on that entity must be exposed.
    This is mainly to demonstrate you can implement this, it’s not necessary to have all application functions accessible through this interface.
-   - [ ] The REST must be accessible at http://localhost:8080/pa165/rest. It is not required to have the interface secured.
+   - [x] The REST must be accessible at http://localhost:8080/pa165/rest. It is not required to have the interface secured.
    - [ ] You should include a README file with instructions how to test the REST interface (e.g. CURL commands for command line)
 - Security:
    - [ ] There should be at least 2 roles in the system (e.g. Administrator, User). 

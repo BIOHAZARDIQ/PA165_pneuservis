@@ -16,6 +16,8 @@
         <module>api_layer</module>
         <module>dao_layer</module>
         <module>service_facade_layer</module>
+        <module>REST</module>
+        <module>WebUI</module>
     </modules> 
    
     <dependencies>
