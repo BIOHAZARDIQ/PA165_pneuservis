@@ -19,12 +19,12 @@ public abstract class Item {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
     
     @Column
-    private String name;
-    private String description;
-    private BigDecimal price;
+    String name;
+    String description;
+    BigDecimal price;
     
     public Long getId() {
         return id;

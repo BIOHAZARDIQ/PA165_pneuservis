@@ -4,18 +4,37 @@
  */
 package cz.muni.fi.pa165_pneuservis.model;
 
+import java.math.BigDecimal;
 import javax.persistence.Entity;
+//1import org.codehaus.jackson.annotate.JsonAutoDetect;
 
 /**
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Entity
+//@JsonAutoDetect
 public class Tire extends Item {
     
     private String brand;
     private Integer width;
     private Integer ratio;
     private Integer rim;
+    
+    public Tire(Long id, String name, String description, String brand, Integer width, Integer ratio, Integer rim, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.brand = brand;
+        this.width = width;
+        this.ratio = ratio;
+        this.rim   = rim;
+        this.price = price;
+    }
+    
+    public Tire() {
+        this.id = (long) 123;
+        this.name = "Default name for Tire from constructor";
+    }
     
     public String getBrand() {
         return brand;
