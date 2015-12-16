@@ -27,8 +27,12 @@
                 <td>List of all tires in database in HTML table format (only Id, Name, Price)</td> 
             </tr>
             <tr>
-                <td>./tires/id/{id}</a></td>
-                <td>Tire with given id (not working yet)</td> 
+                <td>./tires/create</td>
+                <td>Ability to use curl to create new Tire with given parameters</td> 
+            </tr>
+            <tr>
+                <td><a href="./tires/id/{id}">./tires/id/{id}</a></td>
+                <td>Tire with given id (replace {id} for id of tire) (not working yet)</td> 
             </tr>
         </table>
     </body>
