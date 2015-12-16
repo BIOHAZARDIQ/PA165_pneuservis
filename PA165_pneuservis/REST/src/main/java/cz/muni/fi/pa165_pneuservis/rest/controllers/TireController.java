@@ -118,4 +118,14 @@ public class TireController {
     public TireDTO getTire(@PathVariable("id") long id) {               
         return tireFacade.getTireById(id);
     }
+    
+    /**
+     * Creates new Tire with given parameters
+     * curl -X POST -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NameOfTire"}' http://localhost:8080/pa165/rest/tires/create
+     */
+    @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public void getTire(@RequestBody Tire tire) {
+        Tires.add(tire);
+    }
 }
