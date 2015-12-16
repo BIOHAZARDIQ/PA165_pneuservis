@@ -18,9 +18,8 @@
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
@@ -74,6 +73,12 @@
         <dependency>
             <groupId>cz.muni.fi</groupId>
             <artifactId>api_layer</artifactId>
+            <version>3.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>cz.muni.fi</groupId>
+            <artifactId>service_facade_layer</artifactId>
             <version>3.0</version>
             <type>jar</type>
         </dependency>

@@ -12,11 +12,15 @@ import cz.muni.fi.pa165_pneuservis.service.TireService;
 import cz.muni.fi.pa165_pneuservis.sort.TireSort;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Facade implementation for Tire
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
+@Service
+@Transactional
 public class TireFacadeImpl implements TireFacade{
 
     @Autowired

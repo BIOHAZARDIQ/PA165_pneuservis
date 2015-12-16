@@ -11,10 +11,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,14 +21,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
-@Controller
+@RestController
 @RequestMapping("/tires")
 public class TireController {
     
-    //@Autowired
+    @Autowired
     private TireFacade tireFacade;
     
     static ArrayList<Tire> Tires;
@@ -114,15 +111,11 @@ public class TireController {
     }    
     
     /**
-     *
      * @param id Id of Tire to be found
      * @return Tire found
      */
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET, headers = "Accept=text/html", produces = MediaType.TEXT_HTML_VALUE)
-    @ResponseBody
-    public String getTire(@PathVariable long id) {
-        TireDTO tire = tireFacade.getTireById(id);
-        String retval = "<html><body><h3>" + tire.toString() + "</h3></body></html>";
-        return retval;      
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, headers = "Accept=text/html", produces = MediaType.APPLICATION_JSON_VALUE)
+    public TireDTO getTire(@PathVariable("id") long id) {               
+        return tireFacade.getTireById(id);
     }
 }
