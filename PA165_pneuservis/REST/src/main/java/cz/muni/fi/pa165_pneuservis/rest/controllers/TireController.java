@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 @RestController
@@ -82,17 +83,6 @@ public class TireController {
             Tires.add(tire);
         }
     } 
-    
-    /**
-     * Getting all Tires
-     *
-     * @return ArrayList of Tires
-     */
-    @RequestMapping(value = "/list", method = RequestMethod.GET, headers = "Accept=application/json", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ArrayList<Tire> getAllTires() {
-        return Tires;
-    }
 
     /**
      * Getting all Tires in html format (only id, name, price)
@@ -103,10 +93,15 @@ public class TireController {
     @ResponseBody
     public String getAllTiresHTML() {
         String retval = "<html><body><table border=1>";
-        retval+="<tr><td style=font-weight:bold>Id</td><td style=font-weight:bold>Name</td><td style=font-weight:bold>Price</td></tr>";
-	
-        for (Tire tire : Tires) {
-            retval += "<tr><td>" + tire.getId() + "</td><td>" + tire.getName()+ "</td><td>" + tire.getPrice() + "</td></tr>";
+        List<TireDTO> listOfTires = tireFacade.findAllTires();
+        if (listOfTires == null) {
+            retval+="<tr><td>No Tires in database</td></td>";
+        } else {
+            retval+="<tr><td style=font-weight:bold>Id</td><td style=font-weight:bold>Name</td><td style=font-weight:bold>Price</td></tr>";
+
+            for (TireDTO tireDTO : listOfTires) {
+                retval += "<tr><td>" + tireDTO.getId() + "</td><td>" + tireDTO.getName()+ "</td><td>" + tireDTO.getPrice() + "</td></tr>";
+            }
         }
         retval += "</table></body></html>";
         
@@ -130,33 +125,33 @@ public class TireController {
      * @return List of Tires in system
      */
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public final List<TireDTO> getTires() {               
+    public final List<TireDTO> getTires() {  
         return tireFacade.findAllTires();
     }
     
     /**
      * Delete Tire
-     * curl -i -X DELETE http://localhost:8080/pa165/rest/tire/1
+     * curl -i -X DELETE http://localhost:8080/pa165/rest/tires/delete/1
      * @param id Id of Tire to be deleted
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public final void deleteTire(@PathVariable("id") long id) {               
         tireFacade.deleteTire(tireFacade.getTireById(id));
     }
     
     /**
      * Update Tire
-     * curl -X UPDATE -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NEW NAME"}' http://localhost:8080/pa165/rest/update
+     * curl -X PUT -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NEW NAME"}' http://localhost:8080/pa165/rest/update
      * @param tire Updated Tire
      */
-    @RequestMapping(value = "/update", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public final void updateTire(@RequestBody TireDTO tire) {
-        tireFacade.updateTire(tire);
+    @RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public final void updateTire(@RequestBody TireDTO tireDto) {
+        tireFacade.updateTire(tireDto);
     }
     
     /**
      * Create Tire
-     * curl -X POST -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NAME"}' http://localhost:8080/pa165/rest/tires/create
+     * curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
      * @param tire Tire to be created
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
