@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cz.muni.fi</groupId>
+        <artifactId>PA165_pneuservis</artifactId>
+        <version>3.0</version>
+    </parent>
+    <artifactId>Data</artifactId>
+    <packaging>jar</packaging>
+    <name>Data</name>
+    <groupId>cz.muni.fi.pa165_pneuservis</groupId>
+    <dependencies>
+        <dependency>
+            <groupId>cz.muni.fi</groupId>
+            <artifactId>service_facade_layer</artifactId>
+            <version>3.0</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+</project>

@@ -27,7 +27,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories
-@ComponentScan(basePackageClasses = {OrderItemDaoImpl.class})
+@ComponentScan
 public class PersistenceSampleApplicationContext {
     
     @Bean
