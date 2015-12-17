@@ -3,14 +3,22 @@
     Author     : Jozef Sumaj
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<t:generic title="Pneuservis">
+<jsp:attribute name="body">
+    
+    <div class="well well-sm">
+        1. Start with selecting a set of tires for your vehicle
+    </div>
+    
+    <div class="well well-sm">
+        2. Select additional services
+    </div>
+    
+    <hr/>
+    
+</jsp:attribute>
+</t:generic>

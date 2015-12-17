@@ -10,6 +10,8 @@
 <t:generic title="Tires">
 <jsp:attribute name="body">
     
+    <a href="<c:url value="/" />">Create new Tire entry</a>
+        
     <table class="table">
         <thead>
         <tr>
@@ -20,6 +22,7 @@
             <th>Width</th>
             <th>Ratio</th>
             <th>Rim</th>
+            <th>Price</th>
         </tr>
         </thead>
         <tbody>
@@ -32,6 +35,7 @@
                 <td>${tire.width}</td>
                 <td>${tire.ratio}</td>
                 <td>${tire.rim}</td>
+                <td>${tire.price}</td>
             </tr>
         </c:forEach>
         </tbody>
