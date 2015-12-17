@@ -82,5 +82,11 @@
             <version>3.0</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>cz.muni.fi.pa165_pneuservis</groupId>
+            <artifactId>Data</artifactId>
+            <version>3.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>

@@ -18,6 +18,7 @@
         <module>service_facade_layer</module>
         <module>REST</module>
         <module>WebUI</module>
+        <module>Data</module>
     </modules> 
    
     <dependencies>
