@@ -34,6 +34,10 @@
                 <td><a href="./tires/delete/{id}">./tires/delete/{id}</a></td>
                 <td>Ability to use curl or webpage to delete existing Tire with given id</td> 
             </tr>
+            <tr>
+                <td><a href="./customers">./customers</a></td>
+                <td>List of all customers in database</td> 
+            </tr>
         </table>
     </body>
 </html>

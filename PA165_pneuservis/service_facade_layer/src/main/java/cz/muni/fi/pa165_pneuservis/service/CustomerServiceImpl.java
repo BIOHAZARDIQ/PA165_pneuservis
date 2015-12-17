@@ -9,10 +9,12 @@ import cz.muni.fi.pa165_pneuservis.dao.OrderDao;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Ondrej Komarek <448288@mail.muni.cz>
  */
+@Service
 public class CustomerServiceImpl implements CustomerService {
     
     @Autowired

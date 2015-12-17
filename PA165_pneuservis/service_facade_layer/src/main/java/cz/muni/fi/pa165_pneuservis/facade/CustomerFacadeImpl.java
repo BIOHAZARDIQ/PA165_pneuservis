@@ -10,10 +10,14 @@ import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
 import cz.muni.fi.pa165_pneuservis.service.CustomerService;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Ondrej Komarek <448288@mail.muni.cz>
  */
+@Service
+@Transactional
 public class CustomerFacadeImpl implements CustomerFacade {
     
     @Autowired

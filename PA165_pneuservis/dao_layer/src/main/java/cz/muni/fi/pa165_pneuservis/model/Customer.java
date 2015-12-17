@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -18,7 +19,7 @@ import javax.persistence.OneToMany;
 public class Customer {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     private String  firstName;
@@ -30,7 +31,7 @@ public class Customer {
     private String  postalNumber;
     private String  phoneNumber;
     private String  email;
-    private String password;
+    private String  password;
     
     @OneToMany
     private List<Order> orders = new ArrayList<Order>();
