@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @EnableWebMvc
 @Configuration
-@Import({ServiceConfig.class, DataConfig.class})
-@ComponentScan(basePackageClasses = {TireController.class})
+@Import({ServiceConfig.class})
+@ComponentScan
 public class RestConfig extends WebMvcConfigurerAdapter {
 }

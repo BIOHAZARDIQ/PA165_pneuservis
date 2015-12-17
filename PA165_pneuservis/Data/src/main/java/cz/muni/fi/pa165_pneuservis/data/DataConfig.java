@@ -15,12 +15,16 @@ import org.springframework.context.annotation.Import;
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Configuration
-@Import(ServiceConfig.class)
-@ComponentScan(basePackageClasses={PrepareEnvironmentFacadeImpl.class})
+@ComponentScan
 public class DataConfig {
     
     @Autowired
     PrepareEnvironmentFacade environmentFacade;
+    
+ 
+    public void init(){
+        
+    }
     
     @PostConstruct
     public void dataLoading() {

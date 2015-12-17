@@ -29,7 +29,6 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     public void PrepareEnvironment() {
         Tire t1;
         t1 = new Tire();
-        t1.setId(1L);
         t1.setBrand("Barum");
         t1.setPrice(BigDecimal.valueOf(799.00));
         t1.setWidth(225);

@@ -4,6 +4,9 @@
  */
 package cz.muni.fi.pa165_pneuservis.data;
 
+import javax.transaction.Transactional;
+import org.springframework.stereotype.Component;
+
 /**
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
