@@ -20,7 +20,15 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 - Tools/Plugins/Available Plugins ... nájdi tomcat, nainštaluj Java EE Base, reštartuj netbeans 
 - Tools/Servers/Add Server/Apache Tomcat, server location = rozbalený archív Tomcatu, login:passwd = admin:admin
 - Services/Servers/Apache Tomcat/Start
-- Spustiť projekt a otvoriť web http://localhost:8080/PA165/
+- Spustiť projekt - modul REST a otvoriť web http://localhost:8080/PA165/rest/
+
+###Testovanie REST interface
+Functionality  | Curl command
+-------------- | -------------
+Get all tires  | curl -i -X GET http://localhost:8080/pa165/rest/tires
+Add new tire   | curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
+Show tire with specific id (id=1) |  curl -i -X GET http://localhost:8080/pa165/rest/tires/1
+Delete tire with specific id  |  curl -i -X DELETE http://localhost:8080/pa165/rest/tires/delete/1
 
 ###Use Case Diagram:
 
@@ -47,14 +55,14 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
    - [ ] Implement the user interface using Spring MVC or Angular JS. Spring MVC is preferred. 
    Angular will be covered at the last minute so it might not be the best choice for you if you are not familiar with it already.
    - [ ] The user interface should allow to carry out all business functions of your system.
-   - [ ] You should fill in all the necessary data automatically. So for example you can use Web Listener to load data during Web Application startup.
+   - [x] You should fill in all the necessary data automatically. So for example you can use Web Listener to load data during Web Application startup.
    - [ ] Make sure there are validations implemented on user interface.
    - [ ] Your user interface should use either Facade layer or REST layer to access the system. Do not directly access database and do not directly use Service layer.
    - [x] The web interface layer may reside in separate maven module (if this is helpful).
    - [ ] Each member of the team must implement (mostly independently, without copy­pasting) part of user interface. Including controller and view.
 - REST Layer:
-   - [ ] Your application should have a basic REST interface.
-   - [ ] At least one entity and operations on that entity must be exposed.
+   - [x] Your application should have a basic REST interface.
+   - [x] At least one entity and operations on that entity must be exposed.
    This is mainly to demonstrate you can implement this, it’s not necessary to have all application functions accessible through this interface.
    - [x] The REST must be accessible at http://localhost:8080/pa165/rest. It is not required to have the interface secured.
    - [ ] You should include a README file with instructions how to test the REST interface (e.g. CURL commands for command line)

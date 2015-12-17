@@ -1,3 +1,7 @@
+/*
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
+ */
 package cz.muni.fi.pa165_pneuservis.rest.config;
 
 import javax.servlet.Filter;
@@ -7,8 +11,8 @@ import org.springframework.web.filter.ShallowEtagHeaderFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
- *
- * @author Jozef.Sumaj
+ * 
+ * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class RestInit extends AbstractAnnotationConfigDispatcherServletInitializer {
     

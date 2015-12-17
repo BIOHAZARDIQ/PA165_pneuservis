@@ -15,11 +15,7 @@
                 <td style="font-weight:bold">Functionality</td> 
             </tr>
             <tr>
-                <td><a>./tires</a></td>
-                <td>Rest interface subpage for class Tire (no functionality)</td> 
-            </tr>
-            <tr>
-                <td><a href="./tires/list">./tires/list</a></td>
+                <td><a href="./tires">./tires</a></td>
                 <td>List of all tires in database</td> 
             </tr>
             <tr>
@@ -27,12 +23,16 @@
                 <td>List of all tires in database in HTML table format (only Id, Name, Price)</td> 
             </tr>
             <tr>
+                <td><a href="./tires/{id}">./tires/{id}</a></td>
+                <td>Tire with given id (replace {id} for id of tire)</td> 
+            </tr>
+            <tr>
                 <td>./tires/create</td>
                 <td>Ability to use curl to create new Tire with given parameters</td> 
             </tr>
             <tr>
-                <td><a href="./tires/id/{id}">./tires/id/{id}</a></td>
-                <td>Tire with given id (replace {id} for id of tire) (not working yet)</td> 
+                <td><a href="./tires/delete/{id}">./tires/delete/{id}</a></td>
+                <td>Ability to use curl to delete existing Tire with given id</td> 
             </tr>
         </table>
     </body>
