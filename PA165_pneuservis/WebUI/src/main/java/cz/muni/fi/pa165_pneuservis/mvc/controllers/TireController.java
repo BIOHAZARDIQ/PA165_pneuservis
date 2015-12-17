@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
- * 
+ * Tire MVC Controller
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Controller
@@ -56,7 +55,7 @@ public class TireController {
         }
         //create tire
         tireFacade.createTire(tire);
-        
+        redirectAttributes.addFlashAttribute("alert_success", "Tire was successfully created");
         return "redirect:" + uriBuilder.path("/tire/list").toUriString();
     }
 }

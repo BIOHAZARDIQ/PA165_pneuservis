@@ -3,20 +3,30 @@
  * For more informations see file README.md
  */
 package cz.muni.fi.pa165_pneuservis.dto;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 /**
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public class TireDTO extends ItemDTO {
 
-    @NotNull
-    @Size(min = 3, max = 50)
+    @NotNull(message = "Can't be empty")
+    @Size(min = 2, max = 32, message="Brand name must be between 2 and 32 characters")
     private String brand;
+    
+    @NotNull(message = "Can't be empty")
+    @Max(value = 1000, message = "Maximum is 1250")
+    @Min(value = 100, message = "Must at least 100")
     private Integer width;
+    
+    @NotNull(message = "Can't be empty")
+    @Max(value = 80, message = "Maximum is 80")
+    @Min(value = 30, message = "Must be at least 30")
     private Integer ratio;
+    
+    @NotNull(message = "Can't be empty")
+    @Max(value = 30, message = "Maximum is 30")
+    @Min(value = 10, message = "Must be at least 10")
     private Integer rim;
     
     public String getBrand() {

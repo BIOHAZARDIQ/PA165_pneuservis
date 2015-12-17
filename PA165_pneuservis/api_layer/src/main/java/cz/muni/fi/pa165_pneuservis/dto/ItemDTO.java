@@ -5,8 +5,7 @@
 package cz.muni.fi.pa165_pneuservis.dto;
 
 import java.math.BigDecimal;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 /**
  * @author Jozef Sumaj <374029@mail.muni.cz>
@@ -15,10 +14,15 @@ public abstract class ItemDTO {
     
     private Long id;
     
-    @NotNull
-    @Size(min = 3, max = 50)
+    @NotNull(message = "Can't be empty")
+    @Size(min = 2, max = 64, message="Tire name must be between 2 and 64 characters")
     private String name;
+    
+    @NotNull(message = "Can't be empty")
+    @Size(min = 2, max = 2048, message="Tire description must be between 2 and 2048 characters")
     private String description;
+    
+    @NotNull(message = "Can't be empty")
     private BigDecimal price;
     
     public Long getId() {

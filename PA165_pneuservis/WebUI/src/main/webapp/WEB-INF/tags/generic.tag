@@ -44,6 +44,15 @@
     </nav>
         
     <div class="container">
+        <c:if test="${not empty alert_success}">
+            <div class="alert alert-success alert-dismissible fade in" role="alert"> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <p><c:out value="${alert_success}"/></p>    
+            </div>
+        </c:if>
+        
         <!-- page body -->
         <jsp:invoke fragment="body"/>
 
