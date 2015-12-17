@@ -4,17 +4,20 @@
  */
 package cz.muni.fi.pa165_pneuservis.rest.controllers;
 
+import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
 import cz.muni.fi.pa165_pneuservis.dto.TireDTO;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
-import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -111,21 +114,54 @@ public class TireController {
     }    
     
     /**
-     * @param id Id of Tire to be found
-     * @return Tire found
+     * Get Tire by Id
+     * curl -i -X GET http://localhost:8080/pa165/rest/tires/1
+     * @param id Id of Tire
+     * @return Tire
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, headers = "Accept=text/html", produces = MediaType.APPLICATION_JSON_VALUE)
-    public TireDTO getTire(@PathVariable("id") long id) {               
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public final TireDTO getTire(@PathVariable("id") long id) {               
         return tireFacade.getTireById(id);
     }
     
     /**
-     * Creates new Tire with given parameters
-     * curl -X POST -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NameOfTire"}' http://localhost:8080/pa165/rest/tires/create
+     * Get list of Tires
+     * curl -i -X GET http://localhost:8080/pa165/rest/tires
+     * @return List of Tires in system
+     */
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public final List<TireDTO> getTires() {               
+        return tireFacade.findAllTires();
+    }
+    
+    /**
+     * Delete Tire
+     * curl -i -X DELETE http://localhost:8080/pa165/rest/tire/1
+     * @param id Id of Tire to be deleted
+     */
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public final void deleteTire(@PathVariable("id") long id) {               
+        tireFacade.deleteTire(tireFacade.getTireById(id));
+    }
+    
+    /**
+     * Update Tire
+     * curl -X UPDATE -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NEW NAME"}' http://localhost:8080/pa165/rest/update
+     * @param tire Updated Tire
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public final void updateTire(@RequestBody TireDTO tire) {
+        tireFacade.updateTire(tire);
+    }
+    
+    /**
+     * Create Tire
+     * curl -X POST -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NAME"}' http://localhost:8080/pa165/rest/tires/create
+     * @param tire Tire to be created
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public void getTire(@RequestBody Tire tire) {
-        Tires.add(tire);
+    public void createTire(@RequestBody TireDTO tire) {
+        tireFacade.createTire(tire);
     }
 }
