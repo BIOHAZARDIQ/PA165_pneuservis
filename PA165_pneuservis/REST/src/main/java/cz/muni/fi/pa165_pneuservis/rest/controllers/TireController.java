@@ -6,14 +6,7 @@ package cz.muni.fi.pa165_pneuservis.rest.controllers;
 
 import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
 import cz.muni.fi.pa165_pneuservis.dto.TireDTO;
-import cz.muni.fi.pa165_pneuservis.model.Tire;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -33,56 +26,6 @@ public class TireController {
     
     @Autowired
     private TireFacade tireFacade;
-    
-    static ArrayList<Tire> Tires;
-    static Random randomGenerator;
-    static String brand;
-    static Integer width;
-    static Integer ratio;
-    static Integer rim;
-    static String description;
-    static String name;
-    static Integer index;
-    static Double priceDouble;
-    static BigDecimal priceBigDecimal;
-    
-    static {
-        Tires = new ArrayList<>();
-        Tire tire = null;
-        
-        //List of names that will be randomly selected when creating Tires
-        ArrayList<String> tireBrand = new ArrayList<>(Arrays.asList("Michelin","Yokohama","Pirelli","Goodyear","Barum"));
-        ArrayList<Integer> tireWidth = new ArrayList<>(Arrays.asList(155,165,175,185,195));
-        ArrayList<Integer> tireRatio = new ArrayList<>(Arrays.asList(55,60,65,70,75));
-        ArrayList<Integer> tireRim = new ArrayList<>(Arrays.asList(14,15,16,17,18,19));
-        randomGenerator = new Random();
-        
-        //create 20 Tires with random parameters
-        for (long i = 1; i <= 20; i++) {
-            index = randomGenerator.nextInt(tireBrand.size());
-            brand = tireBrand.get(index);
-            index = randomGenerator.nextInt(tireWidth.size());
-            width = tireWidth.get(index);
-            index = randomGenerator.nextInt(tireRatio.size());
-            ratio = tireRatio.get(index);
-            index = randomGenerator.nextInt(tireRim.size());
-            rim = tireRim.get(index);
-            
-            //Composed tire name and description
-            name = brand+"/"+width+"/"+ratio+"/"+rim;
-            description = "This is "+brand+" tire with width:"+width+", ratio:"+ratio+" and rim:"+rim;
-            
-            //Random price from interval
-            double max_interval = 600;
-            double min_interval = 200;
-            priceDouble = Math.random() * (max_interval - min_interval) + min_interval;
-            priceBigDecimal = BigDecimal.valueOf(priceDouble).setScale(2, RoundingMode.CEILING);
-            
-            //create tire with random parameters
-            tire = new Tire(i, name, description, brand, width, ratio, rim, priceBigDecimal);
-            Tires.add(tire);
-        }
-    } 
 
     /**
      * Getting all Tires in html format (only id, name, price)
