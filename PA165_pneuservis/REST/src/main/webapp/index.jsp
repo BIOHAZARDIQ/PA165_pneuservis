@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <td><a href="./tires/delete/{id}">./tires/delete/{id}</a></td>
-                <td>Ability to use curl to delete existing Tire with given id</td> 
+                <td>Ability to use curl or webpage to delete existing Tire with given id</td> 
             </tr>
         </table>
     </body>

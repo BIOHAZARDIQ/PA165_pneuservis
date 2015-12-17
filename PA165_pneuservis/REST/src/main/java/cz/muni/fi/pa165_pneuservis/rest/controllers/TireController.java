@@ -81,6 +81,16 @@ public class TireController {
     public final void deleteTire(@PathVariable("id") long id) {               
         tireFacade.deleteTire(tireFacade.getTireById(id));
     }
+
+    /**
+     * Delete Tire
+     * curl -i -X GET http://localhost:8080/pa165/rest/tires/delete/1
+     * @param id Id of Tire to be deleted
+     */
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public final void deleteTireGet(@PathVariable("id") long id) {               
+        tireFacade.deleteTire(tireFacade.getTireById(id));
+    }
     
     /**
      * Update Tire

@@ -4,6 +4,7 @@
  */
 package cz.muni.fi.pa165_pneuservis.facade;
 
+import cz.muni.fi.pa165_pneuservis.dao.TireDao;
 import cz.muni.fi.pa165_pneuservis.dto.TireDTO;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
@@ -29,6 +30,9 @@ public class TireFacadeImpl implements TireFacade{
     @Autowired
     private BeanMappingService beanMappingService;
     
+    @Autowired
+    private TireDao tireDao;
+    
     @Override
     public void createTire(TireDTO tire){
         try{
@@ -43,7 +47,7 @@ public class TireFacadeImpl implements TireFacade{
     public List<TireDTO> findAllTires() {
         List<TireDTO> tires = null;
         try{
-            tires = beanMappingService.mapTo(tireService.findAllTires(TireSort.BRAND), 
+            tires = beanMappingService.mapTo(tireService.findAllTires(TireSort.PRICE), 
                     TireDTO.class);
         }catch(PneuBusinessException e)
         {
@@ -78,7 +82,9 @@ public class TireFacadeImpl implements TireFacade{
     @Override
     public void deleteTire(TireDTO tire) {
         try{
-            tireService.deleteTire(beanMappingService.mapTo(tire, Tire.class));
+            //tireService.deleteTire(beanMappingService.mapTo(tire, Tire.class));
+            //Workaround 
+            tireService.deleteTire(tireDao.findById(tire.getId()));
         }catch(PneuBusinessException e)
         {
             //TODO log, throw facade layer exception

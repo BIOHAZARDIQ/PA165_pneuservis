@@ -28,7 +28,7 @@ Functionality  | Curl command
 Get all tires  | curl -i -X GET http://localhost:8080/pa165/rest/tires
 Add new tire   | curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
 Show tire with specific id (id=1) |  curl -i -X GET http://localhost:8080/pa165/rest/tires/1
-Delete tire with specific id  |  curl -i -X DELETE http://localhost:8080/pa165/rest/tires/delete/1
+Delete tire with specific id (id=1) |  curl -i -X DELETE http://localhost:8080/pa165/rest/tires/delete/1
 
 ###Use Case Diagram:
 

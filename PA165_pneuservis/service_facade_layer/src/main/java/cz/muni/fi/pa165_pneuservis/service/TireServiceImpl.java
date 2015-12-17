@@ -70,6 +70,9 @@ public class TireServiceImpl implements TireService {
             case WIDTH:
                 Collections.sort(tires, new TireSortByWidthComp());
                 break;
+            default: 
+                Collections.sort(tires, new TireSortByPriceComp());
+                break;
         }
         return tires;
     }
