@@ -4,12 +4,10 @@
  */
 package cz.muni.fi.pa165_pneuservis.data;
 
-import cz.muni.fi.pa165_pneuservis.config.ServiceConfig;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 /**
  * @author Jozef Sumaj <374029@mail.muni.cz>
@@ -21,13 +19,8 @@ public class DataConfig {
     @Autowired
     PrepareEnvironmentFacade environmentFacade;
     
- 
-    public void init(){
-        
-    }
-    
     @PostConstruct
-    public void dataLoading() {
+    public void Load() {
         environmentFacade.PrepareEnvironment();
     }
 }
