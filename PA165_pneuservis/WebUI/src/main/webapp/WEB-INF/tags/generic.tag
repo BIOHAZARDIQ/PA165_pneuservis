@@ -47,6 +47,8 @@
         <!-- page body -->
         <jsp:invoke fragment="body"/>
 
+        <hr />
+        
         <!-- footer -->
         <footer class="footer">
             <p>PA165 Pneuservis &copy;&nbsp;<%=java.time.Year.now().toString()%>&nbsp;Masaryk University</p>

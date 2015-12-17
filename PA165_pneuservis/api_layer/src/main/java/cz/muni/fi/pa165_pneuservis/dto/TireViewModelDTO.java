@@ -1,6 +1,7 @@
 /*
- * Team project for course PA165 - Enterprise Applications in Java
- * For more informations see file README.md
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package cz.muni.fi.pa165_pneuservis.dto;
 
@@ -8,10 +9,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * @author Jozef Sumaj <374029@mail.muni.cz>
+ *
+ * @author Jozef.Sumaj
  */
-public class TireDTO extends ItemDTO {
-
+public class TireViewModelDTO extends ItemDTO {
+    
     @NotNull
     @Size(min = 3, max = 50)
     private String brand;
@@ -72,7 +74,7 @@ public class TireDTO extends ItemDTO {
             return false;
         }
         
-        TireDTO otherObject = (TireDTO)o;
+        TireViewModelDTO otherObject = (TireViewModelDTO)o;
         
         if(!this.getId().equals(otherObject.getId())){
             return false;
@@ -96,4 +98,5 @@ public class TireDTO extends ItemDTO {
         
         return true;
     }
+    
 }

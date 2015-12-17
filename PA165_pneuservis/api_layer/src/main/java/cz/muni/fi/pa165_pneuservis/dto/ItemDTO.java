@@ -5,6 +5,8 @@
 package cz.muni.fi.pa165_pneuservis.dto;
 
 import java.math.BigDecimal;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author Jozef Sumaj <374029@mail.muni.cz>
@@ -12,6 +14,9 @@ import java.math.BigDecimal;
 public abstract class ItemDTO {
     
     private Long id;
+    
+    @NotNull
+    @Size(min = 3, max = 50)
     private String name;
     private String description;
     private BigDecimal price;

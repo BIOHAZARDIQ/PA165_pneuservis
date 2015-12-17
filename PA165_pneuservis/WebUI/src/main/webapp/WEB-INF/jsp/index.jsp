@@ -18,6 +18,8 @@
         2. Select additional services
     </div>
     
+    <button type="button" class="btn btn-success">Place an order</button>
+    
     <hr/>
     
 </jsp:attribute>

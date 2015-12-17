@@ -10,7 +10,7 @@
 <t:generic title="Tires">
 <jsp:attribute name="body">
     
-    <a href="<c:url value="/" />">Create new Tire entry</a>
+    <a href="<c:url value="/tire/new" />">Create new Tire entry</a>
         
     <table class="table">
         <thead>
