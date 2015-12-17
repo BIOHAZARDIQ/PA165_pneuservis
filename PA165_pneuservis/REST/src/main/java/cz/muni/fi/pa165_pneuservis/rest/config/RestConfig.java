@@ -4,9 +4,7 @@
  */
 package cz.muni.fi.pa165_pneuservis.rest.config;
 
-import cz.muni.fi.pa165_pneuservis.rest.controllers.TireController;
 import cz.muni.fi.pa165_pneuservis.config.ServiceConfig;
-import cz.muni.fi.pa165_pneuservis.data.DataConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
