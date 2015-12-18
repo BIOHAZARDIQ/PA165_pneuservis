@@ -20,7 +20,5 @@
     
     <button type="button" class="btn btn-success">Place an order</button>
     
-    <hr/>
-    
 </jsp:attribute>
 </t:generic>
