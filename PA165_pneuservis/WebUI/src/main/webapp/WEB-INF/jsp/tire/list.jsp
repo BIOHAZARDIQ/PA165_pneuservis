@@ -10,9 +10,8 @@
 <t:generic title="Tires">
 <jsp:attribute name="body">
     
-    <a href="<c:url value="/tire/new" />">Create new Tire entry</a>
-        
     <table class="table">
+        <caption>List of available tires</caption>
         <thead>
         <tr>
             <th>Id</th>
@@ -50,6 +49,8 @@
         </tbody>
     </table>
     
+    <a href="<c:url value="/tire/new" />" type="button" class="btn btn-info btn-sm">Create new tire</a>
+    
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -61,8 +62,8 @@
                     <p>Do you want to delete this tire entry?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <a type="button" class="btn btn-danger">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-danger btn-sm">
                         Delete
                     </a>
                 </div>
