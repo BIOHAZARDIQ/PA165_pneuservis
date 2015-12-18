@@ -17,6 +17,7 @@
                     <th>Total price</th>
                     <th>Date created</th>
                     <th>Date completed</th>
+                    <th>Customer email</th>
                     <th>Customer name</th>
                     
                 </tr>
@@ -28,6 +29,7 @@
                          <td><c:out value="${orders[i.index].totalPrice}"/></td>
                          <td><c:out value="${orders[i.index].createDate}"/></td>
                          <td><c:out value="${orders[i.index].completeDate}"/></td>
+                         <td><c:out value="${customers[i.index].email}"/></td>
                          <td><c:out value="${customers[i.index].firstName} ${customers[i.index].lastName}"/></td>
 
                      </tr>

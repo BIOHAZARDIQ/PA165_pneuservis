@@ -95,7 +95,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         ArrayList<String> custLastName = new ArrayList<>(Arrays.asList("Horky","Studeny","Tmavy","Bledy","Zeleny"));
         ArrayList<String> custStreetName = new ArrayList<>(Arrays.asList("Vodova","Pekna","Hladka ulica","Krasna","Namestie mesta"));
         ArrayList<String> custCity = new ArrayList<>(Arrays.asList("Brno","Praha","Hradec Kralove","Breclav","Ostrava"));
-        ArrayList<String> custDomain = new ArrayList<>(Arrays.asList("@gmail.com","@seznam.cz","@mail.ru","@email.com","@securemail.net"));
+        ArrayList<String> custMail = new ArrayList<>(Arrays.asList("franta@gmail.com","jitka@seznam.cz","dmitrij@mail.ru","adam@email.com","user@securemail.net"));
         ArrayList<String> custPostal = new ArrayList<>(Arrays.asList("61200","61300","12300","81500","74000"));
            
         Tire tire = null;
@@ -168,10 +168,9 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             number = (int)(Math.random() * 200000000) + 700000000;
             phoneNumber = "+420"+number;
             
-            //Random e-mail. Will be composed from random string + random domain
-            mailAddr = new BigInteger(40, secureRandom).toString(32);
-            index = randomGenerator.nextInt(custDomain.size());
-            email = mailAddr + custDomain.get(index);
+            //Random e-mail.
+            index = randomGenerator.nextInt(custMail.size());
+            email = custMail.get(index);
             
             //create tire with random parameters
             customer.setFirstName(firstName);
@@ -216,8 +215,8 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         }
         
         
-        //create 10 Orders with random parameters
-        for (long i = 1; i <= 10; i++) {
+        //create 20 Orders with random parameters
+        for (long i = 1; i <= 20; i++) {
             order = new Order();
             
             Random  rnd;

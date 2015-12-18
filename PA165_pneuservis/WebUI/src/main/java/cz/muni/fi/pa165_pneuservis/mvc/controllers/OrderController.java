@@ -46,7 +46,7 @@ public class OrderController {
                     OrderDTO order = orderIterator.next();
                 }
                 CustomerDTO customer = iterator.next();
-                if (!customer.getLastName().equals("Zeleny")) {
+                if (!customer.getEmail().equals("user@securemail.net")) {
                     orderIterator.remove();
                     iterator.remove();
                 } 
