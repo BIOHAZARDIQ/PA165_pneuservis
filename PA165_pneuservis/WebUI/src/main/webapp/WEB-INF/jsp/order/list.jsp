@@ -24,13 +24,13 @@
             <tbody>
                 <c:forEach items="${orders}" varStatus="i">
                     <tr>
-                        <td>${order[i.index].id}</td>
-                        <td><c:out value="${orders[i.index].totalPrice}"/></td>
-                        <td><c:out value="${orders[i.index].createDate}"/></td>
-                        <td><c:out value="${orders[i.index].completeDate}"/></td>
-                        <td><c:out value="${customers[i.index].firstName} ${customers[i.index].lastName}"/></td>
-                        
-                    </tr>
+                         <td>${order[i.index].id}</td>
+                         <td><c:out value="${orders[i.index].totalPrice}"/></td>
+                         <td><c:out value="${orders[i.index].createDate}"/></td>
+                         <td><c:out value="${orders[i.index].completeDate}"/></td>
+                         <td><c:out value="${customers[i.index].firstName} ${customers[i.index].lastName}"/></td>
+
+                     </tr>
                 </c:forEach>
             </tbody>
         </table>

@@ -8,8 +8,10 @@ package cz.muni.fi.pa165_pneuservis.mvc.controllers;
 import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
 import cz.muni.fi.pa165_pneuservis.facade.OrderFacade;
+import cz.muni.fi.pa165_pneuservis.mvc.servlets.UserLogged;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +37,23 @@ public class OrderController {
         for(OrderDTO order : orders){
             customers.add(order.getCustomer());
         }
+        
+        if(UserLogged.usernameLogged.equals("user")){
+            int i = 0;
+            Iterator<OrderDTO> orderIterator = orders.iterator();
+            for (Iterator<CustomerDTO> iterator = customers.iterator(); iterator.hasNext(); i++) {
+                if(orderIterator.hasNext()){
+                    OrderDTO order = orderIterator.next();
+                }
+                CustomerDTO customer = iterator.next();
+                if (!customer.getLastName().equals("Zeleny")) {
+                    orderIterator.remove();
+                    iterator.remove();
+                } 
+            }
+        }
+
+        
         model.addAttribute("orders", orders);
         model.addAttribute("customers", customers);
         return "order/list";

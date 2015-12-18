@@ -47,6 +47,12 @@ public class BothAccessFilter implements Filter {
             log.warn("wrong credentials: user={} password={}",creds[0],creds[1]);
             response401(response);
             return;
+        } else if ((USERNAME1.equals(creds[0]) && PASSWORD1.equals(creds[1]))){
+            //request.getSession().setAttribute("loggedInUser", "user");
+            UserLogged.usernameLogged = "user";
+        } else {
+            //request.getSession().setAttribute("loggedInUser", "admin");
+            UserLogged.usernameLogged = "admin";
         }
         chain.doFilter(request, response);
     }
