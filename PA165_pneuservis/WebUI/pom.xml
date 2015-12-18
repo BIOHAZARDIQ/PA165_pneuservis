@@ -76,6 +76,7 @@
                 <version>2.2</version>
                 <configuration>
                     <path>/pa165</path>
+                    <tomcatUsers>tomcat-users.xml</tomcatUsers>
                 </configuration>
             </plugin>
         </plugins>
