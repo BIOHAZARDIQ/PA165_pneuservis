@@ -203,7 +203,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             priceBigDecimal = BigDecimal.valueOf(priceDouble).setScale(2, RoundingMode.CEILING);
             
             //Composed tire name and description
-            name = serviceType + "-" + priceBigDecimal;
+            name = serviceType.toString();
             description = serviceType + " service for price " + priceBigDecimal + " for your vehicle";
             
             service.setServiceType(serviceType);
