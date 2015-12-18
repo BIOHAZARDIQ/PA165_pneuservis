@@ -31,6 +31,10 @@
                 <td>Ability to use curl to create new Tire with given parameters</td> 
             </tr>
             <tr>
+                <td>./tires/update/{id}</td>
+                <td>Ability to use curl to update new Tire with given parameters and given id</td> 
+            </tr>
+            <tr>
                 <td><a href="./tires/delete/{id}">./tires/delete/{id}</a></td>
                 <td>Ability to use curl or webpage to delete existing Tire with given id</td> 
             </tr>
@@ -41,6 +45,10 @@
             <tr>
                 <td><a href="./services">./services</a></td>
                 <td>List of all services in database</td> 
+            </tr>
+            <tr>
+                <td><a href="./orders">./orders</a></td>
+                <td>List of all orders in database</td> 
             </tr>
         </table>
     </body>

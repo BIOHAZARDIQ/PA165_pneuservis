@@ -6,6 +6,7 @@ package cz.muni.fi.pa165_pneuservis.rest.controllers;
 
 import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
 import cz.muni.fi.pa165_pneuservis.dto.TireDTO;
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.http.MediaType;
@@ -93,18 +94,63 @@ public class TireController {
     }
     
     /**
-     * Update Tire
-     * curl -X PUT -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NEW NAME"}' http://localhost:8080/pa165/rest/update
-     * @param tireDto
+     * Update Tire with given parameters
+     * Id of Tire to be updated is from PathVariable, not from TireDTO given
+     * curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW NAME"}' http://localhost:8080/pa165/rest/update/1
+     * curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW_NAME","witdh":155,"rim":17,"ratio":55,"description":"NEW_DESCRIPTION","brand":"NEW_BRAND","price":199.90}' http://localhost:8080/pa165/rest/update/3
+     * @param id Id of Tire to be updated
+     * @param tireDto parameters to be updated
      */
-    @RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public final void updateTire(@RequestBody TireDTO tireDto) {
-        tireFacade.updateTire(tireDto);
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public final void updateTire(@PathVariable("id") long id, @RequestBody TireDTO tireDto) {
+        
+        TireDTO updatedTire = tireFacade.getTireById(id);
+        
+        //if Tire with given ID does not exist, skip updating
+        if (updatedTire == null)
+            return;
+        
+        //If brand is filled, update it. Otherwise do not change
+        if(tireDto.getBrand() != null) {
+            updatedTire.setBrand(tireDto.getBrand());
+        }
+
+        //If price is filled, update it. Otherwise do not change
+        if(tireDto.getPrice() != null) {
+            updatedTire.setPrice(tireDto.getPrice());
+        }
+
+        //If name is filled, update it. Otherwise do not change
+        if(tireDto.getName() != null) {
+            updatedTire.setName(tireDto.getName());
+        }
+
+        //If description is filled, update it. Otherwise do not change
+        if(tireDto.getDescription() != null) {
+            updatedTire.setDescription(tireDto.getDescription());
+        }
+        
+        //If ratio is filled, update it. Otherwise do not change
+        if(tireDto.getRatio() != null) {
+            updatedTire.setRatio(tireDto.getRatio());
+        }
+        
+        //If rim is filled, update it. Otherwise do not change
+        if(tireDto.getRim() != null) {
+            updatedTire.setRim(tireDto.getRim());
+        }
+        
+        //If width is filled, update it. Otherwise do not change
+        if(tireDto.getWidth() != null) {
+            updatedTire.setWidth(tireDto.getWidth());
+        }
+        
+        tireFacade.updateTire(updatedTire);
     }
     
     /**
      * Create Tire
-     * curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
+     * curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":"description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
      * @param tire Tire to be created
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
