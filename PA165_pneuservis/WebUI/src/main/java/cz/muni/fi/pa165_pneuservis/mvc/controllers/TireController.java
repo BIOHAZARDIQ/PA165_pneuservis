@@ -31,6 +31,11 @@ public class TireController {
     @Autowired
     private TireFacade tireFacade;
     
+    /**
+     * Action to show all tires
+     * @param model
+     * @return View with list of tires
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listTires(Model model) {
         List<TireDTO> tires = tireFacade.findAllTires();
@@ -38,12 +43,26 @@ public class TireController {
         return "tire/list";
     }
     
+    /**
+     * Action to show new tire form
+     * @param model
+     * @return View with new tire form
+     */
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newTire(Model model) {
         model.addAttribute("tire", new TireDTO());
         return "tire/new";
     }
     
+    /**
+     * Action to process new tire form
+     * @param tire
+     * @param result
+     * @param m
+     * @param redirectAttributes
+     * @param uriBuilder
+     * @return View with list of tires with success message if validation passes, otherwise validation errors
+     */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String newTire(@Valid @ModelAttribute("tire") TireDTO tire, BindingResult result, 
             Model m, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
@@ -60,6 +79,12 @@ public class TireController {
         return "redirect:" + uriBuilder.path("/tire/list").toUriString();
     }
     
+    /**
+     * Action to show edit tire form
+     * @param m
+     * @param id Id of tire to be edited
+     * @return View with edit tire form with pre-filled values
+     */
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editTire(Model m, @PathVariable("id") long id) {
         TireDTO tireToBeEdited = tireFacade.getTireById(id);
@@ -67,6 +92,15 @@ public class TireController {
         return "tire/edit";
     }
     
+    /**
+     * Action to process edit tire form
+     * @param tire
+     * @param result
+     * @param m
+     * @param redirectAttributes
+     * @param uriBuilder
+     * @return View with list of tires with success message if validation passes, otherwise validation errors
+     */
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editTire(@Valid @ModelAttribute("tire") TireDTO tire, BindingResult result, 
             Model m, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
@@ -83,9 +117,17 @@ public class TireController {
         return "redirect:" + uriBuilder.path("/tire/list").toUriString();
     }
     
+    /**
+     * Action to process delete tire form
+     * @param id Id of tire to be deleted
+     * @param redirectAttributes
+     * @param uriBuilder
+     * @return View with list of tires
+     */
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteTire(@PathVariable("id") long id, 
             RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
+        
         //delete tire
         TireDTO tireToBeDeleted = tireFacade.getTireById(id);
         tireFacade.deleteTire(tireToBeDeleted);
