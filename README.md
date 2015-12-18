@@ -33,6 +33,7 @@ Delete tire with specific id (id=1) |  curl -i -X DELETE http://localhost:8080/p
 Update tire with specific id (id=1) |  curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW_NAME","witdh":155,"rim":17,"ratio":55,"description":"NEW_DESCRIPTION","brand":"NEW_BRAND","price":199.90}' http://localhost:8080/pa165/rest/update/1
 Get all customers   | curl -i -X GET http://localhost:8080/pa165/rest/customers
 Get all services    | curl -i -X GET http://localhost:8080/pa165/rest/services
+Get all orders      | curl -i -X GET http://localhost:8080/pa165/rest/orders
 
 ###Use Case Diagram:
 
