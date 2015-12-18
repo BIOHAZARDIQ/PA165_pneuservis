@@ -11,7 +11,7 @@
 <t:generic title="Services">
     <jsp:attribute name="body">
         
-        <a href="<c:url value="/" />">Create new Service entry</a>
+        <a href="<c:url value="/service/new" />">Create new Service entry</a>
         
         <table class="table">
             <thead>
