@@ -7,11 +7,17 @@ package cz.muni.fi.pa165_pneuservis.mvc.controllers;
 import cz.muni.fi.pa165_pneuservis.dto.ServiceDTO;
 import cz.muni.fi.pa165_pneuservis.facade.ServiceFacade;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -25,9 +31,31 @@ public class ServiceController {
     private ServiceFacade serviceFacade;
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(Model model) {
+    public String listServices(Model model) {
         List<ServiceDTO> services = serviceFacade.findAllService();
         model.addAttribute("services", services);
         return "service/list";
+    }
+    
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String newService(Model model) {
+        model.addAttribute("service", new ServiceDTO());
+        return "service/new";
+    }
+    
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public String create(@Valid @ModelAttribute("service") ServiceDTO service, BindingResult result,
+            Model m, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
+        
+        if (result.hasErrors()) {
+            for (FieldError fieldError : result.getFieldErrors()) {
+                m.addAttribute(fieldError.getField() + "_error", true);
+            }
+            return "service/new";
+        }
+        
+        serviceFacade.createService(service);
+        redirectAttributes.addFlashAttribute("alert_success", "Service was successfully created");
+        return "redirect:" + uriBuilder.path("/service/list").toUriString();
     }
 }
