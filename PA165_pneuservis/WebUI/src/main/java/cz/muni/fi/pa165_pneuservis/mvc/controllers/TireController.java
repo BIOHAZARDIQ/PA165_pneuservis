@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
- * Tire MVC Controller
+ * Home MVC Controller
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Controller
