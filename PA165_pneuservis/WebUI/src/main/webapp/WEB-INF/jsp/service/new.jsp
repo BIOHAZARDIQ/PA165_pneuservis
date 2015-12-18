@@ -14,13 +14,15 @@
         
         <form:form method="post" action="${pageContext.request.contextPath}/service/create"
                    modelAttribute="service" cssClass="form-horizontal">
-            <div>
+<!--            <div>
                 <h6>Service type must be one of: TireChange, TireMaintenance, TireTelemetry, RimCleaning, WindowCleaning, BrakeRepair, LightsCleaning, InteriorCleaning</h6>
-            </div>
+            </div>-->
             <div class="form-group ${serviceType_error?'has-error':''}">
                 <form:label path="serviceType" cssClass="col-sm-2 control-label">Type</form:label>
                     <div class="col-sm-4">
-                    <form:input path="serviceType" cssClass="form-control"/>
+                    <form:select path="serviceType">
+                        <form:options items="${serviceTypes}" />
+                    </form:select>
                     <form:errors path="serviceType" cssClass="help-block"/>
                 </div>
             </div>

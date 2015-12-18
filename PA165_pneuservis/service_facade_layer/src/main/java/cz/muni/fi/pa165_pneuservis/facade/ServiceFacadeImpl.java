@@ -33,12 +33,12 @@ public class ServiceFacadeImpl implements ServiceFacade{
 
     @Override
     public void createService(ServiceDTO serviceDTO) {
-        serviceService.createService((cz.muni.fi.pa165_pneuservis.model.Service) beanMappingService.mapTo(serviceDTO, Service.class));
+        serviceService.createService(beanMappingService.mapTo(serviceDTO, cz.muni.fi.pa165_pneuservis.model.Service.class));
     }
     
     @Override
     public void updateService(ServiceDTO serviceDTO) {
-        serviceService.updateService((cz.muni.fi.pa165_pneuservis.model.Service) beanMappingService.mapTo(serviceDTO, Service.class));
+        serviceService.updateService(beanMappingService.mapTo(serviceDTO, cz.muni.fi.pa165_pneuservis.model.Service.class));
     }
 
     @Override

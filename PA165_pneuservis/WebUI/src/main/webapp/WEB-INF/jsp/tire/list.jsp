@@ -23,6 +23,7 @@
             <th>Ratio</th>
             <th>Rim</th>
             <th>Price</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -36,10 +37,45 @@
                 <td>${tire.ratio}</td>
                 <td>${tire.rim}</td>
                 <td>${tire.price}</td>
-            </tr>
+                <td>
+                    <a href="<c:url value="/tire/edit/${tire.id}" />" type="button" class="btn btn-warning btn-xs">                    
+                       <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a type="button" class="btn btn-default btn-xs open-Modal" data-toggle="modal" data-id="${tire.id}" data-target=".bs-example-modal-sm">
+                        <span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>                       
+            </tr>        
         </c:forEach>
         </tbody>
     </table>
+    
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Confirm tire removal</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to delete this tire entry?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-danger">
+                        Delete
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </jsp:attribute>
 </t:generic>
+    
+<script>
+$(document).on("click", ".open-Modal", function () {
+    var tireId = $(this).data('id');
+    $(".modal-footer a").attr('href', 'delete/' + parseInt(tireId) );
+});
+</script>
