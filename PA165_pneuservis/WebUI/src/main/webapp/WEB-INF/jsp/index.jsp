@@ -9,7 +9,7 @@
 
 <t:generic title="Pneuservis">
 <jsp:attribute name="body">
-    
+
     <div class="well well-sm">
         1. Start with selecting a set of tires for your vehicle
     </div>

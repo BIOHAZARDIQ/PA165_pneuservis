@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
- * @author Filip Meszaros <436321@mail.muni.cz>
+ * @author Filip Meszaros as <436321@mail.muni.cz>
  */
 @Controller
 @RequestMapping("/service")
