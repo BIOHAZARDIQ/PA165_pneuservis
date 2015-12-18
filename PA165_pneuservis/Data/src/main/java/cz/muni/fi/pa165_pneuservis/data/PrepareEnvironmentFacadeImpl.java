@@ -100,6 +100,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
            
         Tire tire = null;
         Customer customer = null;
+        ArrayList<Customer> customers = new ArrayList<Customer>();
         Service service = null;
         Order order = null;
         randomGenerator = new Random();
@@ -185,6 +186,8 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             //Password for Customer will be always containing firstName of customer -> "heslo{firstName}"
             customer.setPassword("heslo" + firstName);
             
+            customers.add(customer);
+            
             customerService.createCustomer(customer);
         }
         
@@ -232,7 +235,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             priceBigDecimal = BigDecimal.valueOf(priceDouble).setScale(2, RoundingMode.CEILING);
                         
             order.setTotalPrice(priceBigDecimal);
-            order.setCustomer(customer);
+            order.setCustomer(customers.get((int)i % customers.size()-1));
             order.setCreateDate(dt);
             order.setCompleteDate(dt2);
             

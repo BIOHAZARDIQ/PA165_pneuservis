@@ -17,15 +17,19 @@
                     <th>Total price</th>
                     <th>Date created</th>
                     <th>Date completed</th>
+                    <th>Customer name</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${orders}" var="order">
+                <c:forEach items="${orders}" varStatus="i">
                     <tr>
-                        <td>${order.id}</td>
-                        <td><c:out value="${order.totalPrice}"/></td>
-                        <td><c:out value="${order.createDate}"/></td>
-                        <td><c:out value="${order.completeDate}"/></td>
+                        <td>${order[i.index].id}</td>
+                        <td><c:out value="${orders[i.index].totalPrice}"/></td>
+                        <td><c:out value="${orders[i.index].createDate}"/></td>
+                        <td><c:out value="${orders[i.index].completeDate}"/></td>
+                        <td><c:out value="${customers[i.index].firstName} ${customers[i.index].lastName}"/></td>
+                        
                     </tr>
                 </c:forEach>
             </tbody>

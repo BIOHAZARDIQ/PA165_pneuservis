@@ -5,9 +5,12 @@
  */
 package cz.muni.fi.pa165_pneuservis.mvc.controllers;
 
+import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
 import cz.muni.fi.pa165_pneuservis.facade.OrderFacade;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +31,12 @@ public class OrderController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
         Collection<OrderDTO> orders = orderFacade.getAllOrders();
+        List<CustomerDTO> customers = new ArrayList<CustomerDTO>();
+        for(OrderDTO order : orders){
+            customers.add(order.getCustomer());
+        }
         model.addAttribute("orders", orders);
+        model.addAttribute("customers", customers);
         return "order/list";
     }
 }
