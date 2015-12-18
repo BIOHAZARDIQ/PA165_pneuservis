@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 
 import static cz.muni.fi.pa165_pneuservis.service.helper.ServiceTestHelper.toList;
-import cz.muni.fi.pa165_pneuservis.sort.TireSort;
+import cz.muni.fi.pa165_pneuservis.enums.TireSort;
 import java.util.List;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.doReturn;
@@ -53,14 +53,14 @@ public class TireFacadeImplTest {
         TireDTO dto1 = new TireDTO();
         TireDTO dto2 = new TireDTO();
         
-        doReturn(toList(new Tire[]{t1,t2})).when(tireServiceMock).findAllTires(TireSort.PRICE);
+        doReturn(toList(new Tire[]{t1,t2})).when(tireServiceMock).findAllTires(TireSort.PRICE, true);
         doReturn(toList(new TireDTO[]{dto1,dto2})).when(beanMappingServiceMock)
                 .mapTo(Matchers.anyListOf(Tire.class),(Class<?>)Matchers.any(Class.class));
         
         List<TireDTO> tiresDTO = facade.findAllTires();
         Assert.assertEquals(tiresDTO.size(), 2);
         
-        verify(tireServiceMock).findAllTires(TireSort.PRICE);
+        verify(tireServiceMock).findAllTires(TireSort.PRICE, true);
         verifyNoMoreInteractions(tireServiceMock);
     }
 }

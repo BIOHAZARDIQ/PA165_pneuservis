@@ -10,7 +10,7 @@ import cz.muni.fi.pa165_pneuservis.model.Tire;
 import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
 import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
 import cz.muni.fi.pa165_pneuservis.service.TireService;
-import cz.muni.fi.pa165_pneuservis.sort.TireSort;
+import cz.muni.fi.pa165_pneuservis.enums.TireSort;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +47,20 @@ public class TireFacadeImpl implements TireFacade{
     public List<TireDTO> findAllTires() {
         List<TireDTO> tires = null;
         try{
-            tires = beanMappingService.mapTo(tireService.findAllTires(TireSort.PRICE), 
+            tires = beanMappingService.mapTo(tireService.findAllTires(TireSort.PRICE, true), 
+                    TireDTO.class);
+        }catch(PneuBusinessException e)
+        {
+            //TODO log, throw facade layer exception
+        }
+        return tires;
+    }
+    
+    @Override
+    public List<TireDTO> findAllTiresSorted(TireSort sort, boolean asc) {
+        List<TireDTO> tires = null;
+        try{
+            tires = beanMappingService.mapTo(tireService.findAllTires(sort, asc), 
                     TireDTO.class);
         }catch(PneuBusinessException e)
         {
@@ -89,5 +102,5 @@ public class TireFacadeImpl implements TireFacade{
         {
             //TODO log, throw facade layer exception
         }
-    }   
+    }
 }

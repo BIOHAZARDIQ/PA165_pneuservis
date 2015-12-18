@@ -5,6 +5,7 @@
 package cz.muni.fi.pa165_pneuservis.mvc.controllers;
 
 import cz.muni.fi.pa165_pneuservis.dto.TireDTO;
+import cz.muni.fi.pa165_pneuservis.enums.TireSort;
 import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
 import java.util.List;
 import javax.validation.Valid;
@@ -33,13 +34,30 @@ public class TireController {
     
     /**
      * Action to show all tires
-     * @param model
+     * @param m
+     * @param sortBy
+     * @param asc
      * @return View with list of tires
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String listTires(Model model) {
-        List<TireDTO> tires = tireFacade.findAllTires();
-        model.addAttribute("tires", tires);
+    public String listTires(Model m, String sortBy, String asc) {
+        if(sortBy == null) {
+            m.addAttribute("tires", tireFacade.findAllTires());
+            return "tire/list";
+        }
+        TireSort sort = TireSort.valueOf(sortBy.toUpperCase());
+        List<TireDTO> tires = null;
+        if(asc == null) // descending
+        {
+            tires = tireFacade.findAllTiresSorted(sort,false);
+        }
+        else
+        {
+            tires = tireFacade.findAllTiresSorted(sort,true);
+            m.addAttribute("asc", true);
+        }        
+        m.addAttribute("sortBy", sortBy);
+        m.addAttribute("tires", tires);
         return "tire/list";
     }
     

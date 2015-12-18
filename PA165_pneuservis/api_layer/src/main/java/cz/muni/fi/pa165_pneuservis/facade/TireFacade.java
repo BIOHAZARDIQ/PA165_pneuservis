@@ -5,6 +5,7 @@
 package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.TireDTO;
+import cz.muni.fi.pa165_pneuservis.enums.TireSort;
 import java.util.List;
 
 /**
@@ -19,10 +20,18 @@ public interface TireFacade {
     void createTire(TireDTO tire);
     
     /**
-     * Retrieves all Tires in system sorted
+     * Retrieves all Tires in system sorted by price
      * @return List of Tires
      */
     List<TireDTO> findAllTires();
+    
+    /**
+     * Retrieves all Tires in system sorted
+     * @param sort Sort by
+     * @param asc Ascending?
+     * @return List of Tires
+     */
+    List<TireDTO> findAllTiresSorted(TireSort sort, boolean asc);
     
     /**
      * Retrieves Tire by it's identifier

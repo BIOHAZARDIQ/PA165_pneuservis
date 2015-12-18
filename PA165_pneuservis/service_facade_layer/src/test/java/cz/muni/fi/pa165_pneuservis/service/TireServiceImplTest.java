@@ -7,7 +7,7 @@ package cz.muni.fi.pa165_pneuservis.service;
 import cz.muni.fi.pa165_pneuservis.dao.TireDao;
 import cz.muni.fi.pa165_pneuservis.dao.PneuDAOException;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
-import cz.muni.fi.pa165_pneuservis.sort.TireSort;
+import cz.muni.fi.pa165_pneuservis.enums.TireSort;
 
 import org.mockito.MockitoAnnotations;
 import org.mockito.InjectMocks;
@@ -73,7 +73,7 @@ public class TireServiceImplTest {
     
     @Test
     public void testFindAllTiresSortByPrice() throws PneuBusinessException{
-        List<Tire> tires = service.findAllTires(TireSort.PRICE);
+        List<Tire> tires = service.findAllTires(TireSort.PRICE, true);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
         Assert.assertEquals(tires.get(0).getId(), t3.getId()); //contin first
@@ -82,7 +82,7 @@ public class TireServiceImplTest {
     
     @Test
     public void testFindAllTiresSortByBrand() throws PneuBusinessException{
-        List<Tire> tires = service.findAllTires(TireSort.BRAND);
+        List<Tire> tires = service.findAllTires(TireSort.BRAND, true);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
         Assert.assertEquals(tires.get(0).getId(), t1.getId()); //barum first
@@ -91,7 +91,7 @@ public class TireServiceImplTest {
         
     @Test
     public void testFindAllTiresSortByRim() throws PneuBusinessException{
-        List<Tire> tires = service.findAllTires(TireSort.RIM);
+        List<Tire> tires = service.findAllTires(TireSort.RIM, true);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
         Assert.assertEquals(tires.get(0).getId(), t3.getId()); //contin first
@@ -100,7 +100,7 @@ public class TireServiceImplTest {
     
     @Test
     public void testFindAllTiresSortByWidth() throws PneuBusinessException{
-        List<Tire> tires = service.findAllTires(TireSort.WIDTH);
+        List<Tire> tires = service.findAllTires(TireSort.WIDTH, true);
         verify(tireDaoMock).findAll();
         verifyNoMoreInteractions(tireDaoMock);
         Assert.assertEquals(tires.get(0).getId(), t3.getId()); //contin first

@@ -5,7 +5,7 @@
  */
 package cz.muni.fi.pa165_pneuservis.service;
 
-import cz.muni.fi.pa165_pneuservis.sort.TireSort;
+import cz.muni.fi.pa165_pneuservis.enums.TireSort;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import java.util.List;
 
@@ -27,7 +27,7 @@ public interface TireService {
      * @return List of Tires
      * @throws PneuBusinessException
      */
-    List<Tire> findAllTires(TireSort sort) throws PneuBusinessException;
+    List<Tire> findAllTires(TireSort sort, boolean asc) throws PneuBusinessException;
     
     /**
      * Retrieves Tire by it's identifier
