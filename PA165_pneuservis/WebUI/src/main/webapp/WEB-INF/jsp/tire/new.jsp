@@ -11,6 +11,9 @@
 <t:generic title="New Tire">
 <jsp:attribute name="body">
 
+    <h4>Create new tire</h4>    
+    <br>
+    
     <form:form method="post" action="${pageContext.request.contextPath}/tire/create"
                modelAttribute="tire" cssClass="form-horizontal">
         <div class="form-group ${brand_error?'has-error':''}">
@@ -38,6 +41,7 @@
             <form:label path="width" cssClass="col-sm-2 control-label">Width</form:label>
             <div class="col-sm-2">
                 <form:input path="width" cssClass="form-control"/>
+                <span id="helpBlock" class="help-block">Width of the tire (mm)</span>
                 <form:errors path="width" cssClass="help-block"/>
             </div>
         </div>
@@ -45,6 +49,7 @@
             <form:label path="ratio" cssClass="col-sm-2 control-label">Ratio</form:label>
             <div class="col-sm-2">
                 <form:input path="ratio" cssClass="form-control"/>
+                <span id="helpBlock" class="help-block">Aspect ratio (%)</span>
                 <form:errors path="ratio" cssClass="help-block"/>
             </div>
         </div>
@@ -52,6 +57,7 @@
             <form:label path="rim" cssClass="col-sm-2 control-label">Rim</form:label>
             <div class="col-sm-2">
                 <form:input path="rim" cssClass="form-control"/>
+                <span id="helpBlock" class="help-block">Rim diameter (inches)</span>
                 <form:errors path="rim" cssClass="help-block"/>
             </div>
         </div>
@@ -59,15 +65,21 @@
             <form:label path="price" cssClass="col-sm-2 control-label">Price</form:label>
             <div class="col-sm-2">
                 <form:input path="price" cssClass="form-control"/>
-                <form:errors path="price" cssClass="help-block"/>
+                <span id="helpBlock" class="help-block">Total amount (€)</span>
+                <form:errors path="price" cssClass="help-block"/>                
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-2">
-                <button class="btn btn-primary" type="submit">Create Tire</button>
-            </div>                            
+                <button class="btn btn-info btn-sm" type="submit">Submit</button>
+            </div>  
         </div>
     </form:form>
+    
+    <p>
+        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+        <a href="<c:url value="/tire/list" />" >Return to list of tires</a>
+    </p>
 
 </jsp:attribute>
 </t:generic>

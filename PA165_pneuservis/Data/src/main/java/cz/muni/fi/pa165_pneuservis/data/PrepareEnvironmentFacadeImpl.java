@@ -105,8 +105,8 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         Order order = null;
         randomGenerator = new Random();
         
-        //create 30 Tires with random parameters
-        for (long i = 1; i <= 30; i++) {
+        //create 10 Tires with random parameters
+        for (long i = 1; i <= 10; i++) {
             tire = new Tire();
             
             index = randomGenerator.nextInt(tireBrand.size());
