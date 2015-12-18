@@ -95,7 +95,7 @@ public class TireController {
     /**
      * Update Tire
      * curl -X PUT -i -H "Content-Type: application/json" --data '{"id":1234,"name":"NEW NAME"}' http://localhost:8080/pa165/rest/update
-     * @param tire Updated Tire
+     * @param tireDto
      */
     @RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public final void updateTire(@RequestBody TireDTO tireDto) {

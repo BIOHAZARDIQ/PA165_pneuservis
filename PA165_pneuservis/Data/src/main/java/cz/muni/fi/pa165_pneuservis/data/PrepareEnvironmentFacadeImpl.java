@@ -5,9 +5,12 @@
 package cz.muni.fi.pa165_pneuservis.data;
 
 import cz.muni.fi.pa165_pneuservis.model.Customer;
+import cz.muni.fi.pa165_pneuservis.model.Service;
+import cz.muni.fi.pa165_pneuservis.model.ServiceType;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import cz.muni.fi.pa165_pneuservis.service.CustomerService;
 import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
+import cz.muni.fi.pa165_pneuservis.service.ServiceService;
 import cz.muni.fi.pa165_pneuservis.service.TireService;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -33,19 +36,24 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     @Autowired
     private CustomerService customerService;
     
+    @Autowired
+    private ServiceService serviceService;
+    
     static Random randomGenerator;
     static Integer index;
-    static SecureRandom secureRandom; 
-
+    static SecureRandom secureRandom;
+    
+    //Item
+    static String  name;
+    static String  description;
+    static Double  priceDouble;
+    static BigDecimal priceBigDecimal;
+    
     //Tire
     static String  brand;
     static Integer width;
     static Integer ratio;
     static Integer rim;
-    static String  description;
-    static String  name;
-    static Double  priceDouble;
-    static BigDecimal priceBigDecimal;
     
     //Customer
     static String  firstName;
@@ -58,6 +66,9 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     static String  phoneNumber;
     static String  email;
     static String  password;
+    
+    //Service
+    static ServiceType serviceType;
     
     /**
      * Fills system with test data
@@ -79,9 +90,10 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         ArrayList<String> custCity = new ArrayList<>(Arrays.asList("Brno","Praha","Hradec Kralove","Breclav","Ostrava"));
         ArrayList<String> custDomain = new ArrayList<>(Arrays.asList("@gmail.com","@seznam.cz","@mail.ru","@email.com","@securemail.net"));
         ArrayList<String> custPostal = new ArrayList<>(Arrays.asList("61200","61300","12300","81500","74000"));
-        
+           
         Tire tire = null;
         Customer customer = null;
+        Service service = null;
         randomGenerator = new Random();
         
         //create 30 Tires with random parameters
@@ -141,16 +153,16 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             postalNumber = custPostal.get(index);
             
             //Random street number from interval 1-250 => (max-min)+min
-            streetNumber = (int)(Math.random() * 249) + 1;      
-
+            streetNumber = (int)(Math.random() * 249) + 1;
+            
             //Random phone number from interval 700 000 000 - 900 000 000 => (max-min)+min
-            number = (int)(Math.random() * 200000000) + 700000000;    
+            number = (int)(Math.random() * 200000000) + 700000000;
             phoneNumber = "+420"+number;
             
             //Random e-mail. Will be composed from random string + random domain
             mailAddr = new BigInteger(40, secureRandom).toString(32);
             index = randomGenerator.nextInt(custDomain.size());
-            email = mailAddr + custDomain.get(index);            
+            email = mailAddr + custDomain.get(index);
             
             //create tire with random parameters
             customer.setFirstName(firstName);
@@ -166,6 +178,30 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             customer.setPassword("heslo" + firstName);
             
             customerService.createCustomer(customer);
+        }
+        
+        //create 20 Services with random parameters
+        for (long i = 1; i <= 20; i++) {
+            service = new Service();
+            
+            //Enum name of service
+            index = randomGenerator.nextInt(ServiceType.values().length);
+            serviceType = ServiceType.values()[index];
+            
+            //Random price from interval 50-1000 => (max-min)+min
+            priceDouble = Math.random() * 950 + 50;
+            priceBigDecimal = BigDecimal.valueOf(priceDouble).setScale(2, RoundingMode.CEILING);
+            
+            //Composed tire name and description
+            name = serviceType + "-" + priceBigDecimal;
+            description = serviceType + " service for price " + priceBigDecimal + " for your vehicle";
+            
+            service.setServiceType(serviceType);
+            service.setName(name);
+            service.setDescription(description);
+            service.setPrice(priceBigDecimal);
+            
+            serviceService.createService(service);
         }
     }
 }

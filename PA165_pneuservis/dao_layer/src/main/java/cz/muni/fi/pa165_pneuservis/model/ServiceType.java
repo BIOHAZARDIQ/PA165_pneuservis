@@ -10,5 +10,10 @@ package cz.muni.fi.pa165_pneuservis.model;
 public enum ServiceType {
     TireChange,
     TireMaintenance,
-    RimCleaning
+    TireTelemetry,
+    RimCleaning,
+    WindowCleaning,
+    BrakeRepair,
+    LightsCleaning,
+    InteriorCleaning
 }

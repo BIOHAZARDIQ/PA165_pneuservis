@@ -23,12 +23,15 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 - Spustiť projekt - modul REST a otvoriť web http://localhost:8080/PA165/rest/
 
 ###Testovanie REST interface
-Functionality  | Curl command
--------------- | -------------
-Get all tires  | curl -i -X GET http://localhost:8080/pa165/rest/tires
-Add new tire   | curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
-Show tire with specific id (id=1) |  curl -i -X GET http://localhost:8080/pa165/rest/tires/1
+Functionality       |      Curl command
+------------------- | ------------------
+Get all tires       | curl -i -X GET http://localhost:8080/pa165/rest/tires
+Get all tires in HTML table format  | curl -X GET http://localhost:8080/pa165/rest/tires/htmllist
+Add new tire        | curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
+Show tire with specific id (id=1)   |  curl -i -X GET http://localhost:8080/pa165/rest/tires/1
 Delete tire with specific id (id=1) |  curl -i -X DELETE http://localhost:8080/pa165/rest/tires/delete/1
+Get all customers   | curl -i -X GET http://localhost:8080/pa165/rest/customers
+Get all services    | curl -i -X GET http://localhost:8080/pa165/rest/services
 
 ###Use Case Diagram:
 
@@ -50,9 +53,9 @@ Delete tire with specific id (id=1) |  curl -i -X DELETE http://localhost:8080/p
    So for example using tomcat7 plugin, the following sequence of commands should start the web application: 
    “mvn clean install && cd web && mvn tomcat7:run”
    - [x] The web application must be available on the following HTTP context: http://localhost:8080/pa165
-   - [ ] You application should use in­memory database. 
+   - [x] You application should use in­memory database. 
    This means that after application restart (killing web container and starting it again with mvn tomcat7:run) the data may be reset.
-   - [ ] Implement the user interface using Spring MVC or Angular JS. Spring MVC is preferred. 
+   - [x] Implement the user interface using Spring MVC or Angular JS. Spring MVC is preferred. 
    Angular will be covered at the last minute so it might not be the best choice for you if you are not familiar with it already.
    - [ ] The user interface should allow to carry out all business functions of your system.
    - [x] You should fill in all the necessary data automatically. So for example you can use Web Listener to load data during Web Application startup.
@@ -65,12 +68,12 @@ Delete tire with specific id (id=1) |  curl -i -X DELETE http://localhost:8080/p
    - [x] At least one entity and operations on that entity must be exposed.
    This is mainly to demonstrate you can implement this, it’s not necessary to have all application functions accessible through this interface.
    - [x] The REST must be accessible at http://localhost:8080/pa165/rest. It is not required to have the interface secured.
-   - [ ] You should include a README file with instructions how to test the REST interface (e.g. CURL commands for command line)
+   - [x] You should include a README file with instructions how to test the REST interface (e.g. CURL commands for command line)
 - Security:
    - [ ] There should be at least 2 roles in the system (e.g. Administrator, User). 
    Each role should have some differences in user interface or in capabilities.
    - [ ] There should be login form (not HTTP Basic)
-   - [ ] Registration is NOT required. You can prefill the users and their passwords in the database.
+   - [x] Registration is NOT required. You can prefill the users and their passwords in the database.
    - [ ] Password should not be saved in the database in open form.
 - [ ] Evaluate another team project.
 

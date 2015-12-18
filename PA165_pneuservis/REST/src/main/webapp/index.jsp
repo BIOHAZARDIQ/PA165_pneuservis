@@ -38,6 +38,10 @@
                 <td><a href="./customers">./customers</a></td>
                 <td>List of all customers in database</td> 
             </tr>
+            <tr>
+                <td><a href="./services">./services</a></td>
+                <td>List of all services in database</td> 
+            </tr>
         </table>
     </body>
 </html>
