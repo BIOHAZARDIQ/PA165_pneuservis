@@ -5,10 +5,12 @@
 package cz.muni.fi.pa165_pneuservis.data;
 
 import cz.muni.fi.pa165_pneuservis.model.Customer;
+import cz.muni.fi.pa165_pneuservis.model.Order;
 import cz.muni.fi.pa165_pneuservis.model.Service;
 import cz.muni.fi.pa165_pneuservis.model.ServiceType;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import cz.muni.fi.pa165_pneuservis.service.CustomerService;
+import cz.muni.fi.pa165_pneuservis.service.OrderService;
 import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
 import cz.muni.fi.pa165_pneuservis.service.ServiceService;
 import cz.muni.fi.pa165_pneuservis.service.TireService;
@@ -19,7 +21,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.security.SecureRandom;
+import java.util.Date;
 import javax.transaction.Transactional;
+import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +42,9 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     
     @Autowired
     private ServiceService serviceService;
+    
+    @Autowired
+    private OrderService orderService;
     
     static Random randomGenerator;
     static Integer index;
@@ -94,6 +101,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         Tire tire = null;
         Customer customer = null;
         Service service = null;
+        Order order = null;
         randomGenerator = new Random();
         
         //create 30 Tires with random parameters
@@ -203,5 +211,34 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             
             serviceService.createService(service);
         }
+        
+        
+        //create 10 Orders with random parameters
+        for (long i = 1; i <= 10; i++) {
+            order = new Order();
+            
+            Random  rnd;
+            Date    dt, dt2;
+            long    ms, ms2;
+
+            rnd = new Random();
+            ms = -946771200000L + (Math.abs(rnd.nextLong()) % (70L * 365 * 24 * 60 * 60 * 1000));
+            ms2 = -946771200000L + (Math.abs(rnd.nextLong()) % (70L * 365 * 24 * 60 * 60 * 1000));
+            dt = new Date(ms);
+            dt2 = new Date(ms2);
+                        
+            //Random price from interval 50-1000 => (max-min)+min
+            priceDouble = Math.random() * 950 + 50;
+            priceBigDecimal = BigDecimal.valueOf(priceDouble).setScale(2, RoundingMode.CEILING);
+                        
+            order.setTotalPrice(priceBigDecimal);
+            order.setCustomer(customer);
+            order.setCreateDate(dt);
+            order.setCompleteDate(dt2);
+            
+            orderService.createOrder(order);
+        }
     }
+   
+    
 }
