@@ -5,6 +5,7 @@
 package cz.muni.fi.pa165_pneuservis.mvc.controllers;
 
 import cz.muni.fi.pa165_pneuservis.dto.ServiceDTO;
+import cz.muni.fi.pa165_pneuservis.dto.ServiceType;
 import cz.muni.fi.pa165_pneuservis.facade.ServiceFacade;
 import java.util.List;
 import javax.validation.Valid;
@@ -39,7 +40,8 @@ public class ServiceController {
     
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newService(Model model) {
-        model.addAttribute("service", new ServiceDTO());
+        model.addAttribute("service", new ServiceDTO());                
+        model.addAttribute("serviceTypes",ServiceType.values());
         return "service/new";
     }
     
