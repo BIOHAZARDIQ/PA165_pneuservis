@@ -1,10 +1,11 @@
 package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.dao.PneuDAOException;
-import cz.muni.fi.pa165_pneuservis.sort.TireSort;
+import cz.muni.fi.pa165_pneuservis.enums.TireSort;
 import cz.muni.fi.pa165_pneuservis.dao.TireDao;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
 import cz.muni.fi.pa165_pneuservis.sort.*;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class TireServiceImpl implements TireService {
     }
 
     @Override
-    public List<Tire> findAllTires(TireSort sort) throws PneuBusinessException{
+    public List<Tire> findAllTires(TireSort sort, boolean asc) throws PneuBusinessException{
         if(sort == null)
             throw new IllegalArgumentException("Sort can't be null.");
         List<Tire> tires;
@@ -57,23 +58,34 @@ public class TireServiceImpl implements TireService {
         }
         switch(sort)
         {
-            //TODO acending/descending
+            //acending
+            case ID:
+                Collections.sort(tires, new TireSortByIdComp());
+                break;
+            case NAME:
+                Collections.sort(tires, new TireSortByNameComp());
+                break;
             case BRAND:
                 Collections.sort(tires, new TireSortByBrandComp());
-                break;
-            case PRICE:
-                Collections.sort(tires, new TireSortByPriceComp());
-                break;
-            case RIM:
-                Collections.sort(tires, new TireSortByRimComp());
                 break;
             case WIDTH:
                 Collections.sort(tires, new TireSortByWidthComp());
                 break;
-            default: 
+            case RATIO:
+                Collections.sort(tires, new TireSortByRatioComp());
+                break;                
+            case RIM:
+                Collections.sort(tires, new TireSortByRimComp());
+                break;                
+            case PRICE:
                 Collections.sort(tires, new TireSortByPriceComp());
                 break;
+            default: 
+                Collections.sort(tires, new TireSortByNameComp());
+                break;
         }
+        //descending?
+        if(!asc) Collections.reverse(tires);
         return tires;
     }
 

@@ -14,21 +14,43 @@
         <caption>List of available tires</caption>
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Brand</th>
-            <th>Name</th>
+            <th>
+                <a href="<c:url value="/tire/list?sortBy=brand${asc?'':'&asc'}" />" >
+                    Brand    
+                </a>                
+            </th>
+            <th>
+                <a href="<c:url value="/tire/list?sortBy=name${asc?'':'&asc'}" />" >
+                    Name
+                </a>   
+            </th>
             <th>Description</th>
-            <th>Width</th>
-            <th>Ratio</th>
-            <th>Rim</th>
-            <th>Price</th>
+            <th>
+                <a href="<c:url value="/tire/list?sortBy=width${asc?'':'&asc'}" />" >
+                    Width
+                </a>
+            </th>
+            <th>
+                <a href="<c:url value="/tire/list?sortBy=ratio${asc?'':'&asc'}" />" >
+                    Ratio
+                </a>
+            </th>
+            <th>
+                <a href="<c:url value="/tire/list?sortBy=rim${asc?'':'&asc'}" />" >
+                    Rim
+                </a>
+            </th>
+            <th>
+                <a href="<c:url value="/tire/list?sortBy=price${asc?'':'&asc'}" />" >
+                    Price
+                </a>
+            </th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${tires}" var="tire">
             <tr>
-                <td>${tire.id}</td>
                 <td><c:out value="${tire.brand}"/></td>
                 <td><c:out value="${tire.name}"/></td>
                 <td><c:out value="${tire.description}"/></td>
@@ -64,7 +86,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
                     <a type="button" class="btn btn-danger btn-sm">
-                        Delete
+                        Remove
                     </a>
                 </div>
             </div>
