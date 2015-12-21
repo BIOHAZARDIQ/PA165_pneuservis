@@ -24,15 +24,20 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 - Services/Servers/Apache Tomcat/Start
 - Spustiť projekt - modul REST a otvoriť web http://localhost:8080/PA165/rest/
 
+###Poznámky pre linux/unix:  
+- Nainštaluj maven, javu, tomcat
+- Spustenie REST: mvn clean install && cd REST/ && mvn tomcat7:run
+- Spustenie UI: mvn clean install && cd WebUI/ && mvn tomcat7:run
+
 ###Testovanie REST interface
 Functionality       |      Curl command
 ------------------- | ------------------
 Get all tires       | curl -i -X GET http://localhost:8080/pa165/rest/tires
 Get all tires in HTML table format  | curl -X GET http://localhost:8080/pa165/rest/tires/htmllist
-Add new tire        | curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
+Add new tire        | curl -X POST -i -H "Content-Type: application/json" --data '{"name":"NAME","witdh":155,"rim":17,"ratio":55,"description":"description","brand":"BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/create
 Show tire with specific id (id=1)   |  curl -i -X GET http://localhost:8080/pa165/rest/tires/1
 Delete tire with specific id (id=1) |  curl -i -X DELETE http://localhost:8080/pa165/rest/tires/delete/1
-Update tire with specific id (id=1) |  curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW_NAME","witdh":155,"rim":17,"ratio":55,"description":"NEW_DESCRIPTION","brand":"NEW_BRAND","price":199.90}' http://localhost:8080/pa165/rest/update/1
+Update tire with specific id (id=1) |  curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW_NAME","witdh":155,"rim":17,"ratio":55,"description":"NEW_DESCRIPTION","brand":"NEW_BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/update/1
 Get all customers   | curl -i -X GET http://localhost:8080/pa165/rest/customers
 Get all services    | curl -i -X GET http://localhost:8080/pa165/rest/services
 Get all orders      | curl -i -X GET http://localhost:8080/pa165/rest/orders

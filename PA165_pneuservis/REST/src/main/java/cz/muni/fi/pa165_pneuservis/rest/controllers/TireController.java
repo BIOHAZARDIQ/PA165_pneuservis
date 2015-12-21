@@ -96,8 +96,8 @@ public class TireController {
     /**
      * Update Tire with given parameters
      * Id of Tire to be updated is from PathVariable, not from TireDTO given
-     * curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW NAME"}' http://localhost:8080/pa165/rest/update/1
-     * curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW_NAME","witdh":155,"rim":17,"ratio":55,"description":"NEW_DESCRIPTION","brand":"NEW_BRAND","price":199.90}' http://localhost:8080/pa165/rest/update/3
+     * curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW NAME"}' http://localhost:8080/pa165/rest/tires/update/1
+     * curl -X PUT -i -H "Content-Type: application/json" --data '{"name":"NEW_NAME","witdh":155,"rim":17,"ratio":55,"description":"NEW_DESCRIPTION","brand":"NEW_BRAND","price":199.90}' http://localhost:8080/pa165/rest/tires/update/3
      * @param id Id of Tire to be updated
      * @param tireDto parameters to be updated
      */
