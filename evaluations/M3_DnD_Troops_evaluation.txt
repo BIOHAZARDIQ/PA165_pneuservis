@@ -9,22 +9,21 @@ Total points: 7 points
 
 b) General Comments:
 This project was finished by only one student.
-Project is available on address ./PA165 and not on ./pa165 as stated on project requirements.
 
 c) Strong points of project:
 This project looks really good, despite of fact that it was finished by only one student.
+Responsive UI thanks to usage of bootstrap libraries.
 
 d) Weaknesses of the project:
 Most of the classes are missing javadoc (only @author is used).
 REST interface is missing.
-For role user:
-- Role of hero can be changed only to enum RoleName, but in UI we cannot see this enum and thus role names. 
-Random role name is causing exception. No validation is implemented. 
-- unable to logout
-
-For role admin:
-- unable to logout
-
+User interface issues:
+- We'd suggest to use dropdown for picking a Role when creating new Hero - e.g. using form:select
+- Hero's Role can be changed only to enum RoleName, but in UI we cannot see this enum and thus role names.
+- When editing Hero's Role, random name is causing exception. No validation is implemented.
+- No confirmation dialog when about to delete an entity
+- Unable to logout
 
 e) Other notes:
 Project has some unused imports.
+Project is available on address ./PA165 and not on ./pa165 as stated on project requirements.
