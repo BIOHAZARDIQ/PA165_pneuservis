@@ -23,6 +23,10 @@ User interface issues:
 - When editing Hero's Role, random name is causing exception. No validation is implemented.
 - No confirmation dialog when about to delete an entity
 - Unable to logout
+- No validation is implemented when updating money for Troop (negative money or string causes exception)
+- Adding Hero to Troop when he is already in one Troop causes exception
+- Adding Hero to Troop which does not exist causes exception
+- Removing Hero from Troop if he is not in any causes exception
 
 e) Other notes:
 Project has some unused imports.
