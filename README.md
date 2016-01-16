@@ -71,10 +71,10 @@ Get all orders      | curl -i -X GET http://localhost:8080/pa165/rest/orders
    This means that after application restart (killing web container and starting it again with mvn tomcat7:run) the data may be reset.
    - [x] Implement the user interface using Spring MVC or Angular JS. Spring MVC is preferred. 
    Angular will be covered at the last minute so it might not be the best choice for you if you are not familiar with it already.
-   - [ ] The user interface should allow to carry out all business functions of your system.
+   - [x] The user interface should allow to carry out all business functions of your system.
    - [x] You should fill in all the necessary data automatically. So for example you can use Web Listener to load data during Web Application startup.
-   - [ ] Make sure there are validations implemented on user interface.
-   - [ ] Your user interface should use either Facade layer or REST layer to access the system. Do not directly access database and do not directly use Service layer.
+   - [x] Make sure there are validations implemented on user interface.
+   - [x] Your user interface should use either Facade layer or REST layer to access the system. Do not directly access database and do not directly use Service layer.
    - [x] The web interface layer may reside in separate maven module (if this is helpful).
    - [ ] Each member of the team must implement (mostly independently, without copy­pasting) part of user interface. Including controller and view.
 - REST Layer:
@@ -84,16 +84,20 @@ Get all orders      | curl -i -X GET http://localhost:8080/pa165/rest/orders
    - [x] The REST must be accessible at <http://localhost:8080/pa165/rest>. It is not required to have the interface secured.
    - [x] You should include a README file with instructions how to test the REST interface (e.g. CURL commands for command line)
 - Security:
-   - [ ] There should be at least 2 roles in the system (e.g. Administrator, User). 
+   - [x] There should be at least 2 roles in the system (e.g. Administrator, User). 
    Each role should have some differences in user interface or in capabilities.
    - [ ] There should be login form (not HTTP Basic)
    - [x] Registration is NOT required. You can prefill the users and their passwords in the database.
    - [ ] Password should not be saved in the database in open form.
-- [ ] Evaluate another team project.
+- [x] Evaluate another team project.
 
 #####Points gained from milestone3:  
-X points gained from milestone 3 out of total 15 points  
-
+13 points gained from milestone 3 out of total 15 points  
+-2 points were for: chybějící security
+   - no logout functionality
+   - passwords are not in database but as constants of class and in open form
+   - identity stored as global variable, not in session, so just one user at time can be logged in
+   - Missing login form, HTTP Basic athentization
 
 ###Milestone 2 requirements:  
 - [x] Implement Facade layer interfaces and implementations.
@@ -117,7 +121,7 @@ X points gained from milestone 3 out of total 15 points
 
 #####Points gained from milestone2:  
 13 points gained from milestone 2 out of total 15 points  
--2 points was for: Chybi vam druha business funkce.  
+-2 points were for: Chybi vam druha business funkce.  
 
 ###Milestone 1 requirements 2:  
 - [x] Create a project in a Github repository that is publicly accessible (for read) choose a short and descriptive name. Create some project wiki to publish other information for your project.
@@ -132,4 +136,4 @@ X points gained from milestone 3 out of total 15 points
 
 #####Points gained from milestone 1:  
 7 points gained from milestone 1 out of total 10 points   
--3 points was for: Java konfigurace Springu byla jedna ku jedné zkopírována z ukázkového projektu. Jak jsem již několikrát zmiňoval, toto je neakceptovatelné.  
+-3 points were for: Java konfigurace Springu byla jedna ku jedné zkopírována z ukázkového projektu. Jak jsem již několikrát zmiňoval, toto je neakceptovatelné.  

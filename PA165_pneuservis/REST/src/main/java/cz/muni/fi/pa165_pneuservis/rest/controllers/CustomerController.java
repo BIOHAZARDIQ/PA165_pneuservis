@@ -7,7 +7,6 @@ package cz.muni.fi.pa165_pneuservis.rest.controllers;
 import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import cz.muni.fi.pa165_pneuservis.facade.CustomerFacade;
 import java.util.Collection;
-
 import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

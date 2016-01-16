@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Team project for course PA165 - Enterprise Applications in Java
+ * For more informations see file README.md
  */
 package cz.muni.fi.pa165_pneuservis.mvc.controllers;
 
@@ -23,7 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,7 +30,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 /**
  *
- * @author Komoi
+ * @author Ondrej Komarek <448288@mail.muni.cz>
  */
 @Controller
 @RequestMapping("/order")

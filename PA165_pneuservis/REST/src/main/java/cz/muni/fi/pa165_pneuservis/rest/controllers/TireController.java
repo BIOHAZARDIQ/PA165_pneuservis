@@ -6,7 +6,6 @@ package cz.muni.fi.pa165_pneuservis.rest.controllers;
 
 import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
 import cz.muni.fi.pa165_pneuservis.dto.TireDTO;
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.http.MediaType;
