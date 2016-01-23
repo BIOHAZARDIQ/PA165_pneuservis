@@ -11,10 +11,6 @@
 <t:generic title="Pneuservis">
 <jsp:attribute name="body">
 
-        <div class="well well-sm">
-            Use admin/admin or user/user for logging in section with different roles to view existing content or ...
-        </div>
-
     <form:form method="post" action="${pageContext.request.contextPath}/order/submit"
                modelAttribute="orderForm" cssClass="form-horizontal">
             

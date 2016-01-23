@@ -22,7 +22,6 @@
 <body>
     <nav class="navbar navbar-default">
         <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
@@ -33,22 +32,32 @@
             <a class="navbar-brand" href="<c:url value="/" />">Pneuservis</a>
           </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="<c:url value="/order/list" />">Orders</a></li>
               <li><a href="<c:url value="/tire/list" />">Tires</a></li>
               <li><a href="<c:url value="/service/list" />">Services</a></li>
-              <li><a href="<c:url value="/customer/list" />">Customers</a></li>              
+              <li><a href="<c:url value="/customer/list" />">Customers</a></li>
             </ul>
-
-            <c:if test="${not fn:containsIgnoreCase(pageContext.request.contextPath, 'login')}">
-                <c:if test="${not empty auth}">
-                  <p class="navbar-text navbar-right"><a href="<c:url value="/logout" />" class="navbar-link">Logout</a></p>
-                  <p class="navbar-text navbar-right">Logged in as <a href="<c:url value="/order/list" />" class="navbar-link">${auth.getFirstName()} ${auth.getLastName()}</a></p>
-                </c:if>
-            </c:if>
-
+            
+            <c:choose>
+                <c:when test="${!fn:containsIgnoreCase(pageContext.request.requestURI, 'login')}">
+                    <!-- login page is NOT displayed, show user info -->
+                    <c:choose> 
+                        <c:when test="${auth != null}"> <!-- logged in -->
+                            <p class="navbar-text navbar-right"><a href="<c:url value="/logout" />" class="navbar-link">Logout</a></p>
+                            <p class="navbar-text navbar-right">Logged in as <a href="<c:url value="/order/list" />" class="navbar-link">${auth.getFirstName()} ${auth.getLastName()}</a></p>
+                        </c:when>
+                        <c:otherwise> <!-- logged out -->
+                            <p class="navbar-text navbar-right"><a href="<c:url value="/login" />" class="navbar-link">Log in</a></p>
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:otherwise>
+                <!-- login page is displayed, hide user info -->
+                </c:otherwise> 
+            </c:choose>
+                
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

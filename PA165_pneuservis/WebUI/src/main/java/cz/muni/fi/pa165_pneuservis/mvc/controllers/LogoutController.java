@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Logout controller
@@ -19,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class LogoutController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String logoutAction(RedirectAttributes red, HttpServletRequest req) {      
+    public String logoutAction(HttpServletRequest req) {      
         req.getSession().removeAttribute("auth");
         return "redirect:/login";
     }

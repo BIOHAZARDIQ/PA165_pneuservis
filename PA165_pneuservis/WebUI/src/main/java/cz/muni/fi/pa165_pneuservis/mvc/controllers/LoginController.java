@@ -41,8 +41,7 @@ public class LoginController {
                 
         // check if admin is not already authenticated while accessing login form
         HttpSession session = request.getSession(true);
-        if(session.getAttribute("auth") != null)
-        {
+        if(session.getAttribute("auth") != null) {
             return "redirect:/tire/list";
         }
         else return "/login";
@@ -71,6 +70,6 @@ public class LoginController {
             Logger.getLogger(LoginController.class.getName()).log(Level.WARNING,ex.getMessage());
             m.addAttribute("alert_danger", "Unable to log in. Incorrect email or password.");
             return "/login";
-        }        
+        }
     }
 }
