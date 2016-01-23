@@ -11,7 +11,7 @@
 <t:generic title="Customers">
     <jsp:attribute name="body">
         
-        <table class="table">
+        <table class="table table-condensed table-hover">
             <caption>List of registered customers</caption>
             <thead>
                 <tr>

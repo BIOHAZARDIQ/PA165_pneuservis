@@ -131,7 +131,7 @@ public class TireController {
         //edit tire
         tireFacade.updateTire(tire);
         redirectAttributes.addFlashAttribute("alert_success", "Tire " + 
-                tire.getBrand() + " " + tire.getName() + "was successfully updated");
+                tire.getBrand() + " " + tire.getName() + " was successfully updated");
         return "redirect:" + uriBuilder.path("/tire/list").toUriString();
     }
     

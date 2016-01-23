@@ -22,6 +22,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.security.SecureRandom;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -249,7 +251,8 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
      * Fills system with specific test data
      */
     @Override
-    public void PrepareCustomEnvironment() {
+    public void PrepareCustomEnvironment()
+    {
         // create admin for presentation purposes
         Customer exampleAdmin = exampleCustomer("John", "Privileged",
                 "admin@pneuservis.com", "password");
@@ -264,6 +267,58 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         // create 4 another customers to fill data views
         for(int i = 0; i <= 4; i++)
             customerService.createCustomer(genericCustomer());
+        
+        // create tires
+        try
+        {
+            tireService.createTire(exampleTire("Alpin A4", "The new Michelin Alpin A4 "
+                    + "tire allows you to drive in confidence through snow, ice and rain "
+                    + "year after year.", "Michelin", 165, 60, 14, 
+                    BigDecimal.valueOf(119.0)));
+            
+            tireService.createTire(exampleTire("Premier LTX", "The MICHELIN Premier "
+                    + "LTX tire still stops shorter on wet roads than leading "
+                    + "competitors’ brand-new tires.", "Michelin", 185, 60, 15, 
+                    BigDecimal.valueOf(149.0)));
+            
+            tireService.createTire(exampleTire("Defender LTX", "The Michelin Defender "
+                    + "LTX combines the proven tread design of the LTX M/S2 with "
+                    + "Evertread compound.", "Michelin", 195, 55, 16, 
+                    BigDecimal.valueOf(189.0)));
+            
+            tireService.createTire(exampleTire("Pilot Sport", "The Pilot Sport 3 is "
+                    + "Michelin’s ultimate Ultra High Performance All-Season tire.", 
+                    "Michelin", 205, 45, 17, BigDecimal.valueOf(219.0)));
+            
+            tireService.createTire(exampleTire("P Zero", "The P ZERO has been "
+                    + "chosen for the most performance orientated and powerful "
+                    + "models on the market.", "Pirelli", 215, 45, 18, 
+                    BigDecimal.valueOf(239.0)));
+            
+            tireService.createTire(exampleTire("Cinturato P7", "A Performance All "
+                    + "Season Tire specifically Designed for the North American "
+                    + "Luxury Touring Market", "Pirelli", 205, 50, 17, 
+                    BigDecimal.valueOf(229.0)));
+        }
+        catch(PneuBusinessException ex)
+        {
+            Logger.getLogger(PrepareEnvironmentFacadeImpl.class.getName())
+                    .log(Level.SEVERE,ex.getMessage());
+        }
+    }
+    
+    private Tire exampleTire(String name, String description, String brand,
+            Integer width, Integer ratio, Integer rim, BigDecimal price)
+    {
+        Tire tire = new Tire();
+        tire.setName(name);
+        tire.setDescription(description);
+        tire.setBrand(brand);
+        tire.setWidth(width);
+        tire.setRatio(ratio);
+        tire.setRim(rim);
+        tire.setPrice(price);
+        return tire;
     }
     
     private Customer exampleCustomer(String firstName, String LastName, 
