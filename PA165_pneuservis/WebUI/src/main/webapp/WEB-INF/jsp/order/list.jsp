@@ -11,9 +11,9 @@
 <t:generic title="Orders - ${auth.getFirstName()}">
     <jsp:attribute name="body">        
         <table class="table">
+            <caption>List of orders</caption>
             <thead>
                 <tr>       
-                    <th>Id</th>
                     <th>Total price</th>
                     <th>Date created</th>
                     <th>Date completed</th>
@@ -24,7 +24,6 @@
             <tbody>
                 <c:forEach items="${orders}" varStatus="i">
                     <tr>
-                         <td>${order[i.index].id}</td>
                          <td><c:out value="${orders[i.index].totalPrice}"/></td>
                          <td><c:out value="${orders[i.index].createDate}"/></td>
                          <td><c:out value="${orders[i.index].completeDate}"/></td>

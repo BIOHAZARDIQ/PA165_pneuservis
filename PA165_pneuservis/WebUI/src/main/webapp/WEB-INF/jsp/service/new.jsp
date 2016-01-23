@@ -12,6 +12,9 @@
 <t:generic title="New Service">
     <jsp:attribute name="body">
         
+        <h4>Create new service</h4>    
+        <br>
+        
         <form:form method="post" action="${pageContext.request.contextPath}/service/create"
                    modelAttribute="service" cssClass="form-horizontal">
 <!--            <div>
@@ -53,6 +56,11 @@
                 </div>                            
             </div>
         </form:form>
+
+        <p>
+            <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+            <a href="<c:url value="/service/list" />" >Return to list of services</a>
+        </p>
         
     </jsp:attribute>
 </t:generic>

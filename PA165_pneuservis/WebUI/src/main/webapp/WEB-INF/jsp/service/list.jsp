@@ -11,12 +11,10 @@
 <t:generic title="Services">
     <jsp:attribute name="body">
         
-        <a href="<c:url value="/service/new" />">Create new Service entry</a>
-
         <table class="table">
+            <caption>List of available services</caption>
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Service type</th>
                     <th>Service name</th>
                     <th>Service description</th>
@@ -26,7 +24,6 @@
             <tbody>
                 <c:forEach items="${services}" var="service">
                     <tr>
-                        <td>${service.id}</td>
                         <td><c:out value="${service.serviceType}"/></td>
                         <td><c:out value="${service.name}"/></td>
                         <td><c:out value="${service.description}"/></td>
@@ -35,6 +32,11 @@
                 </c:forEach>
             </tbody>
         </table>
+        
+        <a href="<c:url value="/service/new" />" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Create new service
+        </a>
         
     </jsp:attribute>
 </t:generic>
