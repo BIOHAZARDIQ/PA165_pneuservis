@@ -71,9 +71,7 @@
                         <!-- logged in -->
                             <p class="navbar-right" style="margin-top:10px">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
-                                <a href="<c:url value="/order/list" />" class="navbar-link">
-                                    ${auth.getFirstName()} ${auth.getLastName()}
-                                </a>&nbsp;&nbsp;
+                                <a href="<c:url value="/order/list" />" class="navbar-link">${auth.getFirstName()} ${auth.getLastName()}</a>&nbsp;&nbsp;
                                 <a href="<c:url value="/logout" />" title="Log out" type="button" class="btn btn-default btn-sm">
                                     Log out &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                                 </a>

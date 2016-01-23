@@ -18,7 +18,8 @@
                     <th>Name</th>
                     <th>Address</th>
                     <th>Email</th>
-                    <th>Phone number</th>                    
+                    <th>Phone number</th>
+                    <th>Vehicle type</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@
                         </td>
                         <td><a href="mailto:#">${customer.email}</a></td>
                         <td>${customer.phoneNumber}</td>
+                        <td>${customer.vehicleType}</td>
                     </tr>
                     </c:if>
                 </c:forEach>

@@ -32,6 +32,7 @@ public class Customer {
     private String email;
     private String password;
     private boolean isAdmin;
+    private VehicleType vehicleType;
     
     @OneToMany
     private List<Order> orders = new ArrayList<Order>();
@@ -125,12 +126,20 @@ public class Customer {
         this.password = password;
     }
     
-    public boolean isIsAdmin() {
+    public boolean getIsAdmin() {
         return isAdmin;
     }
 
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
+    }
+    
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
     
     @Override
@@ -148,6 +157,8 @@ public class Customer {
         result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
+        result = prime * result + ((isAdmin) ? 1 : 0);
+        result = prime * result + ((vehicleType == null) ? 0 : vehicleType.hashCode());
         return result;
     }
     
@@ -229,6 +240,18 @@ public class Customer {
                 return false;
         } else if (!password.equals(other.getPassword()))
             return false;
+        
+        if (isAdmin != (other.getIsAdmin())) {
+            return false;
+        }
+        
+        if (vehicleType == null) {
+            if (other.getVehicleType()!= null) {
+                return false;
+            }
+        } else if (!vehicleType.equals(other.getVehicleType())) {
+            return false;
+        }
         
         return true;
     }

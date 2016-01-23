@@ -10,6 +10,7 @@ import cz.muni.fi.pa165_pneuservis.model.Order;
 import cz.muni.fi.pa165_pneuservis.model.Service;
 import cz.muni.fi.pa165_pneuservis.model.ServiceType;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
+import cz.muni.fi.pa165_pneuservis.model.VehicleType;
 import cz.muni.fi.pa165_pneuservis.service.CustomerService;
 import cz.muni.fi.pa165_pneuservis.service.OrderService;
 import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
@@ -255,18 +256,21 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     {
         // create admin for presentation purposes
         Customer exampleAdmin = exampleCustomer("John", "Privileged",
-                "admin@pneuservis.com", "password");
+                "admin@pneuservis.com", "password", VehicleType.Car);
         exampleAdmin.setIsAdmin(true);
         customerService.createCustomer(exampleAdmin);
         
         // create customer for presentation purposes
         Customer exampleCustomer = exampleCustomer("John", "Doe",
-                "customer@pneuservis.com", "password");
+                "customer@pneuservis.com", "password", VehicleType.Van);
         customerService.createCustomer(exampleCustomer);
         
-        // create 4 another customers to fill data views
-        for(int i = 0; i <= 4; i++)
-            customerService.createCustomer(genericCustomer());
+        // create another customers to fill data views
+        customerService.createCustomer(genericCustomer(VehicleType.Car));
+        customerService.createCustomer(genericCustomer(VehicleType.Car));
+        customerService.createCustomer(genericCustomer(VehicleType.Motocycle));
+        customerService.createCustomer(genericCustomer(VehicleType.Truck));
+        customerService.createCustomer(genericCustomer(VehicleType.Van));
         
         // create tires
         try
@@ -322,7 +326,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     }
     
     private Customer exampleCustomer(String firstName, String LastName, 
-            String email, String password)
+            String email, String password, VehicleType vehicleType)
     {
         Customer customer = new Customer();
         customer.setFirstName(firstName);
@@ -335,13 +339,14 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         customer.setPhoneNumber(faker.phoneNumber().phoneNumber());
         customer.setEmail(email);
         customer.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
+        customer.setVehicleType(vehicleType);
         customer.setIsAdmin(false);
         return customer;
     }
     
-    private Customer genericCustomer()
+    private Customer genericCustomer(VehicleType vehicleType)
     {
         return exampleCustomer(faker.name().firstName(), faker.name().lastName(),
-                faker.internet().emailAddress(), "password");
+                faker.internet().emailAddress(), "password", vehicleType);
     }
 }

@@ -23,7 +23,8 @@ public class CustomerDTO {
     private String phoneNumber;
     private String email;
     private String password;
-    private Boolean isAdmin;
+    private boolean isAdmin;
+    private VehicleType vehicleType;
 
     private List<OrderDTO> orders = new ArrayList<OrderDTO>();
 
@@ -123,6 +124,14 @@ public class CustomerDTO {
     public void setIsAdmin(Boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
+    
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
+    }
 
     @Override
     public int hashCode() {
@@ -139,7 +148,8 @@ public class CustomerDTO {
         result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
-        result = prime * result + ((isAdmin == null) ? 0 : isAdmin.hashCode());
+        result = prime * result + ((isAdmin) ? 1 : 0);
+        result = prime * result + ((vehicleType == null) ? 0 : vehicleType.hashCode());
         return result;
     }
 
@@ -243,14 +253,18 @@ public class CustomerDTO {
             return false;
         }
         
-        if (isAdmin == null) {
-            if (other.getPassword() != null) {
-                return false;
-            }
-        } else if (!isAdmin.equals(other.getPassword())) {
+        if (isAdmin != (other.getIsAdmin())) {
             return false;
         }
-
+        
+        if (vehicleType == null) {
+            if (other.getVehicleType()!= null) {
+                return false;
+            }
+        } else if (!vehicleType.equals(other.getVehicleType())) {
+            return false;
+        }
+        
         return true;
     }
 }
