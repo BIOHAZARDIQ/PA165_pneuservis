@@ -11,9 +11,9 @@
 <t:generic title="Pneuservis">
 <jsp:attribute name="body">
     
-    <div class="jumbotron">
-    <h2>Please log in</h2>
-    <p class="lead">In order to view customized or administrative content, please fill in your email and password</p>   
+    <div class="jumbotron">    
+        <h3>Log in</h3>
+        <small>In order to view customized or administrative content, please fill in your email and password.</small>   
     
     <form:form method="post" action="${pageContext.request.contextPath}/login"
                modelAttribute="login" cssClass="form-horizontal form-signin">        
@@ -53,6 +53,11 @@
         </div>
     </form:form>
     </div>
+    
+    <p>
+        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+        Don't have an account? <a href="<c:url value="/" />">Browse available tires and services as guest.</a>
+    </p>
 
 </jsp:attribute>
 </t:generic>

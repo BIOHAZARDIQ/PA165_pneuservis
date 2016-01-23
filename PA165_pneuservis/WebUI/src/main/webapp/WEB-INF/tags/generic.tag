@@ -34,10 +34,25 @@
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="<c:url value="/order/list" />">Orders</a></li>
-              <li><a href="<c:url value="/tire/list" />">Tires</a></li>
-              <li><a href="<c:url value="/service/list" />">Services</a></li>
-              <li><a href="<c:url value="/customer/list" />">Customers</a></li>
+                <c:choose>
+                    <c:when test="${auth != null}">
+                        <c:choose>
+                            <c:when test="${auth.isAdmin}">
+                                <li><a href="<c:url value="/order/list" />">Orders</a></li>
+                                <li><a href="<c:url value="/tire/list" />">Tires</a></li>
+                                <li><a href="<c:url value="/service/list" />">Services</a></li>
+                                <li><a href="<c:url value="/customer/list" />">Customers</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="<c:url value="/order/list" />">My orders</a></li>
+                            </c:otherwise>
+                        </c:choose> 
+                    </c:when>
+                    <c:otherwise>
+                        <!-- guest -->
+                    </c:otherwise>
+                </c:choose>
+
             </ul>
             
             <c:choose>
