@@ -7,6 +7,9 @@ package cz.muni.fi.pa165_pneuservis.mvc.controllers;
 import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import cz.muni.fi.pa165_pneuservis.dto.LoginFormDTO;
 import cz.muni.fi.pa165_pneuservis.facade.CustomerFacade;
+import cz.muni.fi.pa165_pneuservis.facade.PneuFacadeException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -54,15 +57,20 @@ public class LoginController {
             for (FieldError fieldError : result.getFieldErrors()) {
                 m.addAttribute(fieldError.getField() + "_error", true);
             }
+            return "/login";
         }
         
-        if(login.getEmail().equals("admin") && login.getPassword().equals("admin"))
-        {
-            CustomerDTO cust = new CustomerDTO();
-            cust.setFirstName("my name");
-            request.getSession().setAttribute("auth", cust);
-            return "redirect:/tire/list";
-        }
-        return "/login";
+        try {
+            CustomerDTO customer = customerFacade.authenticate(login.getEmail(),login.getPassword());
+            request.getSession().setAttribute("auth", customer);
+            if(customer.getIsAdmin())
+                return "redirect:/tire/list";
+            else
+                return "redirect:/order/list";
+        } catch (PneuFacadeException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.WARNING,ex.getMessage());
+            m.addAttribute("alert_danger", "Unable to log in. Incorrect email or password.");
+            return "/login";
+        }        
     }
 }

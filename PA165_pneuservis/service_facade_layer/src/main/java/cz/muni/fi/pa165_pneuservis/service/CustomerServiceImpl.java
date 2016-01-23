@@ -6,6 +6,7 @@ package cz.muni.fi.pa165_pneuservis.service;
 
 import cz.muni.fi.pa165_pneuservis.dao.CustomerDao;
 import cz.muni.fi.pa165_pneuservis.dao.OrderDao;
+import cz.muni.fi.pa165_pneuservis.dao.PneuDAOException;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,16 @@ public class CustomerServiceImpl implements CustomerService {
     }
     
     @Override
-    public Customer findCustomerByEmail(String email) {
-        return customerDao.findByEmail(email);
+    public Customer findCustomerByEmail(String email) throws PneuBusinessException{
+        try{
+            return customerDao.findByEmail(email);
+        }
+        catch(PneuDAOException e)
+        {
+            //TODO log
+            throw new PneuBusinessException("Can't find Customer. Reason: " +
+                    e.getMessage(), e);
+        }
     }
     
     @Override

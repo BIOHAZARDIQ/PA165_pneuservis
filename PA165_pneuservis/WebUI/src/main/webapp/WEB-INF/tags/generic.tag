@@ -62,6 +62,14 @@
                 <p><c:out value="${alert_success}"/></p>    
             </div>
         </c:if>
+        <c:if test="${not empty alert_danger}">
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <p><c:out value="${alert_danger}"/></p>    
+            </div>
+        </c:if>
         
         <!-- page body -->
         <jsp:invoke fragment="body"/>

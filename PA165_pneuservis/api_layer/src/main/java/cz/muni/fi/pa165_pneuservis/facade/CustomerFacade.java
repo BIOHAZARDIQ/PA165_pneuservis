@@ -13,7 +13,8 @@ import java.util.Collection;
 public interface CustomerFacade {
     
     public CustomerDTO findCustomerById(Long id);
-    public CustomerDTO findCustomerByEmail(String email);
+    public CustomerDTO findCustomerByEmail(String email) throws PneuFacadeException;
+    public CustomerDTO authenticate(String email, String password) throws PneuFacadeException;
     public Collection<CustomerDTO> findAllCustomers();
     public void createCustomer(CustomerDTO customer);
     public void deleteCustomer(Long id);

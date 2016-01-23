@@ -8,5 +8,6 @@ package cz.muni.fi.pa165_pneuservis.data;
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 public interface PrepareEnvironmentFacade {
-    void PrepareEnvironment();
+    void PrepareCustomEnvironment();
+    void PrepareRandomEnvironment();
 }

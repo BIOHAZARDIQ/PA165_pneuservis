@@ -21,17 +21,17 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private String  firstName;
-    private String  lastName;
-    private String  streetName;
+    private String firstName;
+    private String lastName;
+    private String streetName;
     private Integer streetNumber;
-    private String  city;
-    private String  state;
-    private String  postalNumber;
-    private String  phoneNumber;
-    private String  email;
-    private String  password;
+    private String city;
+    private String state;
+    private String postalNumber;
+    private String phoneNumber;
+    private String email;
+    private String password;
+    private boolean isAdmin;
     
     @OneToMany
     private List<Order> orders = new ArrayList<Order>();
@@ -123,6 +123,14 @@ public class Customer {
     
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
     
     @Override

@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Filip Meszaros <436321@mail.muni.cz>
@@ -71,14 +72,18 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public Customer findByEmail(String email) {
         if (email == null) {
-            throw new DataAccessException("Email cannot be null") {};
+            throw new IllegalArgumentException("Customer's email can't be null") {};
         }
-        
-        Customer foundCustomer = em.find(Customer.class, email);
-        if (foundCustomer == null) {
-            throw new DataAccessException("customer is not in database") {};
+        Customer customer;
+        try {
+            customer = (Customer) em.createQuery("SELECT t FROM Customer t where t.email = :email")
+                    .setParameter("email", email).getSingleResult();  
         }
-        return foundCustomer;
+        catch(Exception e) {
+            throw new PneuDAOException("Can't retrieve Customer. Reason: " + 
+                    e.getMessage(), e) {};
+        }
+        return customer;
     }
     
     @Override

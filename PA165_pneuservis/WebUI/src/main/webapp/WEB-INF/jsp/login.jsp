@@ -13,7 +13,7 @@
     
     <div class="jumbotron">
     <h2>Please log in</h2>
-    <p class="lead">In order to view customized or administrative content, please fill in your email and password</p>
+    <p class="lead">In order to view customized or administrative content, please fill in your email and password</p>   
     
     <form:form method="post" action="${pageContext.request.contextPath}/login"
                modelAttribute="login" cssClass="form-horizontal form-signin">        

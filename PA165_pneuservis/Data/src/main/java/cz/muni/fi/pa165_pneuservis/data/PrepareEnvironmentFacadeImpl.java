@@ -15,7 +15,6 @@ import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
 import cz.muni.fi.pa165_pneuservis.service.ServiceService;
 import cz.muni.fi.pa165_pneuservis.service.TireService;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,8 +22,8 @@ import java.util.Random;
 import java.security.SecureRandom;
 import java.util.Date;
 import javax.transaction.Transactional;
-import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 
 /**
@@ -46,43 +45,42 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     @Autowired
     private OrderService orderService;
     
-    static Random randomGenerator;
-    static Integer index;
-    static SecureRandom secureRandom;
-    
-    //Item
-    static String  name;
-    static String  description;
-    static Double  priceDouble;
-    static BigDecimal priceBigDecimal;
-    
-    //Tire
-    static String  brand;
-    static Integer width;
-    static Integer ratio;
-    static Integer rim;
-    
-    //Customer
-    static String  firstName;
-    static String  lastName;
-    static String  streetName;
-    static Integer streetNumber;
-    static String  city;
-    static String  state;
-    static String  postalNumber;
-    static String  phoneNumber;
-    static String  email;
-    static String  password;
-    
-    //Service
-    static ServiceType serviceType;
-    
     /**
-     * Fills system with test data
+     * Fills system with random test data
      * Password for Customer will be always containing firstName of customer -> "heslo{firstName}"
      */
     @Override
-    public void PrepareEnvironment() {
+    public void PrepareRandomEnvironment() {
+        Random randomGenerator;
+        Integer index;
+        SecureRandom secureRandom;
+
+        //Item
+        String name;
+        String description;
+        Double priceDouble;
+        BigDecimal priceBigDecimal;
+
+        //Tire
+        String brand;
+        Integer width;
+        Integer ratio;
+        Integer rim;
+
+        //Customer
+        String firstName;
+        String lastName;
+        String streetName;
+        Integer streetNumber;
+        String city;
+        String state;
+        String postalNumber;
+        String phoneNumber;
+        String email;
+        String password;
+
+        //Service
+        ServiceType serviceType;
         
         //List of names that will be randomly selected when creating Tires
         ArrayList<String> tireBrand = new ArrayList<>(Arrays.asList("Michelin","Yokohama","Pirelli","Goodyear","Barum"));
@@ -241,6 +239,35 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             orderService.createOrder(order);
         }
     }
-   
-    
+
+    /**
+     * Fills system with specific test data
+     */
+    @Override
+    public void PrepareCustomEnvironment() {
+        
+        // create customer
+        Customer customer = new Customer();
+        customer.setFirstName("John");
+        customer.setLastName("Doe");
+        customer.setStreetName("Avery Rd");
+        customer.setStreetName("1");
+        customer.setCity("Three Rivers");
+        customer.setState("Washington");
+        customer.setPostalNumber("20004");
+        customer.setPhoneNumber("770778393");
+        customer.setEmail("customer@pneuservis.com");
+        customer.setPassword(BCrypt.hashpw("customer", BCrypt.gensalt()));
+        customer.setIsAdmin(false);
+        customerService.createCustomer(customer);
+        
+        // create admin
+        Customer admin = new Customer();
+        admin.setFirstName("John");
+        admin.setLastName("Admin");
+        admin.setEmail("admin@pneuservis.com");
+        admin.setPassword(BCrypt.hashpw("admin", BCrypt.gensalt()));
+        admin.setIsAdmin(true);
+        customerService.createCustomer(admin);
+    }
 }
