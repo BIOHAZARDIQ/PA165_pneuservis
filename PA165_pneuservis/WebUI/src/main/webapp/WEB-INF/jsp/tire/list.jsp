@@ -71,7 +71,10 @@
         </tbody>
     </table>
     
-    <a href="<c:url value="/tire/new" />" type="button" class="btn btn-info btn-sm">Create new tire</a>
+    <a href="<c:url value="/tire/new" />" type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Create new tire
+    </a>
     
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm">

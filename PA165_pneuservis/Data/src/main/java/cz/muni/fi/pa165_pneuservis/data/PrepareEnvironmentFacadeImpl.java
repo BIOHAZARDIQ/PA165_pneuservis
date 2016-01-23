@@ -4,6 +4,7 @@
 */
 package cz.muni.fi.pa165_pneuservis.data;
 
+import com.github.javafaker.Faker;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
 import cz.muni.fi.pa165_pneuservis.model.Service;
@@ -45,11 +46,15 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     @Autowired
     private OrderService orderService;
     
+    private final Faker faker = new Faker();
+    
     /**
      * Fills system with random test data
-     * Password for Customer will be always containing firstName of customer -> "heslo{firstName}"
+     * Password for Customer contains firstName of customer -> password(firstName)
+     * @deprecated Use PrepareCustomEnvironment instead.
      */
     @Override
+    @Deprecated
     public void PrepareRandomEnvironment() {
         Random randomGenerator;
         Integer index;
@@ -175,7 +180,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             customer.setLastName(lastName);
             customer.setCity(city);
             customer.setStreetName(streetName);
-            customer.setStreetNumber(streetNumber);
+            //customer.setStreetNumber(streetNumber);
             customer.setPostalNumber(postalNumber);
             customer.setState("Ceska republika");
             customer.setPhoneNumber(phoneNumber);
@@ -245,29 +250,43 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
      */
     @Override
     public void PrepareCustomEnvironment() {
+        // create admin for presentation purposes
+        Customer exampleAdmin = exampleCustomer("John", "Privileged",
+                "admin@pneuservis.com", "password");
+        exampleAdmin.setIsAdmin(true);
+        customerService.createCustomer(exampleAdmin);
         
-        // create customer
+        // create customer for presentation purposes
+        Customer exampleCustomer = exampleCustomer("John", "Doe",
+                "customer@pneuservis.com", "password");
+        customerService.createCustomer(exampleCustomer);
+        
+        // create 4 another customers to fill data views
+        for(int i = 0; i <= 4; i++)
+            customerService.createCustomer(genericCustomer());
+    }
+    
+    private Customer exampleCustomer(String firstName, String LastName, 
+            String email, String password)
+    {
         Customer customer = new Customer();
-        customer.setFirstName("John");
-        customer.setLastName("Doe");
-        customer.setStreetName("Avery Rd");
-        customer.setStreetName("1");
-        customer.setCity("Three Rivers");
-        customer.setState("Washington");
-        customer.setPostalNumber("20004");
-        customer.setPhoneNumber("770778393");
-        customer.setEmail("customer@pneuservis.com");
-        customer.setPassword(BCrypt.hashpw("customer", BCrypt.gensalt()));
+        customer.setFirstName(firstName);
+        customer.setLastName(LastName);
+        customer.setStreetName(faker.address().streetName());
+        customer.setStreetNumber(faker.address().streetAddressNumber());
+        customer.setCity(faker.address().city());
+        customer.setState(faker.address().state());
+        customer.setPostalNumber(faker.address().zipCode());
+        customer.setPhoneNumber(faker.phoneNumber().phoneNumber());
+        customer.setEmail(email);
+        customer.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
         customer.setIsAdmin(false);
-        customerService.createCustomer(customer);
-        
-        // create admin
-        Customer admin = new Customer();
-        admin.setFirstName("John");
-        admin.setLastName("Admin");
-        admin.setEmail("admin@pneuservis.com");
-        admin.setPassword(BCrypt.hashpw("admin", BCrypt.gensalt()));
-        admin.setIsAdmin(true);
-        customerService.createCustomer(admin);
+        return customer;
+    }
+    
+    private Customer genericCustomer()
+    {
+        return exampleCustomer(faker.name().firstName(), faker.name().lastName(),
+                faker.internet().emailAddress(), "password");
     }
 }

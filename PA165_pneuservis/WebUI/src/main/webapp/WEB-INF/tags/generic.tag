@@ -38,10 +38,18 @@
                     <c:when test="${auth != null}">
                         <c:choose>
                             <c:when test="${auth.isAdmin}">
-                                <li><a href="<c:url value="/order/list" />">Orders</a></li>
-                                <li><a href="<c:url value="/tire/list" />">Tires</a></li>
-                                <li><a href="<c:url value="/service/list" />">Services</a></li>
-                                <li><a href="<c:url value="/customer/list" />">Customers</a></li>
+                                <li class="${fn:containsIgnoreCase(pageContext.request.requestURI, 'order')?'active':''}">
+                                    <a href="<c:url value="/order/list" />">Orders</a>
+                                </li>
+                                <li class="${fn:containsIgnoreCase(pageContext.request.requestURI, 'tire')?'active':''}">
+                                    <a href="<c:url value="/tire/list" />">Tires</a>
+                                </li>
+                                <li class="${fn:containsIgnoreCase(pageContext.request.requestURI, 'service')?'active':''}">
+                                    <a href="<c:url value="/service/list" />">Services</a>
+                                </li>
+                                <li class="${fn:containsIgnoreCase(pageContext.request.requestURI, 'customer')?'active':''}">
+                                    <a href="<c:url value="/customer/list" />">Customers</a>
+                                </li>
                             </c:when>
                             <c:otherwise>
                                 <li><a href="<c:url value="/order/list" />">My orders</a></li>
@@ -58,13 +66,26 @@
             <c:choose>
                 <c:when test="${!fn:containsIgnoreCase(pageContext.request.requestURI, 'login')}">
                     <!-- login page is NOT displayed, show user info -->
-                    <c:choose> 
-                        <c:when test="${auth != null}"> <!-- logged in -->
-                            <p class="navbar-text navbar-right"><a href="<c:url value="/logout" />" class="navbar-link">Logout</a></p>
-                            <p class="navbar-text navbar-right">Logged in as <a href="<c:url value="/order/list" />" class="navbar-link">${auth.getFirstName()} ${auth.getLastName()}</a></p>
+                    <c:choose>
+                        <c:when test="${auth != null}">
+                        <!-- logged in -->
+                            <p class="navbar-right" style="margin-top:10px">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+                                <a href="<c:url value="/order/list" />" class="navbar-link">
+                                    ${auth.getFirstName()} ${auth.getLastName()}
+                                </a>&nbsp;&nbsp;
+                                <a href="<c:url value="/logout" />" title="Log out" type="button" class="btn btn-default btn-sm">
+                                    Log out &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                                </a>
+                            </p>
                         </c:when>
-                        <c:otherwise> <!-- logged out -->
-                            <p class="navbar-text navbar-right"><a href="<c:url value="/login" />" class="navbar-link">Log in</a></p>
+                        <c:otherwise>
+                        <!-- logged out -->
+                            <p class="navbar-right" style="margin-top:9px">
+                                <a href="<c:url value="/login" />" title="Log in" type="button" class="btn btn-default btn-sm">
+                                    Log in &nbsp;&nbsp;<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                                </a>
+                            </p>
                         </c:otherwise>
                     </c:choose>
                 </c:when>

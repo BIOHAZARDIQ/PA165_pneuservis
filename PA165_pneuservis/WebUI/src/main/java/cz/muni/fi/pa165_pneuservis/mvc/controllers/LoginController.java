@@ -60,15 +60,18 @@ public class LoginController {
         }
         
         try {
-            CustomerDTO customer = customerFacade.authenticate(login.getEmail(),login.getPassword());
+            CustomerDTO customer = customerFacade.authenticate(login.getEmail(),
+                    login.getPassword());
             request.getSession().setAttribute("auth", customer);
             if(customer.getIsAdmin())
                 return "redirect:/tire/list";
             else
                 return "redirect:/order/list";
         } catch (PneuFacadeException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.WARNING,ex.getMessage());
-            m.addAttribute("alert_danger", "Unable to log in. Incorrect email or password.");
+            Logger.getLogger(LoginController.class.getName())
+                    .log(Level.WARNING,ex.getMessage());
+            m.addAttribute("alert_danger", "Unable to log in. Incorrect email "
+                    + "or password.");
             return "/login";
         }
     }

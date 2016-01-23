@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Home MVC Controller
+ * Home controller
  * @author Jozef Sumaj <374029@mail.muni.cz>
  */
 @Controller

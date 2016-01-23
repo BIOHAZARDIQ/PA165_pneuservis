@@ -24,7 +24,7 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String streetName;
-    private Integer streetNumber;
+    private String streetNumber;
     private String city;
     private String state;
     private String postalNumber;
@@ -69,11 +69,11 @@ public class Customer {
         this.streetName = streetName;
     }
     
-    public Integer getStreetNumber() {
+    public String getStreetNumber() {
         return streetNumber;
     }
     
-    public void setStreetNumber(Integer streetNumber) {
+    public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
     }
     

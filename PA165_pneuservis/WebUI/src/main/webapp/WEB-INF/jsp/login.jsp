@@ -35,7 +35,7 @@
                 <div class="form-group ${password_error?'has-error':''}">
                     <form:label path="password" cssClass="col-sm-2 col-sm-offset-2 control-label">Password</form:label>
                     <div class="col-sm-4 col-centered">
-                        <form:input type="password" placeholder="admin" path="password" cssClass="form-control"/>
+                        <form:input type="password" placeholder="password" path="password" cssClass="form-control"/>
                         <form:errors path="password" cssClass="help-block"/>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
             <div class="col-sm-8 col-centered">
                 <div class="form-group">
                     <div class="col-sm-4 col-centered">
-                        <button class="btn btn-success btn-sm" type="submit">Login</button>
+                        <button class="btn btn-success btn-sm" type="submit">Log in</button>
                     </div>
                 </div>
             </div>
