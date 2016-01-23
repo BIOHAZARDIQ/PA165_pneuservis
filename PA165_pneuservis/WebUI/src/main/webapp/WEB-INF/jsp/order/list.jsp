@@ -8,7 +8,7 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<t:generic title="Orders">
+<t:generic title="Orders - ${auth.getFirstName()}">
     <jsp:attribute name="body">        
         <table class="table">
             <thead>
@@ -19,7 +19,6 @@
                     <th>Date completed</th>
                     <th>Customer email</th>
                     <th>Customer name</th>
-                    
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +30,6 @@
                          <td><c:out value="${orders[i.index].completeDate}"/></td>
                          <td><c:out value="${customers[i.index].email}"/></td>
                          <td><c:out value="${customers[i.index].firstName} ${customers[i.index].lastName}"/></td>
-
                      </tr>
                 </c:forEach>
             </tbody>

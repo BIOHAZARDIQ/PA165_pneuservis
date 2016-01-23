@@ -8,14 +8,16 @@
 <%@ attribute name="body" fragment="true" required="true" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title><c:out value="${title}"/></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="css/pneuservis.css">
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -34,11 +36,19 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="<c:url value="/tire/list" />">Tires</a></li>
-              <li><a href="<c:url value="/customer/list" />">Customers</a></li>
-              <li><a href="<c:url value="/service/list" />">Services</a></li>
               <li><a href="<c:url value="/order/list" />">Orders</a></li>
+              <li><a href="<c:url value="/tire/list" />">Tires</a></li>
+              <li><a href="<c:url value="/service/list" />">Services</a></li>
+              <li><a href="<c:url value="/customer/list" />">Customers</a></li>              
             </ul>
+
+            <c:if test="${not fn:containsIgnoreCase(pageContext.request.contextPath, 'login')}">
+                <c:if test="${not empty auth}">
+                  <p class="navbar-text navbar-right"><a href="<c:url value="/logout" />" class="navbar-link">Logout</a></p>
+                  <p class="navbar-text navbar-right">Logged in as <a href="<c:url value="/order/list" />" class="navbar-link">${auth.getFirstName()} ${auth.getLastName()}</a></p>
+                </c:if>
+            </c:if>
+
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
@@ -64,6 +74,6 @@
         </footer>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>
