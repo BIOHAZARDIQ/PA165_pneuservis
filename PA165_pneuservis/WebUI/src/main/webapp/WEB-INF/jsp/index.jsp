@@ -12,7 +12,7 @@
 <jsp:attribute name="body">
 
     <form:form method="post" action="${pageContext.request.contextPath}/order/submit"
-               modelAttribute="orderForm" cssClass="form-horizontal">
+               modelAttribute="orderForm" cssClass="form-horizontal" id="order">
             
         <div class="panel panel-default">
             
@@ -23,7 +23,9 @@
                 <div class="col-sm-6">
                     <div class="panel-body">
                         <div class="form-group">
-                            <form:label path="tireIds" cssClass="col-sm-2 col-sm-offset-2 control-label">Tires</form:label>
+                            <form:label path="tireIds" cssClass="col-sm-2 col-sm-offset-2 control-label">
+                                Tires
+                            </form:label>
                             <div class="col-sm-8">
                                 <form:select id="tires" path="tireIds" cssClass="form-control" varStatus="i">
                                     <form:option data-price="0" value="-" label="-- Please select --" selected="selected"/>
@@ -44,7 +46,6 @@
                 </div>
                 <div class="col-sm-6" style="padding:15px">
                     <div class="media">
-
                         <div class="media-body">
                             <h4 class="media-heading" id="tireName"></h4>
                             <p id="tireDescription" style="padding-right:15px"></p>
@@ -62,34 +63,46 @@
             <div class="panel-heading">
               Select additional services
             </div>
-            <div class="panel-body">
-                <div class="form-group">
-                    <form:label path="serviceIds" cssClass="col-sm-2 control-label">Services</form:label>
-                    <div class="col-sm-4">
-                        <form:select path="serviceIds" multiple="true" cssClass="form-control">
-                            <form:option value="-" label="-- None --"/>
-                            <form:options items="${services}" itemValue="id" itemLabel="name"/>
-                        </form:select>
-                        <form:errors path="serviceIds" cssClass="help-block"/>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <form:label path="serviceIds" cssClass="col-sm-2 col-sm-offset-2 control-label">
+                                Services
+                            </form:label>
+                            <div class="col-sm-8">
+                                <c:forEach var="service" items="${services}">
+                                    <div class="checkbox">
+                                        <label>
+                                          <form:checkbox id="services" 
+                                                         path="serviceIds" 
+                                                         value="${service.id}"
+                                                         data-price="${service.price}"/>
+                                          <c:out value="${service.name}"/>
+                                        </label>
+                                    </div>
+                                </c:forEach>
+                                <form:errors path="serviceIds" cssClass="help-block"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="panel-footer">Total price: </div>
+            <div id="servicePrice" class="panel-footer"></div>
         </div>
-            
-
-            
-        <div class="form-group">
-            <form:label path="email" cssClass="col-sm-2 control-label">E-mail</form:label>
-            <div class="col-sm-4">
-                <form:input path="email" cssClass="form-control"/>
-                <form:errors path="email" cssClass="help-block"/>
+                            
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4 id="totalPrice"></h4>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-2">
-                <button class="btn btn-success btn-sm" type="submit">Submit order</button>
+                                
+                <button class="btn btn-default" id="orderSubmit" type="submit">
+                    Submit order
+                </button>
             </div>
         </div>
             
@@ -99,25 +112,86 @@
 </t:generic>
 
 <script>
-$("#tires").change(function(){
-    var $selected = ( $(this).find(":selected") );
-    var $price = $selected.attr('data-price');
-    var $description = $selected.attr('data-description');
-    var $name = $selected.attr('data-name');
-    var $brand = $selected.attr('data-brand');
-    var $id = $selected.val();
-    if($price > 0) {
-	$("#tirePrice").text("Tire price: " + $price);
-        $("#tireDescription").text($description);
-        $("#tireName").text($brand + " " + $name);
-        $("#tireLink").attr('href', 'tire/' + parseInt($id));
-        $('#tireLink').show();
-    }
-    else {
-        $("#tirePrice").text("");
-        $("#tireDescription").text("");
-        $("#tireName").text("");
-        $('#tireLink').hide();
-    }
+
+$(document).ready( function () {   
+    var $tirePriceInt = 0;
+    var $servicePriceInt = 0;
+    var $totalPriceInt = 0;
+    $("#orderSubmit").attr("disabled","disabled");
+        
+    var computeTotalPrice = function()
+    {
+        $totalPriceInt = $tirePriceInt + $servicePriceInt;
+    };
+    
+    var printTotalPrice = function()
+    {
+        $("#totalPrice").text("Total price: " + $totalPriceInt + ",- €");
+    };
+    
+    var disableSubmitButton = function()
+    {
+        if($totalPriceInt === 0)
+        {
+            $("#orderSubmit").attr("disabled","disabled");
+        }
+        else
+        {
+            $("#orderSubmit").removeAttr("disabled");
+        }
+    }   
+    
+    $("#tires").change(function()
+    {
+        var $selected = ( $(this).find(":selected") );
+        
+        var $tirePrice = $selected.attr('data-price');
+        var $description = $selected.attr('data-description');
+        var $name = $selected.attr('data-name');
+        var $brand = $selected.attr('data-brand');
+        var $id = $selected.val();
+        
+        $tirePriceInt = parseInt($tirePrice);
+        $tirePriceInt = $tirePriceInt*4;
+        if($tirePriceInt === 0)
+        {
+            $("#tireName").text("");
+            $("#tireDescription").text("");
+            $("#tirePrice").text("");
+            $('#tireLink').hide();
+        }
+        else 
+        {
+            $("#tireName").text($brand + " " + $name);
+            $("#tireDescription").text($description);
+            $("#tirePrice").text("Tires price: " + $tirePriceInt + ",- €");
+            $("#tireLink").attr('href', 'tire/' + parseInt($id));
+            $('#tireLink').show();
+        }
+        computeTotalPrice();
+        printTotalPrice();
+        disableSubmitButton();
+    });
+    
+    $('#order :checkbox').click(function() 
+    {
+        var $this = $(this);
+        if ($this.is(':checked')) {
+            $servicePriceInt = $servicePriceInt + parseInt($this.attr('data-price'));
+        } else {
+            $servicePriceInt = $servicePriceInt - parseInt($this.attr('data-price'));       
+        }
+        if($servicePriceInt === 0)
+        {
+            $("#servicePrice").text("");
+        }
+        else
+        {
+            $("#servicePrice").text("Service price: " + $servicePriceInt + ",- €");
+        }
+        computeTotalPrice();
+        printTotalPrice();
+        disableSubmitButton();
+    });
 });
 </script>

@@ -16,8 +16,6 @@ public class OrderFormDTO {
     private List<Long> serviceIds;
     @NotNull(message = "Can't be empty")
     private List<Long> tireIds;
-    @NotNull(message = "Can't be empty")
-    private String email;
     
     public void setServiceIds(List<Long> serviceIds){
         this.serviceIds = serviceIds;
@@ -33,13 +31,5 @@ public class OrderFormDTO {
     
     public List<Long> getTireIds(){
         return tireIds;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

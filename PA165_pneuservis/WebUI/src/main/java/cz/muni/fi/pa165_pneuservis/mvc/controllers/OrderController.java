@@ -77,9 +77,18 @@ public class OrderController {
         return "order/list";
     }
     
+    /**
+     * Action to process submit order form
+     * @param orderForm
+     * @param m
+     * @param result
+     * @param redirectAttributes
+     * @param uriBuilder
+     * @return
+     */
     @RequestMapping(value = "/submit", method = RequestMethod.POST)
-    public String index(@Valid @ModelAttribute("orderForm") OrderFormDTO orderForm, Model m,
-            BindingResult result, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
+    public String submitOrder(@Valid @ModelAttribute("orderForm") OrderFormDTO orderForm, 
+            Model m, BindingResult result, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
                
         List<Long> serviceIds = orderForm.getServiceIds();
         List<Long> tireIds = orderForm.getTireIds();
@@ -95,14 +104,6 @@ public class OrderController {
             OrderItemDTO serviceItem = new OrderItemDTO();
             serviceItem.setItem(serviceFacade.findServiceById(serviceId));
             order.addOrderItem(serviceItem);
-        }
-        
-        String email = orderForm.getEmail();
-        if(email != null)
-        {
-            CustomerDTO customer = new CustomerDTO();
-            customer.setEmail(email);
-            customerFacade.createCustomer(customer);
         }
         
         redirectAttributes.addFlashAttribute("alert_success", "Order was successfully submitted");
