@@ -309,6 +309,44 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             Logger.getLogger(PrepareEnvironmentFacadeImpl.class.getName())
                     .log(Level.SEVERE,ex.getMessage());
         }
+        
+        // create services
+        serviceService.createService(exampleService("Tire Installation", "Once a driver "
+                + "buys the new tires, they will need to be correctly installed on the "
+                + "vehicle. Contact us today to learn more about our tire offerings.", 
+                BigDecimal.valueOf(29.0), ServiceType.TireChange));
+        
+        serviceService.createService(exampleService("Wheel Balancing", "Professionals "
+                + "use computerized wheel balancers to pinpoint weight differentiation "
+                + "within a tire and wheel assembly. Computerized wheel balancers are "
+                + "highly accurate machines that identify the weight distribution "
+                + "problem areas within an assembly.",
+                BigDecimal.valueOf(49.0), ServiceType.TireTelemetry));
+        
+        serviceService.createService(exampleService("Tire Repair (Van)", "For a punctured "
+                + "tire, our staff will patch, plug, or seal the damaged area. If your "
+                + "tire is losing air due to valve stem damage or if the tire is "
+                + "not securely attached to the wheel’s rim, our tire repair service "
+                + "staff will be able to help.",
+                BigDecimal.valueOf(69.0), ServiceType.TireMaintenance));
+        
+        serviceService.createService(exampleService("Tire Repair (Truck)", "The methods "
+                + "used by our service staff to repair a tire comply with the "
+                + "Rubber Manufacturer’s Association (RMA). The RMA states that "
+                + "a flat tire can be repaired if the puncture is ¼ inch or smaller "
+                + "and if the puncture is located on the tread of a tire.",
+                BigDecimal.valueOf(39.0), ServiceType.TireMaintenance));
+    }
+    
+    private Service exampleService(String name, String description,
+            BigDecimal price, ServiceType serviceType)
+    {
+        Service service = new Service();
+        service.setName(name);
+        service.setDescription(description);
+        service.setPrice(price);
+        service.setServiceType(serviceType);
+        return service;
     }
     
     private Tire exampleTire(String name, String description, String brand,

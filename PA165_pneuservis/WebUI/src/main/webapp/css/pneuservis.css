@@ -22,3 +22,11 @@
 .form-signin {
   padding-top: 15px;
 }
+
+select[multiple], select[size] {
+    min-height: 195px;
+}
+
+option {
+    padding: 4px;
+}
