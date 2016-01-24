@@ -26,7 +26,7 @@
                             <form:label path="tireIds" cssClass="col-sm-2 col-sm-offset-2 control-label">Tires</form:label>
                             <div class="col-sm-8">
                                 <form:select id="tires" path="tireIds" cssClass="form-control" varStatus="i">
-                                    <form:option data-price="0" value="-" label="-- Please select --"/>
+                                    <form:option data-price="0" value="-" label="-- Please select --" selected="selected"/>
                                     <c:forEach var="tire" items="${tires}">
                                         <form:option value="${tire.id}" 
                                                      data-price="${tire.price}" 
@@ -48,7 +48,7 @@
                         <div class="media-body">
                             <h4 class="media-heading" id="tireName"></h4>
                             <p id="tireDescription" style="padding-right:15px"></p>
-                            <a href="<c:url value="/tire/1" />" type="button" class="btn btn-default">
+                            <a id="tireLink" href="<c:url value="/tire/" />" type="button" class="btn btn-default" style="display: none;">
                                 Details
                             </a>
                         </div>
@@ -105,15 +105,19 @@ $("#tires").change(function(){
     var $description = $selected.attr('data-description');
     var $name = $selected.attr('data-name');
     var $brand = $selected.attr('data-brand');
+    var $id = $selected.val();
     if($price > 0) {
 	$("#tirePrice").text("Tire price: " + $price);
         $("#tireDescription").text($description);
         $("#tireName").text($brand + " " + $name);
+        $("#tireLink").attr('href', 'tire/' + parseInt($id));
+        $('#tireLink').show();
     }
     else {
         $("#tirePrice").text("");
         $("#tireDescription").text("");
         $("#tireName").text("");
+        $('#tireLink').hide();
     }
 });
 </script>

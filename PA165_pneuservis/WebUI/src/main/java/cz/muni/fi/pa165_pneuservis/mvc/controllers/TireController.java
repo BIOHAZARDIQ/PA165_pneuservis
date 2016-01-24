@@ -62,6 +62,19 @@ public class TireController {
     }
     
     /**
+     * Action to show tire details
+     * @param m
+     * @param id id of tire to display
+     * @return View with tire details
+     */
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String displayTire(Model m, @PathVariable("id") long id) {
+        TireDTO tire = tireFacade.getTireById(id);
+        m.addAttribute("tire", tire);
+        return "tire/detail";
+    }
+    
+    /**
      * Action to show new tire form
      * @param model
      * @return View with new tire form
