@@ -12,7 +12,6 @@ import cz.muni.fi.pa165_pneuservis.facade.CustomerFacade;
 import cz.muni.fi.pa165_pneuservis.facade.OrderFacade;
 import cz.muni.fi.pa165_pneuservis.facade.ServiceFacade;
 import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
-import cz.muni.fi.pa165_pneuservis.mvc.servlets.UserLogged;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -56,6 +55,7 @@ public class OrderController {
             customers.add(order.getCustomer());
         }
         
+        /*
         if(UserLogged.usernameLogged.equals("user")){
             int i = 0;
             Iterator<OrderDTO> orderIterator = orders.iterator();
@@ -70,7 +70,7 @@ public class OrderController {
                 } 
             }
         }
-
+        */
         
         model.addAttribute("orders", orders);
         model.addAttribute("customers", customers);

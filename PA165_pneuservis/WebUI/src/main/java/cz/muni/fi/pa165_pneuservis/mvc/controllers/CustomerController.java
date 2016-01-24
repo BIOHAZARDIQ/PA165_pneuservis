@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- *
+ * Customer controller
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 @Controller
@@ -25,9 +25,9 @@ public class CustomerController {
     private CustomerFacade customerFacade;
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(Model model) {
+    public String listCustomers(Model m) {
         Collection<CustomerDTO> customers = customerFacade.findAllCustomers();
-        model.addAttribute("customers", customers);
+        m.addAttribute("customers", customers);
         return "customer/list";
     }
 }

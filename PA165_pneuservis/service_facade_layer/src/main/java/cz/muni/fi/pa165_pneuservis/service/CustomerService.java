@@ -13,7 +13,15 @@ import java.util.Collection;
 public interface CustomerService  {
     
     public Customer findCustomerById(Long id);
-    public Customer findCustomerByEmail(String email);
+
+    /**
+     * Retrieves Customer by it's email
+     * @param email
+     * @return Customer Selected customer
+     * @throws PneuBusinessException
+     */
+    public Customer findCustomerByEmail(String email) throws PneuBusinessException;
+    
     public Collection<Customer> findAllCustomers();
     public void createCustomer(Customer customer);
     public void deleteCustomer(Long id);

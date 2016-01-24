@@ -21,17 +21,18 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private String  firstName;
-    private String  lastName;
-    private String  streetName;
-    private Integer streetNumber;
-    private String  city;
-    private String  state;
-    private String  postalNumber;
-    private String  phoneNumber;
-    private String  email;
-    private String  password;
+    private String firstName;
+    private String lastName;
+    private String streetName;
+    private String streetNumber;
+    private String city;
+    private String state;
+    private String postalNumber;
+    private String phoneNumber;
+    private String email;
+    private String password;
+    private boolean isAdmin;
+    private VehicleType vehicleType;
     
     @OneToMany
     private List<Order> orders = new ArrayList<Order>();
@@ -69,11 +70,11 @@ public class Customer {
         this.streetName = streetName;
     }
     
-    public Integer getStreetNumber() {
+    public String getStreetNumber() {
         return streetNumber;
     }
     
-    public void setStreetNumber(Integer streetNumber) {
+    public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
     }
     
@@ -125,6 +126,22 @@ public class Customer {
         this.password = password;
     }
     
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -140,6 +157,8 @@ public class Customer {
         result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
+        result = prime * result + ((isAdmin) ? 1 : 0);
+        result = prime * result + ((vehicleType == null) ? 0 : vehicleType.hashCode());
         return result;
     }
     
@@ -221,6 +240,18 @@ public class Customer {
                 return false;
         } else if (!password.equals(other.getPassword()))
             return false;
+        
+        if (isAdmin != (other.getIsAdmin())) {
+            return false;
+        }
+        
+        if (vehicleType == null) {
+            if (other.getVehicleType()!= null) {
+                return false;
+            }
+        } else if (!vehicleType.equals(other.getVehicleType())) {
+            return false;
+        }
         
         return true;
     }

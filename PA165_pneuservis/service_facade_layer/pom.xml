@@ -23,5 +23,11 @@
             <artifactId>api_layer</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>3.2.4.RELEASE</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>

@@ -8,6 +8,7 @@ import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
 import cz.muni.fi.pa165_pneuservis.service.CustomerService;
+import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
 import java.util.Collection;
 
 import org.mockito.MockitoAnnotations;
@@ -46,7 +47,7 @@ public class CustomerFacadeImplTest {
     }
           
     @Test
-    public void testFindAllCustomersFacade() {
+    public void testFindAllCustomersFacade() throws PneuBusinessException {
         Customer c1 = new Customer();
         Customer c2 = new Customer();
         CustomerDTO dto1 = new CustomerDTO();
@@ -64,7 +65,7 @@ public class CustomerFacadeImplTest {
     }
     
     @Test
-    public void testFindCustomerByIdFacade() {
+    public void testFindCustomerByIdFacade() throws PneuBusinessException {
         CustomerDTO dto = new CustomerDTO();
         dto.setId(1L);
         Customer c1 = new Customer();
@@ -83,7 +84,7 @@ public class CustomerFacadeImplTest {
     }
     
     @Test
-    public void testFindCustomerByEmailFacade() {
+    public void testFindCustomerByEmailFacade() throws PneuBusinessException, PneuFacadeException {
         String email = "customer@email.qa";
         CustomerDTO dto = new CustomerDTO();
         dto.setEmail(email);
@@ -103,7 +104,7 @@ public class CustomerFacadeImplTest {
     }
     
     @Test
-    public void testCreateCustomerFacade() {
+    public void testCreateCustomerFacade() throws PneuBusinessException {
         CustomerDTO dto = new CustomerDTO();
         dto.setId(1L);
         Customer c1 = new Customer();
@@ -119,7 +120,7 @@ public class CustomerFacadeImplTest {
     }
     
     @Test
-    public void testDeleteCustomerFacade() {
+    public void testDeleteCustomerFacade() throws PneuBusinessException {
         facade.deleteCustomer(1L);        
         verify(customerServiceMock).deleteCustomer(1L);
         verifyNoMoreInteractions(customerServiceMock);

@@ -11,40 +11,42 @@
 <t:generic title="Customers">
     <jsp:attribute name="body">
         
-        <a href="<c:url value="/" />">Create new Customer entry</a>
-        
-        <table class="table">
+        <table class="table table-condensed table-hover">
+            <caption>List of registered customers</caption>
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Street name</th>
-                    <th>Street number</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Postal number</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
                     <th>Phone number</th>
-                    <th>E-mail</th>
+                    <th>Vehicle type</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach items="${customers}" var="customer">
+                    <c:if test="${customer.getEmail() != 'admin@pneuservis.com'}">
                     <tr>
-                        <td>${customer.id}</td>
-                        <td><c:out value="${customer.firstName}"/></td>
-                        <td><c:out value="${customer.lastName}"/></td>
-                        <td><c:out value="${customer.streetName}"/></td>
-                        <td>${customer.streetNumber}</td>
-                        <td>${customer.city}</td>
-                        <td>${customer.state}</td>
-                        <td>${customer.postalNumber}</td>
+                        <td>${customer.firstName} ${customer.lastName}</td>
+                        <td>
+                            <address>
+                                ${customer.streetNumber}, ${customer.streetName}<br>
+                                ${customer.city}, ${customer.state}<br>
+                                ${customer.postalNumber}<br>
+                            </address>
+                        </td>
+                        <td><a href="mailto:#">${customer.email}</a></td>
                         <td>${customer.phoneNumber}</td>
-                        <td>${customer.email}</td>
+                        <td>${customer.vehicleType}</td>
                     </tr>
+                    </c:if>
                 </c:forEach>
             </tbody>
         </table>
+        
+        <a href="<c:url value="/customer/new" />" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Register new customer
+        </a>
         
     </jsp:attribute>
 </t:generic>

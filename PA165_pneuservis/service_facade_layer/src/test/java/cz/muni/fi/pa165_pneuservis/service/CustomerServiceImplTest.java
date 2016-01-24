@@ -99,7 +99,7 @@ public class CustomerServiceImplTest {
     }
     
     @Test
-    public void testFindCustomerByEmail() {
+    public void testFindCustomerByEmail() throws PneuBusinessException {
         Customer c1 = new Customer();
         String email = "customer@email.qa";
         c1.setEmail(email);

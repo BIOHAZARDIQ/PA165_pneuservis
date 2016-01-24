@@ -4,27 +4,30 @@
 */
 package cz.muni.fi.pa165_pneuservis.data;
 
+import com.github.javafaker.Faker;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
 import cz.muni.fi.pa165_pneuservis.model.Service;
 import cz.muni.fi.pa165_pneuservis.model.ServiceType;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
+import cz.muni.fi.pa165_pneuservis.model.VehicleType;
 import cz.muni.fi.pa165_pneuservis.service.CustomerService;
 import cz.muni.fi.pa165_pneuservis.service.OrderService;
 import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
 import cz.muni.fi.pa165_pneuservis.service.ServiceService;
 import cz.muni.fi.pa165_pneuservis.service.TireService;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.security.SecureRandom;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.transaction.Transactional;
-import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 
 /**
@@ -46,43 +49,46 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     @Autowired
     private OrderService orderService;
     
-    static Random randomGenerator;
-    static Integer index;
-    static SecureRandom secureRandom;
-    
-    //Item
-    static String  name;
-    static String  description;
-    static Double  priceDouble;
-    static BigDecimal priceBigDecimal;
-    
-    //Tire
-    static String  brand;
-    static Integer width;
-    static Integer ratio;
-    static Integer rim;
-    
-    //Customer
-    static String  firstName;
-    static String  lastName;
-    static String  streetName;
-    static Integer streetNumber;
-    static String  city;
-    static String  state;
-    static String  postalNumber;
-    static String  phoneNumber;
-    static String  email;
-    static String  password;
-    
-    //Service
-    static ServiceType serviceType;
+    private final Faker faker = new Faker();
     
     /**
-     * Fills system with test data
-     * Password for Customer will be always containing firstName of customer -> "heslo{firstName}"
+     * Fills system with random test data
+     * Password for Customer contains firstName of customer -> password(firstName)
+     * @deprecated Use PrepareCustomEnvironment instead.
      */
     @Override
-    public void PrepareEnvironment() {
+    @Deprecated
+    public void PrepareRandomEnvironment() {
+        Random randomGenerator;
+        Integer index;
+        SecureRandom secureRandom;
+
+        //Item
+        String name;
+        String description;
+        Double priceDouble;
+        BigDecimal priceBigDecimal;
+
+        //Tire
+        String brand;
+        Integer width;
+        Integer ratio;
+        Integer rim;
+
+        //Customer
+        String firstName;
+        String lastName;
+        String streetName;
+        Integer streetNumber;
+        String city;
+        String state;
+        String postalNumber;
+        String phoneNumber;
+        String email;
+        String password;
+
+        //Service
+        ServiceType serviceType;
         
         //List of names that will be randomly selected when creating Tires
         ArrayList<String> tireBrand = new ArrayList<>(Arrays.asList("Michelin","Yokohama","Pirelli","Goodyear","Barum"));
@@ -177,7 +183,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             customer.setLastName(lastName);
             customer.setCity(city);
             customer.setStreetName(streetName);
-            customer.setStreetNumber(streetNumber);
+            //customer.setStreetNumber(streetNumber);
             customer.setPostalNumber(postalNumber);
             customer.setState("Ceska republika");
             customer.setPhoneNumber(phoneNumber);
@@ -241,6 +247,144 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             orderService.createOrder(order);
         }
     }
-   
+
+    /**
+     * Fills system with specific test data
+     */
+    @Override
+    public void PrepareCustomEnvironment()
+    {
+        // create admin for presentation purposes
+        Customer exampleAdmin = exampleCustomer("John", "Privileged",
+                "admin@pneuservis.com", "password", VehicleType.Car);
+        exampleAdmin.setIsAdmin(true);
+        customerService.createCustomer(exampleAdmin);
+        
+        // create customer for presentation purposes
+        Customer exampleCustomer = exampleCustomer("John", "Doe",
+                "customer@pneuservis.com", "password", VehicleType.Van);
+        customerService.createCustomer(exampleCustomer);
+        
+        // create another customers to fill data views
+        customerService.createCustomer(genericCustomer(VehicleType.Car));
+        customerService.createCustomer(genericCustomer(VehicleType.Car));
+        customerService.createCustomer(genericCustomer(VehicleType.Motocycle));
+        customerService.createCustomer(genericCustomer(VehicleType.Truck));
+        customerService.createCustomer(genericCustomer(VehicleType.Van));
+        
+        // create tires
+        try
+        {
+            tireService.createTire(exampleTire("Alpin A4", "The new Michelin Alpin A4 "
+                    + "tire allows you to drive in confidence through snow, ice and rain "
+                    + "year after year.", "Michelin", 165, 60, 14, 
+                    BigDecimal.valueOf(119.0)));
+            
+            tireService.createTire(exampleTire("Premier LTX", "The MICHELIN Premier "
+                    + "LTX tire still stops shorter on wet roads than leading "
+                    + "competitors’ brand-new tires.", "Michelin", 185, 60, 15, 
+                    BigDecimal.valueOf(149.0)));
+            
+            tireService.createTire(exampleTire("Defender LTX", "The Michelin Defender "
+                    + "LTX combines the proven tread design of the LTX M/S2 with "
+                    + "Evertread compound.", "Michelin", 195, 55, 16, 
+                    BigDecimal.valueOf(189.0)));
+            
+            tireService.createTire(exampleTire("Pilot Sport", "The Pilot Sport 3 is "
+                    + "Michelin’s ultimate Ultra High Performance All-Season tire.", 
+                    "Michelin", 205, 45, 17, BigDecimal.valueOf(219.0)));
+            
+            tireService.createTire(exampleTire("P Zero", "The P ZERO has been "
+                    + "chosen for the most performance orientated and powerful "
+                    + "models on the market.", "Pirelli", 215, 45, 18, 
+                    BigDecimal.valueOf(239.0)));
+            
+            tireService.createTire(exampleTire("Cinturato P7", "A Performance All "
+                    + "Season Tire specifically Designed for the North American "
+                    + "Luxury Touring Market", "Pirelli", 205, 50, 17, 
+                    BigDecimal.valueOf(229.0)));
+        }
+        catch(PneuBusinessException ex)
+        {
+            Logger.getLogger(PrepareEnvironmentFacadeImpl.class.getName())
+                    .log(Level.SEVERE,ex.getMessage());
+        }
+        
+        // create services
+        serviceService.createService(exampleService("Tire Installation", "Once a driver "
+                + "buys the new tires, they will need to be correctly installed on the "
+                + "vehicle. Contact us today to learn more about our tire offerings.", 
+                BigDecimal.valueOf(29.0), ServiceType.TireChange));
+        
+        serviceService.createService(exampleService("Wheel Balancing", "Professionals "
+                + "use computerized wheel balancers to pinpoint weight differentiation "
+                + "within a tire and wheel assembly. Computerized wheel balancers are "
+                + "highly accurate machines that identify the weight distribution "
+                + "problem areas within an assembly.",
+                BigDecimal.valueOf(49.0), ServiceType.TireTelemetry));
+        
+        serviceService.createService(exampleService("Tire Repair (Van)", "For a punctured "
+                + "tire, our staff will patch, plug, or seal the damaged area. If your "
+                + "tire is losing air due to valve stem damage or if the tire is "
+                + "not securely attached to the wheel’s rim, our tire repair service "
+                + "staff will be able to help.",
+                BigDecimal.valueOf(69.0), ServiceType.TireMaintenance));
+        
+        serviceService.createService(exampleService("Tire Repair (Truck)", "The methods "
+                + "used by our service staff to repair a tire comply with the "
+                + "Rubber Manufacturer’s Association (RMA). The RMA states that "
+                + "a flat tire can be repaired if the puncture is ¼ inch or smaller "
+                + "and if the puncture is located on the tread of a tire.",
+                BigDecimal.valueOf(39.0), ServiceType.TireMaintenance));
+    }
     
+    private Service exampleService(String name, String description,
+            BigDecimal price, ServiceType serviceType)
+    {
+        Service service = new Service();
+        service.setName(name);
+        service.setDescription(description);
+        service.setPrice(price);
+        service.setServiceType(serviceType);
+        return service;
+    }
+    
+    private Tire exampleTire(String name, String description, String brand,
+            Integer width, Integer ratio, Integer rim, BigDecimal price)
+    {
+        Tire tire = new Tire();
+        tire.setName(name);
+        tire.setDescription(description);
+        tire.setBrand(brand);
+        tire.setWidth(width);
+        tire.setRatio(ratio);
+        tire.setRim(rim);
+        tire.setPrice(price);
+        return tire;
+    }
+    
+    private Customer exampleCustomer(String firstName, String LastName, 
+            String email, String password, VehicleType vehicleType)
+    {
+        Customer customer = new Customer();
+        customer.setFirstName(firstName);
+        customer.setLastName(LastName);
+        customer.setStreetName(faker.address().streetName());
+        customer.setStreetNumber(faker.address().streetAddressNumber());
+        customer.setCity(faker.address().city());
+        customer.setState(faker.address().state());
+        customer.setPostalNumber(faker.address().zipCode());
+        customer.setPhoneNumber(faker.phoneNumber().phoneNumber());
+        customer.setEmail(email);
+        customer.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
+        customer.setVehicleType(vehicleType);
+        customer.setIsAdmin(false);
+        return customer;
+    }
+    
+    private Customer genericCustomer(VehicleType vehicleType)
+    {
+        return exampleCustomer(faker.name().firstName(), faker.name().lastName(),
+                faker.internet().emailAddress(), "password", vehicleType);
+    }
 }

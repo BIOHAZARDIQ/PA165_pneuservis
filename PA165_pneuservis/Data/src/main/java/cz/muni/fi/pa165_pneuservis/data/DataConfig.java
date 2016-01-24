@@ -21,6 +21,6 @@ public class DataConfig {
     
     @PostConstruct
     public void Load() {
-        environmentFacade.PrepareEnvironment();
+        environmentFacade.PrepareCustomEnvironment();
     }
 }

@@ -11,110 +11,128 @@ import java.util.List;
  * @author Filip Meszaros <436321@mail.muni.cz>
  */
 public class CustomerDTO {
-    
+
     private Long id;
-    private String  firstName;
-    private String  lastName;
-    private String  streetName;
-    private Integer streetNumber;
-    private String  city;
-    private String  state;
-    private String  postalNumber;
-    private String  phoneNumber;
-    private String  email;
+    private String firstName;
+    private String lastName;
+    private String streetName;
+    private String streetNumber;
+    private String city;
+    private String state;
+    private String postalNumber;
+    private String phoneNumber;
+    private String email;
     private String password;
-    
+    private boolean isAdmin;
+    private VehicleType vehicleType;
+
     private List<OrderDTO> orders = new ArrayList<OrderDTO>();
-    
+
     //Getters & Setters of class Customer
     public Long getId() {
         return id;
     }
-    
-    public void setId(Long id){
+
+    public void setId(Long id) {
         this.id = id;
     }
-    
-    public String getFirstName(){
+
+    public String getFirstName() {
         return firstName;
     }
-    
-    public void setFirstName(String firstName){
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    
-    public String getLastName(){
+
+    public String getLastName() {
         return lastName;
     }
-    
-    public void setLastName(String lastName){
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
+
     public String getStreetName() {
         return streetName;
     }
-    
+
     public void setStreetName(String streetName) {
         this.streetName = streetName;
     }
-    
-    public Integer getStreetNumber() {
+
+    public String getStreetNumber() {
         return streetNumber;
     }
-    
-    public void setStreetNumber(Integer streetNumber) {
+
+    public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
     }
-    
+
     public String getCity() {
         return city;
     }
-    
+
     public void setCity(String city) {
         this.city = city;
     }
-    
+
     public String getState() {
         return state;
     }
-    
+
     public void setState(String state) {
         this.state = state;
     }
-    
+
     public String getPostalNumber() {
         return postalNumber;
     }
-    
+
     public void setPostalNumber(String postalNumber) {
         this.postalNumber = postalNumber;
     }
-    
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    
+
     public String getEmail() {
         return email;
     }
-    
+
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public String getPassword() {
         return password;
     }
-    
+
     public void setPassword(String password) {
         this.password = password;
     }
     
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -130,83 +148,122 @@ public class CustomerDTO {
         result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
+        result = prime * result + ((isAdmin) ? 1 : 0);
+        result = prime * result + ((vehicleType == null) ? 0 : vehicleType.hashCode());
         return result;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (! (obj instanceof CustomerDTO))
+        }
+        if (!(obj instanceof CustomerDTO)) {
             return false;
+        }
         CustomerDTO other = (CustomerDTO) obj;
         if (id == null) {
-            if (other.getId() != null)
+            if (other.getId() != null) {
                 return false;
-        } else if (!id.equals(other.getId()))
+            }
+        } else if (!id.equals(other.getId())) {
             return false;
-        
+        }
+
         if (firstName == null) {
-            if (other.getFirstName()!= null)
+            if (other.getFirstName() != null) {
                 return false;
-        } else if (!firstName.equals(other.getFirstName()))
+            }
+        } else if (!firstName.equals(other.getFirstName())) {
             return false;
-        
+        }
+
         if (lastName == null) {
-            if (other.getLastName()!= null)
+            if (other.getLastName() != null) {
                 return false;
-        } else if (!lastName.equals(other.getLastName()))
+            }
+        } else if (!lastName.equals(other.getLastName())) {
             return false;
-        
+        }
+
         if (streetName == null) {
-            if (other.getStreetName()!= null)
+            if (other.getStreetName() != null) {
                 return false;
-        } else if (!streetName.equals(other.getStreetName()))
+            }
+        } else if (!streetName.equals(other.getStreetName())) {
             return false;
-        
+        }
+
         if (streetNumber == null) {
-            if (other.getStreetNumber()!= null)
+            if (other.getStreetNumber() != null) {
                 return false;
-        } else if (!streetNumber.equals(other.getStreetNumber()))
+            }
+        } else if (!streetNumber.equals(other.getStreetNumber())) {
             return false;
-        
+        }
+
         if (city == null) {
-            if (other.getCity()!= null)
+            if (other.getCity() != null) {
                 return false;
-        } else if (!city.equals(other.getCity()))
+            }
+        } else if (!city.equals(other.getCity())) {
             return false;
-        
+        }
+
         if (state == null) {
-            if (other.getState()!= null)
+            if (other.getState() != null) {
                 return false;
-        } else if (!state.equals(other.getState()))
+            }
+        } else if (!state.equals(other.getState())) {
             return false;
-        
+        }
+
         if (postalNumber == null) {
-            if (other.getPostalNumber()!= null)
+            if (other.getPostalNumber() != null) {
                 return false;
-        } else if (!postalNumber.equals(other.getPostalNumber()))
+            }
+        } else if (!postalNumber.equals(other.getPostalNumber())) {
             return false;
-        
+        }
+
         if (phoneNumber == null) {
-            if (other.getPhoneNumber()!= null)
+            if (other.getPhoneNumber() != null) {
                 return false;
-        } else if (!phoneNumber.equals(other.getPhoneNumber()))
+            }
+        } else if (!phoneNumber.equals(other.getPhoneNumber())) {
             return false;
-        
+        }
+
         if (email == null) {
-            if (other.getEmail()!= null)
+            if (other.getEmail() != null) {
                 return false;
-        } else if (!email.equals(other.getEmail()))
+            }
+        } else if (!email.equals(other.getEmail())) {
             return false;
-        
+        }
+
         if (password == null) {
-            if (other.getPassword()!= null)
+            if (other.getPassword() != null) {
                 return false;
-        } else if (!password.equals(other.getPassword()))
+            }
+        } else if (!password.equals(other.getPassword())) {
             return false;
+        }
+        
+        if (isAdmin != (other.getIsAdmin())) {
+            return false;
+        }
+        
+        if (vehicleType == null) {
+            if (other.getVehicleType()!= null) {
+                return false;
+            }
+        } else if (!vehicleType.equals(other.getVehicleType())) {
+            return false;
+        }
         
         return true;
     }

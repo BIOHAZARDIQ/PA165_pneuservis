@@ -11,40 +11,73 @@
 <t:generic title="Pneuservis">
 <jsp:attribute name="body">
 
-        <div class="well well-sm">
-            Use admin/admin or user/user for logging in section with different roles to view existing content or ...
-        </div>
-
     <form:form method="post" action="${pageContext.request.contextPath}/order/submit"
                modelAttribute="orderForm" cssClass="form-horizontal">
             
-        <div class="well well-sm">
-            1. Choose a set of tires for your vehicle
-        </div>
-        
-        <div class="form-group">
-            <form:label path="tireIds" cssClass="col-sm-2 control-label">Tires</form:label>
-            <div class="col-sm-4">
-                <form:select path="tireIds" multiple="true" cssClass="form-control">
-                    <form:options items="${tires}" itemValue="id" itemLabel="name"/>
-                </form:select>
-                <form:errors path="tireIds" cssClass="help-block"/>
+        <div class="panel panel-default">
+            
+            <div class="panel-heading">
+              Select set of tires for your vehicle
             </div>
-        </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <form:label path="tireIds" cssClass="col-sm-2 col-sm-offset-2 control-label">Tires</form:label>
+                            <div class="col-sm-8">
+                                <form:select id="tires" path="tireIds" cssClass="form-control" varStatus="i">
+                                    <form:option data-price="0" value="-" label="-- Please select --"/>
+                                    <c:forEach var="tire" items="${tires}">
+                                        <form:option value="${tire.id}" 
+                                                     data-price="${tire.price}" 
+                                                     data-description="${tire.description}"
+                                                     data-name="${tire.name}"
+                                                     data-brand="${tire.brand}">
+                                            <c:out value="${tire.name}"/>
+                                        </form:option>
+                                    </c:forEach>
+                                </form:select>
+                                <form:errors path="tireIds" cssClass="help-block"/>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" style="padding:15px">
+                    <div class="media">
 
-        <div class="well well-sm">
-            2. Select additional services
+                        <div class="media-body">
+                            <h4 class="media-heading" id="tireName"></h4>
+                            <p id="tireDescription" style="padding-right:15px"></p>
+                            <a href="<c:url value="/tire/1" />" type="button" class="btn btn-default">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tirePrice" class="panel-footer"></div>
+        </div>
+                    
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              Select additional services
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <form:label path="serviceIds" cssClass="col-sm-2 control-label">Services</form:label>
+                    <div class="col-sm-4">
+                        <form:select path="serviceIds" multiple="true" cssClass="form-control">
+                            <form:option value="-" label="-- None --"/>
+                            <form:options items="${services}" itemValue="id" itemLabel="name"/>
+                        </form:select>
+                        <form:errors path="serviceIds" cssClass="help-block"/>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">Total price: </div>
         </div>
             
-        <div class="form-group">
-            <form:label path="serviceIds" cssClass="col-sm-2 control-label">Services</form:label>
-            <div class="col-sm-4">
-                <form:select path="serviceIds" multiple="true" cssClass="form-control">
-                    <form:options items="${services}" itemValue="id" itemLabel="name"/>
-                </form:select>
-                <form:errors path="serviceIds" cssClass="help-block"/>
-            </div>
-        </div>
+
             
         <div class="form-group">
             <form:label path="email" cssClass="col-sm-2 control-label">E-mail</form:label>
@@ -64,3 +97,23 @@
     
 </jsp:attribute>
 </t:generic>
+
+<script>
+$("#tires").change(function(){
+    var $selected = ( $(this).find(":selected") );
+    var $price = $selected.attr('data-price');
+    var $description = $selected.attr('data-description');
+    var $name = $selected.attr('data-name');
+    var $brand = $selected.attr('data-brand');
+    if($price > 0) {
+	$("#tirePrice").text("Tire price: " + $price);
+        $("#tireDescription").text($description);
+        $("#tireName").text($brand + " " + $name);
+    }
+    else {
+        $("#tirePrice").text("");
+        $("#tireDescription").text("");
+        $("#tireName").text("");
+    }
+});
+</script>
