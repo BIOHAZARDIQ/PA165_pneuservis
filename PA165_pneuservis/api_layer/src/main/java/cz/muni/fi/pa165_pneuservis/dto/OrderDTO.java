@@ -6,9 +6,8 @@ package cz.muni.fi.pa165_pneuservis.dto;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author Jakub Holy <436353@mail.muni.cz>
@@ -20,10 +19,7 @@ public class OrderDTO {
     private Date createDate;
     private Date completeDate;
     private CustomerDTO customer;
-    
-    //@Enumerated
-    //private List<VehicleType> vehicles = new ArrayList<VehicleType>(); 
-    private List<OrderItemDTO> orderItems = new ArrayList<OrderItemDTO>();
+    private Collection<OrderItemDTO> orderItems = new ArrayList<OrderItemDTO>();
     
     public Long getId() {
         return id;
@@ -65,21 +61,12 @@ public class OrderDTO {
         this.customer = customer;
     }
     
-    //TODO enable this vehicle logic
-//    public List<VehicleType> getVehicles(){
-//        return Collections.unmodifiableList(vehicles);
-//    }
-    
-//    public void addVehicle(VehicleType vehicleType){
-//        vehicles.add(vehicleType);
-//    }
-    
-    public List<OrderItemDTO> getOrderItems() {
-        return Collections.unmodifiableList(orderItems);
+    public Collection<OrderItemDTO> getOrderItems() {
+        return orderItems;
     }
     
-    public void addOrderItem(OrderItemDTO orderItem) {
-        orderItems.add(orderItem);
+    public void setOrderItems(Collection<OrderItemDTO> orderItems) {
+        this.orderItems = orderItems;
     }
     
     @Override
@@ -89,7 +76,6 @@ public class OrderDTO {
         result = primeNumber * result + ((id == null) ? 0 : id.hashCode());
         result = primeNumber * result + ((createDate == null) ? 0 : createDate.hashCode());
         result = primeNumber * result + ((customer == null) ? 0 : customer.hashCode());
-        //result = primeNumber * result + ((vehicles == null) ? 0 : vehicles.hashCode());
         result = primeNumber * result + ((orderItems == null) ? 0 : orderItems.hashCode());
         result = primeNumber * result + ((totalPrice == null) ? 0 : totalPrice.hashCode());
         return result;
