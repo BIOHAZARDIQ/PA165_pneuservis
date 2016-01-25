@@ -20,6 +20,18 @@ Zákazník je schopný si cez webovú službu vybrať a následne objednať pneu
 Admin e-mail & password: admin@pneuservis.com : password
 Customer e-mail & password: customer@pneuservis.com : password
 
+###Dostupnosť funkcionality pre rôznych používateľov
+Funkcionalita                           |  Admin |  Customer |  Neprihlásený
+--------------------------------------- | ------ | --------- | ---------------
+Zobrazenie zaregistrovaných zákazníkov  |    X   |           |           
+Pridatie/Odobratie/Úprava pneumatiky    |    X   |           |           
+Vytvorenie novej služby                 |    X   |           |           
+Vytvorenie nového zákazníka             |    X   |           |           
+Zobrazenie detailov pneumatiky          |    X   |     X     |           
+Zobrazenie objednávok zákazníka         |    X   |     X     |           
+Logout                                  |    X   |     X     |           
+Zobrazenie dostupných služieb           |    X   |     X     |        X  
+
 ###Poznámky pre netbeans 8:  
 - Stiahni a rozbaľ apache tomcat 7 z <http://tomcat.apache.org/download-70.cgi>
 - Pre windows: v rozbalenom archíve ./bin/catalina.bat odstráň uvodzovky pri reťazcoch JAVA_OPTS=
