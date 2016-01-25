@@ -77,9 +77,11 @@ public class OrderFacadeImpl implements OrderFacade {
                 Class orderItemClass = orderItemDTO.getItem().getClass();
                 if(orderItemClass == TireDTO.class) {
                     orderItem.setItem(tireService.getTireById(orderItemDTO.getItem().getId()));
+                    orderItem.setAmount(4);
                 }
                 else if(orderItemClass == ServiceDTO.class) {
                     orderItem.setItem(serviceService.findServiceById(orderItemDTO.getItem().getId()));
+                    orderItem.setAmount(1);
                 }
                 order.addOrderItem(orderItem);
             }
