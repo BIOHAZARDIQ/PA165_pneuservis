@@ -7,6 +7,7 @@ package cz.muni.fi.pa165_pneuservis.data;
 import com.github.javafaker.Faker;
 import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
+import cz.muni.fi.pa165_pneuservis.model.OrderItem;
 import cz.muni.fi.pa165_pneuservis.model.Service;
 import cz.muni.fi.pa165_pneuservis.model.ServiceType;
 import cz.muni.fi.pa165_pneuservis.model.Tire;
@@ -22,7 +23,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.security.SecureRandom;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.transaction.Transactional;
@@ -272,13 +278,16 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         customerService.createCustomer(genericCustomer(VehicleType.Truck));
         customerService.createCustomer(genericCustomer(VehicleType.Van));
         
+        Tire exampleTire = null;
+        
         // create tires
         try
         {
-            tireService.createTire(exampleTire("Alpin A4", "The new Michelin Alpin A4 "
+            exampleTire = exampleTire("Alpin A4", "The new Michelin Alpin A4 "
                     + "tire allows you to drive in confidence through snow, ice and rain "
                     + "year after year.", "Michelin", 165, 60, 14, 
-                    BigDecimal.valueOf(119.0)));
+                    BigDecimal.valueOf(119.0));
+            tireService.createTire(exampleTire);
             
             tireService.createTire(exampleTire("Premier LTX", "The MICHELIN Premier "
                     + "LTX tire still stops shorter on wet roads than leading "
@@ -310,11 +319,15 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
                     .log(Level.SEVERE,ex.getMessage());
         }
         
+        Service exampleService = null;
+        
         // create services
-        serviceService.createService(exampleService("Tire Installation", "Once a driver "
+        
+        exampleService=exampleService("Tire Installation", "Once a driver "
                 + "buys the new tires, they will need to be correctly installed on the "
                 + "vehicle. Contact us today to learn more about our tire offerings.", 
-                BigDecimal.valueOf(29.0), ServiceType.TireChange));
+                BigDecimal.valueOf(29.0), ServiceType.TireChange);
+        serviceService.createService(exampleService);
         
         serviceService.createService(exampleService("Wheel Balancing", "Professionals "
                 + "use computerized wheel balancers to pinpoint weight differentiation "
@@ -336,6 +349,43 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
                 + "a flat tire can be repaired if the puncture is ¼ inch or smaller "
                 + "and if the puncture is located on the tread of a tire.",
                 BigDecimal.valueOf(39.0), ServiceType.TireMaintenance));
+        
+        try {
+            Logger logger = Logger.getLogger(PrepareEnvironmentFacadeImpl.class.getName());
+            
+            OrderItem tireItem = new OrderItem();
+            tireItem.setItem(exampleTire);
+                        
+            OrderItem serviceItem = new OrderItem();
+            serviceItem.setItem(exampleService);
+
+            Order order = new Order();
+            order.addOrderItem(tireItem);
+            order.addOrderItem(serviceItem);
+            order.setTotalPrice(exampleTire.getPrice().add(exampleService.getPrice()));
+            order.setCustomer(exampleCustomer);
+            order.setCreateDate(date(2016,1,15));
+            order.setCompleteDate(date(2016,1,20));
+            
+            orderService.createOrder(order);
+            List<Order> orders = orderService.findAllOrders();
+            for (Order persistedOrder : orders)
+            {
+                logger.log(Level.INFO,persistedOrder.toString());
+                
+                Collection<OrderItem> persistedOrderItems = persistedOrder.getOrderItems();
+                for (OrderItem persistedOrderItem : persistedOrderItems)
+                {
+                    logger.log(Level.INFO,persistedOrderItem.toString());
+                }
+                
+                List<Order> ordersByCustomer = orderService.getOrdersByCustomer(persistedOrder.getCustomer().getId());
+                ordersByCustomer.getClass();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PrepareEnvironmentFacadeImpl.class.getName())
+                    .log(Level.SEVERE,ex.getMessage());
+        }
     }
     
     private Service exampleService(String name, String description,
@@ -386,5 +436,9 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
     {
         return exampleCustomer(faker.name().firstName(), faker.name().lastName(),
                 faker.internet().emailAddress(), "password", vehicleType);
+    }
+
+    private Date date(int year, int month, int day) {
+        return Date.from(LocalDate.of(year, month, day).atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 }

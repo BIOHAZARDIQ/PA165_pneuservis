@@ -10,6 +10,7 @@ import cz.muni.fi.pa165_pneuservis.dto.OrderItemDTO;
 import cz.muni.fi.pa165_pneuservis.dto.OrderFormDTO;
 import cz.muni.fi.pa165_pneuservis.facade.CustomerFacade;
 import cz.muni.fi.pa165_pneuservis.facade.OrderFacade;
+import cz.muni.fi.pa165_pneuservis.facade.PneuFacadeException;
 import cz.muni.fi.pa165_pneuservis.facade.ServiceFacade;
 import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
 import java.util.ArrayList;
@@ -120,7 +121,7 @@ public class OrderController {
         
         try {
             orderFacade.createOrder(order);
-        } catch (Exception ex) {
+        } catch (PneuFacadeException ex) {
             Logger.getLogger(OrderController.class.getName())
                     .log(Level.SEVERE,ex.getMessage());
             redirectAttributes.addFlashAttribute("alert_danger", "Error occured "
