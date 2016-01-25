@@ -6,6 +6,7 @@ package cz.muni.fi.pa165_pneuservis.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -85,12 +86,22 @@ public class Order {
         this.customer = customer;
     }
     
-    public List<OrderItem> getOrderItems() {
-        return Collections.unmodifiableList(orderItems);
+    public Collection<OrderItem> getOrderItems() {
+        return new ArrayList<OrderItem>(orderItems);
     }
     
     public void addOrderItem(OrderItem orderItem) {
+        if (orderItems.contains(orderItem))
+              return;
         orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+    
+    public void removeOrderItem(OrderItem orderItem) {
+        if (!orderItems.contains(orderItem))
+              return;
+        orderItems.remove(orderItem);
+        orderItem.setOrder(null);
     }
     
     @Override
@@ -142,5 +153,10 @@ public class Order {
         }
         
         return true;
+    }
+    
+    @Override
+    public String toString() {
+        return "Order [id=" + id + ", created=" + createDate + ", completed=" + completeDate + "]";
     }
 }

@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -25,6 +26,9 @@ public class OrderItem {
     private Item item;
     
     private Integer amount;
+    
+    @ManyToOne(cascade=CascadeType.ALL)
+    private Order order;
     
     public Long getId() {
         return id;
@@ -48,6 +52,24 @@ public class OrderItem {
     
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+    
+    public void setOrder(Order order) {
+        if (sameAsFormer(order))
+            return ;
+        Order oldOrder = this.order;
+        this.order = order;
+
+        // remove from old order
+        if (oldOrder!=null)
+            order.removeOrderItem(this);
+        // set to new order
+        if (order!=null)
+            order.addOrderItem(this);
+    }
+    
+    private boolean sameAsFormer(Order newOrder) {
+        return order==null? newOrder == null : order.equals(newOrder);
     }
     
     @Override
@@ -97,5 +119,10 @@ public class OrderItem {
         }
         
         return true;
+    }
+    
+    @Override
+    public String toString(){
+        return "OrderItem [id=" + id + ", amount=" + amount + "]";
     }
 }

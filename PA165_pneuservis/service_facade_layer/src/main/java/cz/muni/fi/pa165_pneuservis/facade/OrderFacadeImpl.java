@@ -5,9 +5,18 @@
 package cz.muni.fi.pa165_pneuservis.facade;
 
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
+import cz.muni.fi.pa165_pneuservis.dto.OrderItemDTO;
+import cz.muni.fi.pa165_pneuservis.dto.ServiceDTO;
+import cz.muni.fi.pa165_pneuservis.dto.TireDTO;
+import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
+import cz.muni.fi.pa165_pneuservis.model.OrderItem;
 import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
+import cz.muni.fi.pa165_pneuservis.service.CustomerService;
 import cz.muni.fi.pa165_pneuservis.service.OrderService;
+import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
+import cz.muni.fi.pa165_pneuservis.service.ServiceService;
+import cz.muni.fi.pa165_pneuservis.service.TireService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +34,15 @@ public class OrderFacadeImpl implements OrderFacade {
     
     @Autowired
     private BeanMappingService beanMappingService;
+    
+    @Autowired
+    private CustomerService customerService;
+    
+    @Autowired
+    private TireService tireService;
+    
+    @Autowired
+    private ServiceService serviceService;
     
     @Override
     public List<OrderDTO> getAllOrders() {
@@ -47,7 +65,27 @@ public class OrderFacadeImpl implements OrderFacade {
     }
     
     @Override
-    public void createOrder(OrderDTO order) {
-        orderService.createOrder(beanMappingService.mapTo(order, Order.class));
+    public void createOrder(OrderDTO orderDTO) throws PneuFacadeException {
+        Order order = new Order();
+        try {
+            Customer customer = customerService.findCustomerByEmail(
+                    orderDTO.getCustomer().getEmail());
+            order.setCustomer(customer);
+            
+            for (OrderItemDTO orderItemDTO : orderDTO.getOrderItems()) {
+                OrderItem orderItem = new OrderItem();
+                Class orderItemClass = orderItemDTO.getItem().getClass();
+                if(orderItemClass == TireDTO.class) {
+                    orderItem.setItem(tireService.getTireById(orderItemDTO.getItem().getId()));
+                }
+                else if(orderItemClass == ServiceDTO.class) {
+                    orderItem.setItem(serviceService.findServiceById(orderItemDTO.getItem().getId()));
+                }
+                order.addOrderItem(orderItem);
+            }
+            orderService.createOrder(order);
+        } catch (PneuBusinessException e) {
+            throw new PneuFacadeException("Can't create new Order. Reason: " + e.getMessage(), e);
+        }
     }
 }

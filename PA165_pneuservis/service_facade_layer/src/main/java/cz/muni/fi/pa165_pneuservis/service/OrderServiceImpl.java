@@ -31,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
     public void createOrder(Order order) {
         
         for (OrderItem orderItem : order.getOrderItems()) {
+            orderItem.setOrder(order);
             orderItemDao.create(orderItem);
         }
         orderDao.create(order);

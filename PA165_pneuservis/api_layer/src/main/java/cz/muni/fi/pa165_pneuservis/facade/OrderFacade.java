@@ -15,6 +15,6 @@ public interface OrderFacade {
     public List<OrderDTO> getAllOrders();
     public List<OrderDTO> getOrdersByCustomer(Long customerId);
     public OrderDTO getOrderById(Long id);
-    public void createOrder(OrderDTO order);
+    public void createOrder(OrderDTO order) throws PneuFacadeException;
     public void cancelOrder(Long id);
 }
