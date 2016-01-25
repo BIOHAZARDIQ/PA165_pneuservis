@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,9 +52,17 @@ public class OrderController {
     private CustomerFacade customerFacade;
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(Model model) {
-        model.addAttribute("pendingOrders", orderFacade.getPendingOrders());
-        model.addAttribute("previousOrders", orderFacade.getPreviousOrders());
+    public String listOrders(Model m, HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
+        CustomerDTO user = (CustomerDTO) session.getAttribute("auth");
+        if(user.getIsAdmin()) {
+            m.addAttribute("pendingOrders", orderFacade.getPendingOrders());
+            m.addAttribute("previousOrders", orderFacade.getPreviousOrders());    
+        }
+        else{
+            m.addAttribute("pendingOrders", orderFacade.getOrdersByCustomer(user.getId()));
+        }
+        
         return "order/list";
     }
     
