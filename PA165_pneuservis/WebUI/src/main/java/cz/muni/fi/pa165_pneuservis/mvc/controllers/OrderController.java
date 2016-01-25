@@ -14,8 +14,10 @@ import cz.muni.fi.pa165_pneuservis.facade.ServiceFacade;
 import cz.muni.fi.pa165_pneuservis.facade.TireFacade;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -82,31 +84,51 @@ public class OrderController {
      * @param orderForm
      * @param m
      * @param result
+     * @param request
      * @param redirectAttributes
-     * @param uriBuilder
      * @return
      */
     @RequestMapping(value = "/submit", method = RequestMethod.POST)
     public String submitOrder(@Valid @ModelAttribute("orderForm") OrderFormDTO orderForm, 
-            Model m, BindingResult result, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
+            Model m, BindingResult result, HttpServletRequest request,
+            RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
                
         List<Long> serviceIds = orderForm.getServiceIds();
         List<Long> tireIds = orderForm.getTireIds();
         OrderDTO order = new OrderDTO();
         
+        Collection<OrderItemDTO> orderItemCollection = new ArrayList<OrderItemDTO>();
+                
         for (Long tireId : tireIds) {
             OrderItemDTO tireItem = new OrderItemDTO();
             tireItem.setItem(tireFacade.getTireById(tireId));
-            order.addOrderItem(tireItem);
+            orderItemCollection.add(tireItem);
         }
         
         for (Long serviceId : serviceIds) {
             OrderItemDTO serviceItem = new OrderItemDTO();
             serviceItem.setItem(serviceFacade.findServiceById(serviceId));
-            order.addOrderItem(serviceItem);
+            orderItemCollection.add(serviceItem);
+        }
+        
+        CustomerDTO customer = (CustomerDTO) request.getSession().getAttribute("auth");
+        if(customer != null) {
+            order.setCustomer(customer);
+        }
+        
+        order.setOrderItems(orderItemCollection);
+        
+        try {
+            orderFacade.createOrder(order);
+        } catch (Exception ex) {
+            Logger.getLogger(OrderController.class.getName())
+                    .log(Level.SEVERE,ex.getMessage());
+            redirectAttributes.addFlashAttribute("alert_danger", "Error occured "
+                    + "while submitting the order. Please, try again.");
+            return "redirect:/";
         }
         
         redirectAttributes.addFlashAttribute("alert_success", "Order was successfully submitted");
-        return "redirect:" + uriBuilder.path("/").toUriString();
+        return "redirect:/";
     }
 }

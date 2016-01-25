@@ -5,7 +5,7 @@
 package cz.muni.fi.pa165_pneuservis.dto;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * @author Filip Meszaros <436321@mail.muni.cz>
@@ -25,8 +25,7 @@ public class CustomerDTO {
     private String password;
     private boolean isAdmin;
     private VehicleType vehicleType;
-
-    private List<OrderDTO> orders = new ArrayList<OrderDTO>();
+    private Collection<OrderDTO> orders = new ArrayList<OrderDTO>();;
 
     //Getters & Setters of class Customer
     public Long getId() {
@@ -131,6 +130,36 @@ public class CustomerDTO {
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
+    }
+    
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    
+    public Collection<OrderDTO> getOrders() {
+        return new ArrayList<OrderDTO>(orders);
+    }
+
+    public void setOrders(Collection<OrderDTO> orders) {
+        this.orders = orders;
+    }
+    
+    public void addOrder(OrderDTO order) {
+        if (orders.contains(order))
+            return ;
+        orders.add(order);
+        order.setCustomer(this);
+    }
+    
+    public void removeOrder(OrderDTO order) {
+        if (!orders.contains(order))
+            return ;
+        orders.remove(order);
+        order.setCustomer(null);
     }
 
     @Override

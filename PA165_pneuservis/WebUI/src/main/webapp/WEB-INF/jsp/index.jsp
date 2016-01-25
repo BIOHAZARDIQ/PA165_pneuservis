@@ -98,11 +98,23 @@
         </div>
 
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-2">
-                                
-                <button class="btn btn-default" id="orderSubmit" type="submit">
-                    Submit order
-                </button>
+            <div class="col-sm-offset-2 col-sm-4">
+
+                <c:choose>
+                    <c:when test="${auth != null}">
+                        <button class="btn btn-default" id="orderSubmit" type="submit">
+                            Submit order
+                        </button>
+                    </c:when>
+                    <c:otherwise>
+                        <p>
+                            <a href="<c:url value="/login" />" >In order to submit an order, please log in.</a>
+                        </p>
+                    </c:otherwise>
+                
+                </c:choose>
+                
+
             </div>
         </div>
             

@@ -17,7 +17,7 @@
     <title><c:out value="${title}"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"  crossorigin="anonymous">
-    <link rel="stylesheet" href="css/pneuservis.css">
+    <link rel="stylesheet" href="<c:url value="/css/pneuservis.css"/>">
 </head>
 <body>
     <nav class="navbar navbar-default">
