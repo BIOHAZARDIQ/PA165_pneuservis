@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -52,6 +53,40 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.findAll();
     }
     
+    /**
+     * Obtains pending Orders
+     * @return
+     */
+    @Override
+    public Collection<Order> findPendingOrders() {
+        Collection<Order> pendingOrders = new ArrayList<Order>();
+        for(Order order : findAllOrders())
+        {
+            if(order.getCompleteDate() == null)
+            {
+                pendingOrders.add(order);
+            }
+        }
+        return pendingOrders;
+    }
+
+    /**
+     * * Obtains previous (completed, canceled) Orders
+     * @return
+     */
+    @Override
+    public Collection<Order> findPreviousOrders() {
+        Collection<Order> previousOrders = new ArrayList<Order>();
+        for(Order order : findAllOrders())
+        {
+            if(order.getCompleteDate() != null)
+            {
+                previousOrders.add(order);
+            }
+        }
+        return previousOrders;
+    }
+    
     @Override
     public List<Order> getOrdersByCustomer(Long customerId) {
         return orderDao.findByCustomer(customerDao.findById(customerId));
@@ -79,4 +114,5 @@ public class OrderServiceImpl implements OrderService {
         }
         return totalPrice;
     }
+
 }

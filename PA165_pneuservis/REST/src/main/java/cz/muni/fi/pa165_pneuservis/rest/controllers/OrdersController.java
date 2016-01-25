@@ -6,6 +6,7 @@ package cz.muni.fi.pa165_pneuservis.rest.controllers;
 
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
 import cz.muni.fi.pa165_pneuservis.facade.OrderFacade;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -30,7 +31,7 @@ public class OrdersController {
      * @return List of Orders in system
      */
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public final List<OrderDTO> getOrders() {  
+    public final Collection<OrderDTO> getOrders() {  
         return orderFacade.getAllOrders();
     }
 }

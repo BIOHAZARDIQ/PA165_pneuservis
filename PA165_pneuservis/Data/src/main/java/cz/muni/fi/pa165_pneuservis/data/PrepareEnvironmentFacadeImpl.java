@@ -367,7 +367,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             order.setCompleteDate(date(2016,1,20));
             
             orderService.createOrder(order);
-            List<Order> orders = orderService.findAllOrders();
+            Collection<Order> orders = orderService.findAllOrders();
             for (Order persistedOrder : orders)
             {
                 logger.log(Level.INFO,persistedOrder.toString());

@@ -52,14 +52,8 @@ public class OrderController {
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
-        Collection<OrderDTO> orders = orderFacade.getAllOrders();
-        List<CustomerDTO> customers = new ArrayList<CustomerDTO>();
-        for(OrderDTO order : orders){
-            customers.add(order.getCustomer());
-        }
-        
-        model.addAttribute("orders", orders);
-        model.addAttribute("customers", customers);
+        model.addAttribute("pendingOrders", orderFacade.getPendingOrders());
+        model.addAttribute("previousOrders", orderFacade.getPreviousOrders());
         return "order/list";
     }
     
