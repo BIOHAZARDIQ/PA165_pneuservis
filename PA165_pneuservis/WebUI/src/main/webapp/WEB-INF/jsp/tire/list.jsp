@@ -10,7 +10,7 @@
 <t:generic title="Tires">
 <jsp:attribute name="body">
     
-    <table class="table table-condensed table-hover">
+    <table class="table table-hover">
         <caption>List of available tires</caption>
         <thead>
         <tr>

@@ -14,21 +14,41 @@
             <caption>List of orders</caption>
             <thead>
                 <tr>       
-                    <th>Total price</th>
-                    <th>Date created</th>
-                    <th>Date completed</th>
-                    <th>Customer email</th>
-                    <th>Customer name</th>
+                    <th>ID</th>
+                    <th>Items</th>
+                    <th>Customer</th>
+                    <th>Cost</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${orders}" varStatus="i">
+                <c:forEach items="${orders}" var="order">
                     <tr>
-                         <td><c:out value="${orders[i.index].totalPrice}"/></td>
-                         <td><c:out value="${orders[i.index].createDate}"/></td>
-                         <td><c:out value="${orders[i.index].completeDate}"/></td>
-                         <td><c:out value="${customers[i.index].email}"/></td>
-                         <td><c:out value="${customers[i.index].firstName} ${customers[i.index].lastName}"/></td>
+                        <td><c:out value="${order.id}"/></td>
+                        <td>
+                            <c:forEach items="${order.orderItems}" var="orderItem">
+                                ${orderItem.item.name}<br>
+                            </c:forEach>
+                        </td>
+                        <td><c:out value="${order.createDate}"/></td>
+                        <td>
+                            <address>
+                                ${order.customer.firstName} ${order.customer.lastName} - ${order.customer.phoneNumber}<br>
+                                <a href="mailto:#">${order.customer.email}</a><br>
+                                ${order.customer.streetNumber}, ${order.customer.streetName}<br>
+                                ${order.customer.city}, ${order.customer.state}<br>
+                                ${order.customer.postalNumber}<br>
+                            </address>
+                        </td>
+                        <td><strong><c:out value="${order.totalPrice}"/></strong></td>
+                        <c:choose>
+                            <c:when test="${order.completeDate != null}">
+                                <td>Completed</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>Pending</td>
+                            </c:otherwise>
+                        </c:choose>
                      </tr>
                 </c:forEach>
             </tbody>

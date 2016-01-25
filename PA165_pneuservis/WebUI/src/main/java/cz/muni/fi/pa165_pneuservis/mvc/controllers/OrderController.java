@@ -58,23 +58,6 @@ public class OrderController {
             customers.add(order.getCustomer());
         }
         
-        /*
-        if(UserLogged.usernameLogged.equals("user")){
-            int i = 0;
-            Iterator<OrderDTO> orderIterator = orders.iterator();
-            for (Iterator<CustomerDTO> iterator = customers.iterator(); iterator.hasNext(); i++) {
-                if(orderIterator.hasNext()){
-                    OrderDTO order = orderIterator.next();
-                }
-                CustomerDTO customer = iterator.next();
-                if (!customer.getEmail().equals("user@securemail.net")) {
-                    orderIterator.remove();
-                    iterator.remove();
-                } 
-            }
-        }
-        */
-        
         model.addAttribute("orders", orders);
         model.addAttribute("customers", customers);
         return "order/list";
