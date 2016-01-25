@@ -4,10 +4,16 @@
  */
 package cz.muni.fi.pa165_pneuservis.facade;
 
+import cz.muni.fi.pa165_pneuservis.dto.CustomerDTO;
 import cz.muni.fi.pa165_pneuservis.dto.OrderDTO;
+import cz.muni.fi.pa165_pneuservis.model.Customer;
 import cz.muni.fi.pa165_pneuservis.model.Order;
 import cz.muni.fi.pa165_pneuservis.service.BeanMappingService;
+import cz.muni.fi.pa165_pneuservis.service.CustomerService;
 import cz.muni.fi.pa165_pneuservis.service.OrderService;
+import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
+import cz.muni.fi.pa165_pneuservis.service.ServiceService;
+import cz.muni.fi.pa165_pneuservis.service.TireService;
 import org.mockito.MockitoAnnotations;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -30,6 +36,15 @@ public class OrderFacadeImplTest {
     private OrderService orderServiceMock;
     
     @Mock
+    private CustomerService customerServiceMock;
+    
+    @Mock
+    private TireService tireServiceMock;
+    
+    @Mock
+    private ServiceService serviceServiceMock;
+    
+    @Mock
     private BeanMappingService beanMappingServiceMock;
     
     @InjectMocks
@@ -41,20 +56,22 @@ public class OrderFacadeImplTest {
     }
     
     @Test
-    public void testCreateOrder() {        
-        OrderDTO dto = new OrderDTO();
-        dto.setId(1L);
-        
+    public void testCreateOrder() throws PneuFacadeException, PneuBusinessException {        
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setCustomer(new CustomerDTO());
+                
         Order order = new Order();
-        order.setId(1L);
+        order.setCustomer(new Customer());
         
         doReturn(order).when(beanMappingServiceMock).mapTo(Matchers.anyObject(),
                 (Class<?>)Matchers.any(Class.class));
         
-        facade.createOrder(dto);
+        doReturn(null).when(customerServiceMock).findCustomerByEmail(Matchers.anyString());
+        doReturn(null).when(tireServiceMock).getTireById(Matchers.anyLong());
+        doReturn(null).when(serviceServiceMock).findServiceById(Matchers.anyLong());
         
-        verify(orderServiceMock).createOrder(order);
+        facade.createOrder(orderDTO);  
+        verify(orderServiceMock).createOrder((Order) Matchers.anyObject());
         verifyNoMoreInteractions(orderServiceMock);
-    }
-    
+    }    
 }
