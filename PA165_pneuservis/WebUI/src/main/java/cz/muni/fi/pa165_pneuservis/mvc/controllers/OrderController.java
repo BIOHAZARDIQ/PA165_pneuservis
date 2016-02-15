@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,32 +52,17 @@ public class OrderController {
     private CustomerFacade customerFacade;
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(Model model) {
-        Collection<OrderDTO> orders = orderFacade.getAllOrders();
-        List<CustomerDTO> customers = new ArrayList<CustomerDTO>();
-        for(OrderDTO order : orders){
-            customers.add(order.getCustomer());
+    public String listOrders(Model m, HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
+        CustomerDTO user = (CustomerDTO) session.getAttribute("auth");
+        if(user.getIsAdmin()) {
+            m.addAttribute("pendingOrders", orderFacade.getPendingOrders());
+            m.addAttribute("previousOrders", orderFacade.getPreviousOrders());    
+        }
+        else{
+            m.addAttribute("pendingOrders", orderFacade.getOrdersByCustomer(user.getId()));
         }
         
-        /*
-        if(UserLogged.usernameLogged.equals("user")){
-            int i = 0;
-            Iterator<OrderDTO> orderIterator = orders.iterator();
-            for (Iterator<CustomerDTO> iterator = customers.iterator(); iterator.hasNext(); i++) {
-                if(orderIterator.hasNext()){
-                    OrderDTO order = orderIterator.next();
-                }
-                CustomerDTO customer = iterator.next();
-                if (!customer.getEmail().equals("user@securemail.net")) {
-                    orderIterator.remove();
-                    iterator.remove();
-                } 
-            }
-        }
-        */
-        
-        model.addAttribute("orders", orders);
-        model.addAttribute("customers", customers);
         return "order/list";
     }
     

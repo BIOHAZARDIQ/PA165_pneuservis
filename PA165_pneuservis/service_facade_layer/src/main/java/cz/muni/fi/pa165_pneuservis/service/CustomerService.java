@@ -21,7 +21,6 @@ public interface CustomerService  {
      * @throws PneuBusinessException
      */
     public Customer findCustomerByEmail(String email) throws PneuBusinessException;
-    
     public Collection<Customer> findAllCustomers();
     public void createCustomer(Customer customer);
     public void deleteCustomer(Long id);

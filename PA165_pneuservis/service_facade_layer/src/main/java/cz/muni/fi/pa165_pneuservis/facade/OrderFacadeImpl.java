@@ -17,6 +17,7 @@ import cz.muni.fi.pa165_pneuservis.service.OrderService;
 import cz.muni.fi.pa165_pneuservis.service.PneuBusinessException;
 import cz.muni.fi.pa165_pneuservis.service.ServiceService;
 import cz.muni.fi.pa165_pneuservis.service.TireService;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,12 +46,22 @@ public class OrderFacadeImpl implements OrderFacade {
     private ServiceService serviceService;
     
     @Override
-    public List<OrderDTO> getAllOrders() {
+    public Collection<OrderDTO> getAllOrders() {
         return beanMappingService.mapTo(orderService.findAllOrders(), OrderDTO.class);
     }
     
     @Override
-    public List<OrderDTO> getOrdersByCustomer(Long customerId) {
+    public Collection<OrderDTO> getPendingOrders() {
+        return beanMappingService.mapTo(orderService.findPendingOrders(), OrderDTO.class);
+    }
+    
+    @Override
+    public Collection<OrderDTO> getPreviousOrders() {
+        return beanMappingService.mapTo(orderService.findPreviousOrders(), OrderDTO.class);
+    }
+    
+    @Override
+    public Collection<OrderDTO> getOrdersByCustomer(Long customerId) {
         return beanMappingService.mapTo(orderService.getOrdersByCustomer(customerId), OrderDTO.class);
     }
     
@@ -77,9 +88,11 @@ public class OrderFacadeImpl implements OrderFacade {
                 Class orderItemClass = orderItemDTO.getItem().getClass();
                 if(orderItemClass == TireDTO.class) {
                     orderItem.setItem(tireService.getTireById(orderItemDTO.getItem().getId()));
+                    orderItem.setAmount(4);
                 }
                 else if(orderItemClass == ServiceDTO.class) {
                     orderItem.setItem(serviceService.findServiceById(orderItemDTO.getItem().getId()));
+                    orderItem.setAmount(1);
                 }
                 order.addOrderItem(orderItem);
             }

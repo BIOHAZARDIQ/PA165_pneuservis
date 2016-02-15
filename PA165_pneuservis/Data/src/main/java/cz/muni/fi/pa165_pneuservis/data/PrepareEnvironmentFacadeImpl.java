@@ -25,7 +25,6 @@ import java.util.Random;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -284,19 +283,19 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
         try
         {
             exampleTire = exampleTire("Alpin A4", "The new Michelin Alpin A4 "
-                    + "tire allows you to drive in confidence through snow, ice and rain "
-                    + "year after year.", "Michelin", 165, 60, 14, 
+                    + "tire allows you to drive in confidence through snow, ice and rain.", 
+                    "Michelin", 165, 60, 14, 
                     BigDecimal.valueOf(119.0));
             tireService.createTire(exampleTire);
             
             tireService.createTire(exampleTire("Premier LTX", "The MICHELIN Premier "
                     + "LTX tire still stops shorter on wet roads than leading "
-                    + "competitors’ brand-new tires.", "Michelin", 185, 60, 15, 
+                    + "competitors’ tires.", "Michelin", 185, 60, 15, 
                     BigDecimal.valueOf(149.0)));
             
             tireService.createTire(exampleTire("Defender LTX", "The Michelin Defender "
-                    + "LTX combines the proven tread design of the LTX M/S2 with "
-                    + "Evertread compound.", "Michelin", 195, 55, 16, 
+                    + "LTX combines the proven tread design of the M/S2 with "
+                    + "special compound.", "Michelin", 195, 55, 16, 
                     BigDecimal.valueOf(189.0)));
             
             tireService.createTire(exampleTire("Pilot Sport", "The Pilot Sport 3 is "
@@ -304,13 +303,13 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
                     "Michelin", 205, 45, 17, BigDecimal.valueOf(219.0)));
             
             tireService.createTire(exampleTire("P Zero", "The P ZERO has been "
-                    + "chosen for the most performance orientated and powerful "
+                    + "chosen for the most performance orientated "
                     + "models on the market.", "Pirelli", 215, 45, 18, 
                     BigDecimal.valueOf(239.0)));
             
             tireService.createTire(exampleTire("Cinturato P7", "A Performance All "
                     + "Season Tire specifically Designed for the North American "
-                    + "Luxury Touring Market", "Pirelli", 205, 50, 17, 
+                    + "Luxury Touring Market.", "Pirelli", 205, 50, 17, 
                     BigDecimal.valueOf(229.0)));
         }
         catch(PneuBusinessException ex)
@@ -368,7 +367,7 @@ public class PrepareEnvironmentFacadeImpl implements PrepareEnvironmentFacade {
             order.setCompleteDate(date(2016,1,20));
             
             orderService.createOrder(order);
-            List<Order> orders = orderService.findAllOrders();
+            Collection<Order> orders = orderService.findAllOrders();
             for (Order persistedOrder : orders)
             {
                 logger.log(Level.INFO,persistedOrder.toString());

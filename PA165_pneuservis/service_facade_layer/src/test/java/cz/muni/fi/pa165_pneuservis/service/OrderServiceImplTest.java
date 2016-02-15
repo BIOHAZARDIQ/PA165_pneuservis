@@ -20,6 +20,7 @@ import org.testng.Assert;
 import java.util.List;
 
 import static cz.muni.fi.pa165_pneuservis.service.helper.ServiceTestHelper.toList;
+import java.util.Collection;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
@@ -97,7 +98,7 @@ public class OrderServiceImplTest {
 
     @Test
     public void testFindAllOrders() {
-        List<Order> orders = service.findAllOrders();
+        Collection<Order> orders = service.findAllOrders();
         Assert.assertEquals(4, orders.size());
 
         verify(orderDaoMock).findAll();
