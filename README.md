@@ -17,7 +17,7 @@ Vytvořte systém, ve kterém si bude moci zákazník vybrat nové obutí pro sv
 Zákazník je schopný si cez webovú službu vybrať a následne objednať pneumatiky pre svoje vozidlo, prípadne službu pre svoje vozidlo, ako napríklad kontrolu zbiehania pneumatík, atď. Po zvolení daných produktov a služieb o ktoré má zákazník záujem sa zákazníkovi objaví ponuka pre vyplnenie osobných údajov. Po vyplnení osobných údajov má zákazník možnosť odoslať objednávku pneuservisu. Pracovník v pneuservise na základe aktuálnych objednávok zavolá zákazníkovi a dohodne s ním, kedy sa zákazník ukáže aj s vozidlom v pneuservise. Zamestnanec pneuservisu môže každú objednávku zmeniť priamo v systéme. Platby prevádza zákazník zamestnancovi priamo pri osobnej návšteve pneuservisu. O vybavenie a uzatváranie objednávok sa stará priamo zamestnanec pneuservisu pri osobnej návšteve pneuservisu zákazníkom. 
 
 ###Prístupové údaje:
-Admin e-mail & password: admin@pneuservis.com : password
+Admin e-mail & password: admin@pneuservis.com : password  
 Customer e-mail & password: customer@pneuservis.com : password
 
 ###Dostupnosť funkcionality pre rôznych používateľov
@@ -64,17 +64,15 @@ Get all services    | curl -i -X GET http://localhost:8080/pa165/rest/services
 Get all orders      | curl -i -X GET http://localhost:8080/pa165/rest/orders
 
 ###Use Case Diagram:
-
 ![alt tag](use_case_diagram.jpg)  
 
-
 ###Class Diagram: 
-
 ![alt tag](class_diagram.jpg)
 
+####Project defense
+19 points gained from project defense out of total 20 points  
 
 ##Project requirements
-
 
 ###Milestone 3 requirements:  
 - User interface:
