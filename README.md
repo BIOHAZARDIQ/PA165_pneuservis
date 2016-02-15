@@ -69,8 +69,7 @@ Get all orders      | curl -i -X GET http://localhost:8080/pa165/rest/orders
 ###Class Diagram: 
 ![alt tag](class_diagram.jpg)
 
-####Project defense
-19 points gained from project defense out of total 20 points  
+#####Project defense: 19 points gained out of total 20 points  
 
 ##Project requirements
 
